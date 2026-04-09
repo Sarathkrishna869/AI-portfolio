@@ -53,18 +53,14 @@ section{padding:5rem 0;}
 .sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--accent);}
 .sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
 .sec-title{font-family:var(--fh);font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:2.2rem;}
-
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
-
-/* BUTTONS */
 .btn-p{background:var(--accent);color:#000;padding:.6rem 1.4rem;border-radius:100px;font-weight:700;font-size:.8rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--fb);display:inline-block;transition:all .2s;}
 .btn-p:hover{background:#d9ff4a;transform:translateY(-1px);}
 .btn-g{background:transparent;color:var(--text);padding:.6rem 1.4rem;border-radius:100px;font-weight:500;font-size:.8rem;text-decoration:none;border:1px solid var(--border2);cursor:pointer;transition:all .2s;font-family:var(--fb);display:inline-block;}
 .btn-g:hover{border-color:var(--accent);color:var(--accent);}
 
-/* ═══════════════════ HERO ═══════════════════ */
+/* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding-top:5rem;overflow:hidden;}
 .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;width:100%;}
 .hero-lbl{font-family:var(--fm);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem;}
@@ -80,7 +76,6 @@ section{padding:5rem 0;}
 .hero-stats{display:flex;gap:1.8rem;margin-top:1.8rem;flex-wrap:wrap;}
 .stat-n{font-family:var(--fh);font-size:1.6rem;font-weight:800;color:var(--accent);}
 .stat-l{font-size:.7rem;color:var(--muted);font-family:var(--fm);letter-spacing:.04em;}
-/* Avatar */
 .hero-visual{display:flex;justify-content:center;align-items:center;}
 .av-ring{width:290px;height:290px;border-radius:50%;border:1px solid rgba(200,242,58,.2);display:flex;align-items:center;justify-content:center;position:relative;animation:spin 22s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -95,7 +90,7 @@ section{padding:5rem 0;}
 .av-hover{position:absolute;inset:0;background:rgba(0,0,0,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:.68rem;color:var(--accent);font-family:var(--fm);text-align:center;padding:.5rem;}
 .av-inner:hover .av-hover{opacity:1;}
 
-/* ═══════════════════ ABOUT ═══════════════════ */
+/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3.5rem;}
 .about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem;}
 .about-text strong{color:var(--text);font-weight:500;}
@@ -111,7 +106,7 @@ section{padding:5rem 0;}
 .tl-co{font-size:.77rem;color:var(--muted);}
 .tl-desc{font-size:.78rem;color:var(--muted);margin-top:.3rem;line-height:1.5;}
 
-/* ═══════════════════ SKILLS ═══════════════════ */
+/* SKILLS */
 #skills{background:var(--bg2);}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1.1rem;}
 .sk-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.3rem;transition:all .3s;position:relative;overflow:hidden;}
@@ -123,7 +118,7 @@ section{padding:5rem 0;}
 .tag-wrap{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;}
 .sk-tag{font-family:var(--fm);font-size:.62rem;padding:.16rem .5rem;border-radius:4px;background:var(--bg);color:var(--muted);border:.5px solid var(--border);}
 
-/* ═══════════════════ EXPERIENCE ═══════════════════ */
+/* EXPERIENCE */
 .exp-grid{display:flex;flex-direction:column;gap:1.1rem;}
 .exp-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.7rem;transition:all .3s;position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;gap:1.3rem;align-items:start;}
 .exp-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);border-radius:2px 0 0 2px;transform:scaleY(0);transition:transform .3s;transform-origin:top;}
@@ -134,7 +129,7 @@ section{padding:5rem 0;}
 .exp-desc{font-size:.82rem;color:var(--muted);line-height:1.7;}
 .exp-tag{font-family:var(--fm);font-size:.62rem;padding:.15rem .5rem;border-radius:4px;background:var(--bg);color:var(--muted);border:.5px solid var(--border);}
 
-/* ═══════════════════ PROJECTS ═══════════════════ */
+/* PROJECTS */
 #projects{background:var(--bg2);}
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem;}
 .proj-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .3s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
@@ -148,7 +143,7 @@ section{padding:5rem 0;}
 .proj-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--accent2);margin-top:.65rem;text-decoration:none;transition:color .2s;}
 .proj-link:hover{color:var(--accent);}
 
-/* ═══════════════════ PUBLICATIONS ═══════════════════ */
+/* PUBLICATIONS */
 .pub-grid{display:flex;flex-direction:column;gap:.95rem;}
 .pub-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.4rem 1.7rem;transition:all .3s;position:relative;display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:center;}
 .pub-card:hover{border-color:rgba(58,242,184,.3);}
@@ -158,7 +153,7 @@ section{padding:5rem 0;}
 .pub-d{font-size:.78rem;color:var(--muted);line-height:1.6;}
 .pub-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--accent2);margin-top:.45rem;text-decoration:none;transition:color .2s;}
 
-/* ═══════════════════ CERTIFICATIONS ═══════════════════ */
+/* CERTIFICATIONS */
 #certifications{background:var(--bg2);}
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem;}
 .cert-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.4rem;transition:all .3s;position:relative;overflow:hidden;}
@@ -171,7 +166,7 @@ section{padding:5rem 0;}
 .cert-date{font-family:var(--fm);font-size:.62rem;color:var(--accent);letter-spacing:.04em;}
 .cert-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--accent2);margin-top:.65rem;text-decoration:none;transition:color .2s;}
 
-/* ═══════════════════ EXTRACURRICULAR TEASER ═══════════════════ */
+/* EXTRACURRICULAR */
 #extracurricular{position:relative;min-height:75vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;}
 .xc-video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.35;}
 .xc-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,7,9,.92) 0%,rgba(7,7,9,.6) 50%,rgba(7,7,9,.82) 100%);z-index:1;}
@@ -189,15 +184,14 @@ section{padding:5rem 0;}
 .xc-cta:hover{background:linear-gradient(135deg,rgba(58,242,184,.25),rgba(58,242,184,.12));border-color:var(--accent2);transform:translateY(-2px);box-shadow:0 0 30px rgba(58,242,184,.2);}
 .xc-arrow{width:32px;height:32px;border-radius:50%;background:var(--accent2);display:flex;align-items:center;justify-content:center;color:#000;font-size:.85rem;transition:transform .3s;}
 .xc-cta:hover .xc-arrow{transform:translateX(3px);}
-.xc-pulse{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.4rem;}
 .xc-scroll-dot{width:4px;height:24px;border:1px solid rgba(58,242,184,.4);border-radius:2px;position:relative;overflow:hidden;}
 .xc-scroll-dot::after{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:var(--accent2);border-radius:2px;animation:scrollDown 1.5s ease-in-out infinite;}
 @keyframes scrollDown{0%{transform:translateY(-100%)}60%{transform:translateY(200%)}100%{transform:translateY(200%)}}
-/* XC Activity pills edit */
+.xc-pulse{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.4rem;}
 .xc-activities-edit{display:none;}
 .edit-mode .xc-activities-edit{display:inline-flex;}
 
-/* ═══════════════════ CONTACT ═══════════════════ */
+/* CONTACT */
 #contact{background:var(--bg2);}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .contact-links{display:flex;flex-direction:column;gap:.85rem;}
@@ -212,21 +206,17 @@ footer{border-top:.5px solid var(--border);padding:1.8rem 0;text-align:center;}
 footer p{font-family:var(--fm);font-size:.68rem;color:var(--muted);letter-spacing:.04em;}
 footer span{color:var(--accent);}
 
-/* ════════════════════════════════════
-   SECTION-LEVEL DRAG REORDER
-════════════════════════════════════ */
+/* ════ SECTION DRAG ════ */
 #sectionContainer{display:flex;flex-direction:column;}
 .draggable-section{position:relative;}
-.sec-drag-handle{display:none;position:absolute;left:-40px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:6px;background:rgba(200,242,58,.1);border:.5px solid rgba(200,242,58,.2);color:var(--accent);font-size:14px;cursor:grab;align-items:center;justify-content:center;z-index:10;font-family:var(--fm);}
+.sec-drag-handle{display:none;position:absolute;left:8px;top:12px;width:26px;height:26px;border-radius:6px;background:rgba(200,242,58,.1);border:.5px solid rgba(200,242,58,.2);color:var(--accent);font-size:13px;cursor:grab;align-items:center;justify-content:center;z-index:50;font-family:var(--fm);transition:all .2s;}
+.sec-drag-handle:hover{background:rgba(200,242,58,.2);}
 .sec-drag-handle:active{cursor:grabbing;}
-.edit-mode .draggable-section:hover .sec-drag-handle{display:flex;}
-.draggable-section.sec-dragging{opacity:.4;outline:2px dashed var(--accent);outline-offset:4px;}
+.edit-mode .draggable-section:hover > .sec-drag-handle{display:flex;}
+.draggable-section.sec-dragging{opacity:.35;outline:2px dashed var(--accent);outline-offset:4px;}
 .draggable-section.sec-drag-over{outline:2px solid var(--accent2);outline-offset:4px;background:rgba(58,242,184,.02);}
-@media(max-width:1200px){.sec-drag-handle{display:none!important;}}
 
-/* ════════════════════════════════════
-   CARD-LEVEL DRAG
-════════════════════════════════════ */
+/* ════ CARD DRAG ════ */
 .card-actions{position:absolute;top:.55rem;right:.55rem;display:none;gap:.3rem;z-index:10;}
 .edit-mode .exp-card:hover .card-actions,
 .edit-mode .proj-card:hover .card-actions,
@@ -240,10 +230,8 @@ footer span{color:var(--accent);}
 .card-dragging{opacity:.35;border:1px dashed var(--accent)!important;}
 .card-drag-over{border:1px solid var(--accent)!important;background:rgba(200,242,58,.04)!important;}
 
-/* ════════════════════════════════════
-   EDIT MODE
-════════════════════════════════════ */
-#editToggle{position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;width:37px;height:37px;border-radius:50%;background:var(--surface2);border:.5px solid var(--border2);color:var(--muted);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:.3;}
+/* ════ EDIT MODE ════ */
+#editToggle{position:fixed;bottom:5.5rem;right:1.5rem;z-index:300;width:37px;height:37px;border-radius:50%;background:var(--surface2);border:.5px solid var(--border2);color:var(--muted);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:.3;}
 #editToggle:hover{opacity:1;color:var(--accent);border-color:var(--accent);}
 .edit-bar{position:fixed;top:0;left:0;right:0;z-index:250;background:var(--accent);color:#000;padding:.5rem 1.5rem;display:none;align-items:center;justify-content:space-between;font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.06em;}
 .edit-bar.on{display:flex;}
@@ -251,7 +239,6 @@ footer span{color:var(--accent);}
 .eb-btn{padding:.26rem .8rem;border-radius:100px;font-family:var(--fm);font-size:.68rem;cursor:pointer;font-weight:700;border:none;}
 .eb-save{background:#000;color:var(--accent);}
 .eb-cancel{background:rgba(0,0,0,.15);color:rgba(0,0,0,.65);border:1px solid rgba(0,0,0,.2)!important;}
-
 .edit-mode [contenteditable]{outline:1px dashed rgba(200,242,58,.4);border-radius:3px;cursor:text;min-width:16px;min-height:12px;}
 .edit-mode [contenteditable]:focus{outline:1px solid var(--accent);background:rgba(200,242,58,.05);}
 .edit-mode [contenteditable]:empty::before{content:attr(data-ph);color:rgba(200,242,58,.3);pointer-events:none;}
@@ -265,7 +252,7 @@ footer span{color:var(--accent);}
 .link-edit-btn{display:none;font-size:.6rem;font-family:var(--fm);color:var(--accent);background:rgba(200,242,58,.08);border:.5px solid rgba(200,242,58,.2);border-radius:4px;padding:.09rem .38rem;cursor:pointer;margin-left:.35rem;vertical-align:middle;}
 .edit-mode .link-edit-btn{display:inline;}
 
-/* MODALS */
+/* ════ MODALS ════ */
 .modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:500;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .3s;}
 .modal-ov.open{opacity:1;pointer-events:auto;}
 .modal{background:var(--surface);border:.5px solid var(--border2);border-radius:16px;padding:2rem;width:350px;max-width:92vw;transform:translateY(18px) scale(.97);transition:transform .3s;}
@@ -279,6 +266,147 @@ footer span{color:var(--accent);}
 .modal-ok{flex:1;background:var(--accent);color:#000;border:none;border-radius:8px;padding:.62rem;font-weight:700;cursor:pointer;font-size:.86rem;font-family:var(--fb);}
 .modal-ok:hover{background:#d9ff4a;}
 .modal-no{background:transparent;color:var(--muted);border:.5px solid var(--border);border-radius:8px;padding:.62rem .95rem;cursor:pointer;font-size:.86rem;font-family:var(--fb);}
+
+/* ════════════════════════════════════════
+   AI AGENT — SARATH.AI
+════════════════════════════════════════ */
+#aiBtn{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),#2ad4a0);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 24px rgba(58,242,184,.35);
+  transition:all .3s;
+  font-size:1.3rem;
+}
+#aiBtn:hover{transform:scale(1.08);box-shadow:0 6px 32px rgba(58,242,184,.5);}
+#aiBtn.open{background:linear-gradient(135deg,var(--accent3),#d42086);}
+.ai-pulse{position:absolute;width:100%;height:100%;border-radius:50%;background:rgba(58,242,184,.3);animation:aiPulse 2s ease-out infinite;}
+@keyframes aiPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+
+/* Chat panel */
+#aiPanel{
+  position:fixed;bottom:5.5rem;right:1.5rem;z-index:299;
+  width:360px;max-width:calc(100vw - 2rem);
+  background:var(--bg3);
+  border:.5px solid var(--border2);
+  border-radius:18px;
+  display:flex;flex-direction:column;
+  box-shadow:0 12px 60px rgba(0,0,0,.6);
+  transform:translateY(20px) scale(.95);
+  opacity:0;pointer-events:none;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  max-height:72vh;
+  overflow:hidden;
+}
+#aiPanel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto;}
+
+.ai-header{
+  padding:1rem 1.2rem .9rem;
+  border-bottom:.5px solid var(--border);
+  display:flex;align-items:center;gap:.75rem;
+  background:linear-gradient(135deg,rgba(58,242,184,.06),rgba(58,242,184,.02));
+}
+.ai-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),#2ad4a0);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;flex-shrink:0;position:relative;
+}
+.ai-avatar::after{
+  content:'';position:absolute;bottom:0;right:0;
+  width:9px;height:9px;border-radius:50%;
+  background:#3af23a;border:2px solid var(--bg3);
+}
+.ai-header-info{flex:1;}
+.ai-name{font-family:var(--fh);font-size:.88rem;font-weight:700;margin-bottom:0;}
+.ai-status{font-family:var(--fm);font-size:.6rem;color:var(--accent2);letter-spacing:.06em;}
+.ai-mode-badge{
+  font-family:var(--fm);font-size:.58rem;padding:.18rem .5rem;
+  border-radius:100px;border:.5px solid;
+  letter-spacing:.06em;text-transform:uppercase;display:none;
+}
+.ai-mode-badge.visitor{background:rgba(58,242,184,.08);border-color:rgba(58,242,184,.3);color:var(--accent2);}
+.ai-mode-badge.trainer{background:rgba(200,242,58,.08);border-color:rgba(200,242,58,.3);color:var(--accent);display:flex;}
+
+/* Messages */
+.ai-messages{
+  flex:1;overflow-y:auto;padding:.9rem 1rem;
+  display:flex;flex-direction:column;gap:.6rem;
+  scroll-behavior:smooth;
+}
+.ai-messages::-webkit-scrollbar{width:3px;}
+.ai-messages::-webkit-scrollbar-thumb{background:var(--border2);}
+.ai-msg{max-width:88%;padding:.62rem .85rem;border-radius:12px;font-size:.82rem;line-height:1.55;animation:msgIn .2s ease;}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.ai-msg.bot{
+  background:var(--surface2);border:.5px solid var(--border);
+  color:var(--text);align-self:flex-start;border-radius:4px 12px 12px 12px;
+}
+.ai-msg.user{
+  background:linear-gradient(135deg,rgba(200,242,58,.18),rgba(200,242,58,.1));
+  border:.5px solid rgba(200,242,58,.25);
+  color:var(--text);align-self:flex-end;border-radius:12px 4px 12px 12px;
+}
+.ai-msg.train{
+  background:linear-gradient(135deg,rgba(200,242,58,.12),rgba(200,242,58,.06));
+  border:.5px solid rgba(200,242,58,.2);
+  color:var(--accent);align-self:flex-end;border-radius:12px 4px 12px 12px;
+  font-size:.78rem;
+}
+.ai-msg.system{
+  background:rgba(58,242,184,.06);border:.5px solid rgba(58,242,184,.15);
+  color:var(--accent2);align-self:center;border-radius:8px;
+  font-size:.72rem;font-family:var(--fm);text-align:center;
+}
+.ai-typing{align-self:flex-start;display:flex;align-items:center;gap:.3rem;padding:.5rem .8rem;background:var(--surface2);border:.5px solid var(--border);border-radius:4px 12px 12px 12px;}
+.ai-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:dotBounce 1.2s infinite;}
+.ai-typing span:nth-child(2){animation-delay:.2s;}
+.ai-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes dotBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+
+/* Input */
+.ai-input-wrap{
+  padding:.75rem;border-top:.5px solid var(--border);
+  background:var(--bg3);
+}
+.ai-train-toggle{
+  display:none;font-family:var(--fm);font-size:.62rem;color:var(--muted);
+  cursor:pointer;padding:.22rem .6rem;border-radius:100px;
+  border:.5px solid var(--border);background:transparent;
+  transition:all .2s;margin-bottom:.5rem;
+}
+.ai-train-toggle:hover,.ai-train-toggle.active{border-color:var(--accent);color:var(--accent);background:rgba(200,242,58,.06);}
+.edit-mode .ai-train-toggle{display:inline-flex;align-items:center;gap:.3rem;}
+.ai-input-row{display:flex;gap:.5rem;align-items:flex-end;}
+.ai-input{
+  flex:1;background:var(--surface);border:.5px solid var(--border2);
+  border-radius:10px;padding:.55rem .75rem;
+  color:var(--text);font-family:var(--fb);font-size:.82rem;
+  outline:none;resize:none;
+  min-height:38px;max-height:100px;
+  transition:border-color .2s;line-height:1.4;
+}
+.ai-input:focus{border-color:var(--accent2);}
+.ai-send{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),#2ad4a0);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .2s;color:#000;font-size:.9rem;
+}
+.ai-send:hover{transform:scale(1.06);}
+.ai-send:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+
+/* AI train mode hint bar */
+.ai-train-hint{
+  display:none;font-family:var(--fm);font-size:.62rem;
+  background:rgba(200,242,58,.06);border:.5px solid rgba(200,242,58,.2);
+  color:var(--accent);border-radius:6px;padding:.35rem .6rem;
+  margin-bottom:.4rem;line-height:1.4;
+}
+.ai-train-hint.show{display:block;}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -296,6 +424,7 @@ footer span{color:var(--accent);}
   .exp-card{grid-template-columns:1fr;gap:.7rem;}
   .pub-card{grid-template-columns:1fr;gap:.7rem;}
   .edit-bar .eb-label{display:none;}
+  #aiPanel{width:calc(100vw - 2rem);right:1rem;}
 }
 @media(max-width:420px){
   .hero-name{font-size:2.2rem;}
@@ -317,7 +446,7 @@ footer span{color:var(--accent);}
     <p>Sign in to edit your portfolio.</p>
     <input type="text" id="loginUser" placeholder="Username" autocomplete="off">
     <input type="password" id="loginPass" placeholder="Password">
-    <div class="modal-err" id="loginErr">Wrong credentials — try: sarath / sk@2024</div>
+    <div class="modal-err" id="loginErr">Incorrect credentials. Please try again.</div>
     <div class="modal-btns">
       <button class="modal-no" onclick="closeModal('loginModal')">Cancel</button>
       <button class="modal-ok" onclick="doLogin()">Sign In →</button>
@@ -340,7 +469,7 @@ footer span{color:var(--accent);}
 
 <!-- EDIT BAR -->
 <div class="edit-bar" id="editBar">
-  <span class="eb-label">✎ EDIT MODE — CLICK TEXT · DRAG ⠿ TO REORDER · DRAG SECTIONS TOO</span>
+  <span class="eb-label">✎ EDIT MODE — CLICK TEXT · ⠿ DRAG CARDS · DRAG SECTIONS VIA LEFT HANDLE</span>
   <div class="eb-r">
     <button class="eb-btn eb-save" onclick="saveEdits()">💾 Save</button>
     <button class="eb-btn eb-cancel" onclick="exitEdit()">✕ Exit</button>
@@ -376,7 +505,7 @@ footer span{color:var(--accent);}
   <a href="#contact" onclick="closeMob()">Contact</a>
 </div>
 
-<!-- HERO (not draggable, always first) -->
+<!-- HERO -->
 <section id="hero">
   <div class="container">
     <div class="hero-grid">
@@ -389,9 +518,9 @@ footer span{color:var(--accent);}
         <div class="hero-typerow reveal"><span class="hero-typed" contenteditable="false" data-field="heroTyped" data-ph="Tagline">QA Engineer · Dev · AI/ML · IEEE Author</span></div>
         <p class="hero-desc reveal" contenteditable="false" data-field="heroDesc" data-ph="Hero description">Building reliable software through rigorous testing and automation. Published IEEE researcher in AI-driven fraud detection. Based in Bengaluru, India.</p>
         <div class="hero-btns reveal">
-          <a href="#projects" class="btn-p" id="heroCTA1" contenteditable="false" data-field="heroCTA1" data-ph="CTA text">View Work</a>
+          <a href="#projects" class="btn-p" id="heroCTA1" contenteditable="false" data-field="heroCTA1">View Work</a>
           <button class="link-edit-btn" onclick="editLink('heroCTA1')">✎ link</button>
-          <a href="#contact" class="btn-g" id="heroCTA2" contenteditable="false" data-field="heroCTA2" data-ph="CTA2 text">Get in Touch</a>
+          <a href="#contact" class="btn-g" id="heroCTA2" contenteditable="false" data-field="heroCTA2">Get in Touch</a>
           <button class="link-edit-btn" onclick="editLink('heroCTA2')">✎ link</button>
         </div>
         <div class="hero-stats reveal">
@@ -414,12 +543,11 @@ footer span{color:var(--accent);}
   </div>
 </section>
 
-<!-- ══ DRAGGABLE SECTION CONTAINER ══ -->
+<!-- ALL SECTIONS ARE DRAGGABLE -->
 <div id="sectionContainer">
 
-<!-- ABOUT -->
 <section id="about" class="draggable-section" data-sec="about">
-  <div class="sec-drag-handle" title="Drag to reorder section">⠿</div>
+  <div class="sec-drag-handle" title="Drag to reorder">⠿</div>
   <div class="container">
     <div class="sec-label">About Me</div>
     <div class="about-grid reveal">
@@ -472,148 +600,65 @@ footer span{color:var(--accent);}
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="draggable-section" data-sec="skills" style="background:var(--bg2);">
   <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-label">Skills</div>
     <h2 class="sec-title reveal" contenteditable="false" data-field="skillsTitle">Tech Stack</h2>
     <div class="skills-grid reveal" id="skillsGrid">
-      <div class="sk-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
-        <div class="sk-icon" contenteditable="false">🧪</div>
-        <div class="sk-cat" contenteditable="false" data-ph="Category">Testing & QA</div>
-        <div class="tag-wrap"><span class="sk-tag">Selenium<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Tosca<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">JMeter<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Manual<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
-      </div>
-      <div class="sk-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
-        <div class="sk-icon" contenteditable="false">🐍</div>
-        <div class="sk-cat" contenteditable="false" data-ph="Category">Programming</div>
-        <div class="tag-wrap"><span class="sk-tag">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Java<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">JavaScript<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">TypeScript<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
-      </div>
-      <div class="sk-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
-        <div class="sk-icon" contenteditable="false">🤖</div>
-        <div class="sk-cat" contenteditable="false" data-ph="Category">AI / ML</div>
-        <div class="tag-wrap"><span class="sk-tag">TensorFlow<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">scikit-learn<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">GNN<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Pandas<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
-      </div>
-      <div class="sk-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
-        <div class="sk-icon" contenteditable="false">🌐</div>
-        <div class="sk-cat" contenteditable="false" data-ph="Category">Web Dev</div>
-        <div class="tag-wrap"><span class="sk-tag">React<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">HTML/CSS<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
-      </div>
-      <div class="sk-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
-        <div class="sk-icon" contenteditable="false">🗄️</div>
-        <div class="sk-cat" contenteditable="false" data-ph="Category">Data & Cloud</div>
-        <div class="tag-wrap"><span class="sk-tag">MongoDB<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">MySQL<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">AWS IoT<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
-      </div>
-      <div class="sk-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
-        <div class="sk-icon" contenteditable="false">🎨</div>
-        <div class="sk-cat" contenteditable="false" data-ph="Category">Design & PM</div>
-        <div class="tag-wrap"><span class="sk-tag">Figma<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Jira<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Agile<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
-      </div>
+      <div class="sk-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div><div class="sk-icon" contenteditable="false">🧪</div><div class="sk-cat" contenteditable="false" data-ph="Category">Testing & QA</div><div class="tag-wrap"><span class="sk-tag">Selenium<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Tosca<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">JMeter<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Manual<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div></div>
+      <div class="sk-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div><div class="sk-icon" contenteditable="false">🐍</div><div class="sk-cat" contenteditable="false" data-ph="Category">Programming</div><div class="tag-wrap"><span class="sk-tag">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Java<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">JavaScript<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">TypeScript<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div></div>
+      <div class="sk-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div><div class="sk-icon" contenteditable="false">🤖</div><div class="sk-cat" contenteditable="false" data-ph="Category">AI / ML</div><div class="tag-wrap"><span class="sk-tag">TensorFlow<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">scikit-learn<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">GNN<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Pandas<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div></div>
+      <div class="sk-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div><div class="sk-icon" contenteditable="false">🌐</div><div class="sk-cat" contenteditable="false" data-ph="Category">Web Dev</div><div class="tag-wrap"><span class="sk-tag">React<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">HTML/CSS<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div></div>
+      <div class="sk-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div><div class="sk-icon" contenteditable="false">🗄️</div><div class="sk-cat" contenteditable="false" data-ph="Category">Data & Cloud</div><div class="tag-wrap"><span class="sk-tag">MongoDB<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">MySQL<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">AWS IoT<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div></div>
+      <div class="sk-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div><div class="sk-icon" contenteditable="false">🎨</div><div class="sk-cat" contenteditable="false" data-ph="Category">Design & PM</div><div class="tag-wrap"><span class="sk-tag">Figma<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Jira<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Agile<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div></div>
     </div>
     <button class="add-btn" onclick="addSkillCard()">+ Add Skill Category</button>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="draggable-section" data-sec="experience">
   <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-label">Experience</div>
     <h2 class="sec-title reveal" contenteditable="false" data-field="expTitle">Where I've Worked</h2>
     <div class="exp-grid reveal" id="expGrid">
-      <div class="exp-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div>
-        <div><span class="exp-badge" contenteditable="false" data-ph="Date">Aug 2024 — Now</span></div>
-        <div><div class="exp-role" contenteditable="false" data-ph="Role">Project Engineer — QA & Test Automation</div><div class="exp-co" contenteditable="false" data-ph="Company">Wipro · Bengaluru, India</div><div class="exp-desc" contenteditable="false" data-ph="Description">Fast-paced Agile team delivering test automation frameworks and QA strategy for enterprise clients. Selenium, Tricentis Tosca, manual testing.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">Selenium<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Tosca<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Agile<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div>
-      </div>
-      <div class="exp-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div>
-        <div><span class="exp-badge" contenteditable="false" data-ph="Date">Aug 2024 — Now</span></div>
-        <div><div class="exp-role" contenteditable="false" data-ph="Role">Test Engineer</div><div class="exp-co" contenteditable="false" data-ph="Company">DataDevice Pty Ltd. · Australia (Remote)</div><div class="exp-desc" contenteditable="false" data-ph="Description">Manual testing, automation, and black-box testing supporting Australian software product releases.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">Black-Box<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Automation<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div>
-      </div>
-      <div class="exp-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div>
-        <div><span class="exp-badge" contenteditable="false" data-ph="Date">Jan — Mar 2024</span></div>
-        <div><div class="exp-role" contenteditable="false" data-ph="Role">Information Technology Intern</div><div class="exp-co" contenteditable="false" data-ph="Company">Select Training & Management · Abu Dhabi, UAE (Remote)</div><div class="exp-desc" contenteditable="false" data-ph="Description">Web development, UI/UX design, full-stack development for an international training consultancy.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">UI/UX<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Full-Stack<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div>
-      </div>
+      <div class="exp-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div><div><span class="exp-badge" contenteditable="false" data-ph="Date">Aug 2024 — Now</span></div><div><div class="exp-role" contenteditable="false" data-ph="Role">Project Engineer — QA & Test Automation</div><div class="exp-co" contenteditable="false" data-ph="Company">Wipro · Bengaluru, India</div><div class="exp-desc" contenteditable="false" data-ph="Description">Fast-paced Agile team delivering test automation frameworks and QA strategy for enterprise clients. Selenium, Tricentis Tosca, manual testing.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">Selenium<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Tosca<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Agile<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div></div>
+      <div class="exp-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div><div><span class="exp-badge" contenteditable="false" data-ph="Date">Aug 2024 — Now</span></div><div><div class="exp-role" contenteditable="false" data-ph="Role">Test Engineer</div><div class="exp-co" contenteditable="false" data-ph="Company">DataDevice Pty Ltd. · Australia (Remote)</div><div class="exp-desc" contenteditable="false" data-ph="Description">Manual testing, automation, and black-box testing supporting Australian software product releases.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">Black-Box<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Automation<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div></div>
+      <div class="exp-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div><div><span class="exp-badge" contenteditable="false" data-ph="Date">Jan — Mar 2024</span></div><div><div class="exp-role" contenteditable="false" data-ph="Role">Information Technology Intern</div><div class="exp-co" contenteditable="false" data-ph="Company">Select Training & Management · Abu Dhabi, UAE (Remote)</div><div class="exp-desc" contenteditable="false" data-ph="Description">Web development, UI/UX design, full-stack development for an international training consultancy.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">UI/UX<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Full-Stack<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div></div>
     </div>
     <button class="add-btn" onclick="addExpCard()">+ Add Experience</button>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="draggable-section" data-sec="projects" style="background:var(--bg2);">
   <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-label">Projects</div>
     <h2 class="sec-title reveal" contenteditable="false" data-field="projTitle">Things I've Built</h2>
     <div class="proj-grid reveal" id="projGrid">
-      <div class="proj-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
-        <div class="proj-n" contenteditable="false" data-ph="#">01 / FYP</div>
-        <div class="proj-t" contenteditable="false" data-ph="Title">Credit Card Fraud Detection — Deep Learning + GNN</div>
-        <div class="proj-d" contenteditable="false" data-ph="Description">Autoencoders, RNNs, GNNs, PCA, synthetic data generation to enhance fraud detection accuracy in banking transactions.</div>
-        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">TensorFlow<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">GNN<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
-        <span><a href="#" class="proj-link" id="pL0">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL0')">✎</button></span>
-      </div>
-      <div class="proj-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
-        <div class="proj-n" contenteditable="false" data-ph="#">02 / IoT</div>
-        <div class="proj-t" contenteditable="false" data-ph="Title">IoT Smart Street Light System</div>
-        <div class="proj-d" contenteditable="false" data-ph="Description">ESP32-based street lighting with AWS IoT MQTT broker, cloud analytics, GSM SMS alerts via emergency button.</div>
-        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">ESP32<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">AWS IoT<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
-        <span><a href="#" class="proj-link" id="pL1">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL1')">✎</button></span>
-      </div>
-      <div class="proj-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
-        <div class="proj-n" contenteditable="false" data-ph="#">03 / ML</div>
-        <div class="proj-t" contenteditable="false" data-ph="Title">ML Music Recommendation System</div>
-        <div class="proj-d" contenteditable="false" data-ph="Description">Compared multiple ML models for a personalized music recommendation engine with collaborative filtering.</div>
-        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">XGBoost<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
-        <span><a href="#" class="proj-link" id="pL2">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL2')">✎</button></span>
-      </div>
-      <div class="proj-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
-        <div class="proj-n" contenteditable="false" data-ph="#">04 / Web</div>
-        <div class="proj-t" contenteditable="false" data-ph="Title">ElectiveMGT — University Web App</div>
-        <div class="proj-d" contenteditable="false" data-ph="Description">Full-stack app streamlining university elective registration, role-based access, Agile sprints, and automated testing.</div>
-        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">MongoDB<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
-        <span><a href="#" class="proj-link" id="pL3">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL3')">✎</button></span>
-      </div>
+      <div class="proj-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div><div class="proj-n" contenteditable="false" data-ph="#">01 / FYP</div><div class="proj-t" contenteditable="false" data-ph="Title">Credit Card Fraud Detection — Deep Learning + GNN</div><div class="proj-d" contenteditable="false" data-ph="Description">Autoencoders, RNNs, GNNs, PCA, synthetic data generation to enhance fraud detection accuracy in banking transactions.</div><div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">TensorFlow<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">GNN<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div><span><a href="#" class="proj-link" id="pL0">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL0')">✎</button></span></div>
+      <div class="proj-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div><div class="proj-n" contenteditable="false" data-ph="#">02 / IoT</div><div class="proj-t" contenteditable="false" data-ph="Title">IoT Smart Street Light System</div><div class="proj-d" contenteditable="false" data-ph="Description">ESP32-based street lighting with AWS IoT MQTT broker, cloud analytics, GSM SMS alerts via emergency button.</div><div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">ESP32<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">AWS IoT<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div><span><a href="#" class="proj-link" id="pL1">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL1')">✎</button></span></div>
+      <div class="proj-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div><div class="proj-n" contenteditable="false" data-ph="#">03 / ML</div><div class="proj-t" contenteditable="false" data-ph="Title">ML Music Recommendation System</div><div class="proj-d" contenteditable="false" data-ph="Description">Compared multiple ML models for a personalized music recommendation engine with collaborative filtering.</div><div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">XGBoost<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div><span><a href="#" class="proj-link" id="pL2">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL2')">✎</button></span></div>
+      <div class="proj-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div><div class="proj-n" contenteditable="false" data-ph="#">04 / Web</div><div class="proj-t" contenteditable="false" data-ph="Title">ElectiveMGT — University Web App</div><div class="proj-d" contenteditable="false" data-ph="Description">Full-stack app streamlining university elective registration, role-based access, Agile sprints, and automated testing.</div><div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">MongoDB<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div><span><a href="#" class="proj-link" id="pL3">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL3')">✎</button></span></div>
     </div>
     <button class="add-btn" onclick="addProject()">+ Add Project</button>
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
 <section id="publications" class="draggable-section" data-sec="publications">
   <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-label">Research</div>
     <h2 class="sec-title reveal" contenteditable="false" data-field="pubTitle">IEEE Publications</h2>
     <div class="pub-grid reveal" id="pubGrid">
-      <div class="pub-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div>
-        <div class="pub-badge-box">📄</div>
-        <div><div class="pub-venue" contenteditable="false" data-ph="Venue">IEEE CVMI 2024 · International Conference</div><div class="pub-t" contenteditable="false" data-ph="Title">Enhancing Credit Card Fraud Detection: A Comparative Analysis of Anomaly Detection Models</div><div class="pub-d" contenteditable="false" data-ph="Abstract">Leverages deep learning models (autoencoders, RNNs) to detect fraudulent transactions. Outperforms traditional methods in accuracy and adaptability.</div><span><a href="#" class="pub-link" id="puL0">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('puL0')">✎</button></span></div>
-      </div>
-      <div class="pub-card" draggable="false">
-        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div>
-        <div class="pub-badge-box">📄</div>
-        <div><div class="pub-venue" contenteditable="false" data-ph="Venue">IEEE ICCCNT 2024 · Kamand, India</div><div class="pub-t" contenteditable="false" data-ph="Title">Enhancing Credit Card Fraud Detection with Deep Learning and Graph Neural Networks</div><div class="pub-d" contenteditable="false" data-ph="Abstract">Combines Auto-Encoders, RNNs, and Louvain Modularity to improve fraud pattern analysis and adaptability while addressing class imbalance.</div><span><a href="#" class="pub-link" id="puL1">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('puL1')">✎</button></span></div>
-      </div>
+      <div class="pub-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div><div class="pub-badge-box">📄</div><div><div class="pub-venue" contenteditable="false" data-ph="Venue">IEEE CVMI 2024 · International Conference</div><div class="pub-t" contenteditable="false" data-ph="Title">Enhancing Credit Card Fraud Detection: A Comparative Analysis of Anomaly Detection Models</div><div class="pub-d" contenteditable="false" data-ph="Abstract">Leverages deep learning models (autoencoders, RNNs) to detect fraudulent transactions. Outperforms traditional methods in accuracy and adaptability.</div><span><a href="#" class="pub-link" id="puL0">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('puL0')">✎</button></span></div></div>
+      <div class="pub-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div><div class="pub-badge-box">📄</div><div><div class="pub-venue" contenteditable="false" data-ph="Venue">IEEE ICCCNT 2024 · Kamand, India</div><div class="pub-t" contenteditable="false" data-ph="Title">Enhancing Credit Card Fraud Detection with Deep Learning and Graph Neural Networks</div><div class="pub-d" contenteditable="false" data-ph="Abstract">Combines Auto-Encoders, RNNs, and Louvain Modularity to improve fraud pattern analysis and adaptability while addressing class imbalance.</div><span><a href="#" class="pub-link" id="puL1">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('puL1')">✎</button></span></div></div>
     </div>
     <button class="add-btn" onclick="addPublication()">+ Add Publication</button>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section id="certifications" class="draggable-section" data-sec="certifications" style="background:var(--bg2);">
   <div class="sec-drag-handle">⠿</div>
   <div class="container">
@@ -727,7 +772,6 @@ footer span{color:var(--accent);}
   </script>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="draggable-section" data-sec="contact" style="background:var(--bg2);">
   <div class="sec-drag-handle">⠿</div>
   <div class="container">
@@ -742,26 +786,10 @@ footer span{color:var(--accent);}
         </span>
       </div>
       <div class="contact-links reveal" id="contactLinks">
-        <div class="c-link" id="ctEmail">
-          <div class="c-link-ico">✉</div>
-          <div class="c-link-text"><small>Email</small><span contenteditable="false" data-ph="Email">sarathkrishna869@gmail.com</span></div>
-          <button class="link-edit-btn" style="margin-left:auto;" onclick="editContactItem('ctEmail')">✎</button>
-        </div>
-        <div class="c-link" id="ctPhone">
-          <div class="c-link-ico">📱</div>
-          <div class="c-link-text"><small>Phone</small><span contenteditable="false" data-ph="Phone">+91 81379 03858</span></div>
-          <button class="link-edit-btn" style="margin-left:auto;" onclick="editContactItem('ctPhone')">✎</button>
-        </div>
-        <a href="https://linkedin.com/in/sarath-krishna-ck" target="_blank" class="c-link" id="ctLinkedIn">
-          <div class="c-link-ico" style="font-family:var(--fm);font-size:.75rem;font-weight:700;">in</div>
-          <div class="c-link-text"><small>LinkedIn</small><span contenteditable="false" data-ph="Handle">sarath-krishna-ck</span></div>
-          <button class="link-edit-btn" style="margin-left:auto;" onclick="editLink('ctLinkedIn');event.preventDefault()">✎</button>
-        </a>
-        <a href="https://github.com/sarathkrishna" target="_blank" class="c-link" id="ctGithub">
-          <div class="c-link-ico">⌥</div>
-          <div class="c-link-text"><small>GitHub</small><span contenteditable="false" data-ph="Username">@sarathkrishna</span></div>
-          <button class="link-edit-btn" style="margin-left:auto;" onclick="editLink('ctGithub');event.preventDefault()">✎</button>
-        </a>
+        <div class="c-link" id="ctEmail"><div class="c-link-ico">✉</div><div class="c-link-text"><small>Email</small><span contenteditable="false" data-ph="Email">sarathkrishna869@gmail.com</span></div><button class="link-edit-btn" style="margin-left:auto;" onclick="editContactItem('ctEmail')">✎</button></div>
+        <div class="c-link" id="ctPhone"><div class="c-link-ico">📱</div><div class="c-link-text"><small>Phone</small><span contenteditable="false" data-ph="Phone">+91 81379 03858</span></div><button class="link-edit-btn" style="margin-left:auto;" onclick="editContactItem('ctPhone')">✎</button></div>
+        <a href="https://linkedin.com/in/sarath-krishna-ck" target="_blank" class="c-link" id="ctLinkedIn"><div class="c-link-ico" style="font-family:var(--fm);font-size:.75rem;font-weight:700;">in</div><div class="c-link-text"><small>LinkedIn</small><span contenteditable="false">sarath-krishna-ck</span></div><button class="link-edit-btn" style="margin-left:auto;" onclick="editLink('ctLinkedIn');event.preventDefault()">✎</button></a>
+        <a href="https://github.com/sarathkrishna" target="_blank" class="c-link" id="ctGithub"><div class="c-link-ico">⌥</div><div class="c-link-text"><small>GitHub</small><span contenteditable="false">@sarathkrishna</span></div><button class="link-edit-btn" style="margin-left:auto;" onclick="editLink('ctGithub');event.preventDefault()">✎</button></a>
       </div>
     </div>
   </div>
@@ -775,15 +803,62 @@ footer span{color:var(--accent);}
   </div>
 </footer>
 
+<!-- EDIT BUTTON -->
 <button id="editToggle" onclick="openModal('loginModal')" title="Edit portfolio">✎</button>
 
+<!-- AI AGENT BUTTON -->
+<button id="aiBtn" onclick="toggleAI()" title="Chat with Sarath's AI">
+  <div class="ai-pulse"></div>
+  <span id="aiBtnIcon">✦</span>
+</button>
+
+<!-- AI CHAT PANEL -->
+<div id="aiPanel">
+  <div class="ai-header">
+    <div class="ai-avatar">✦</div>
+    <div class="ai-header-info">
+      <div class="ai-name">Ask Sarath.AI</div>
+      <div class="ai-status" id="aiStatus">● Online — Ask me anything</div>
+    </div>
+    <div class="ai-mode-badge visitor" id="aiModeBadge">Visitor</div>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg bot">Hi! 👋 I'm Sarath's AI assistant. I know everything about his work, skills, projects, and background. What would you like to know?</div>
+    <div class="ai-msg system" id="aiTrainNotice" style="display:none;">🔑 Owner mode active — you can train me with new information!</div>
+  </div>
+  <div class="ai-input-wrap">
+    <div id="aiTrainHint" class="ai-train-hint">📚 Train mode: Tell me something new about Sarath and I'll remember it for future visitors.</div>
+    <button class="ai-train-toggle" id="aiTrainToggle" onclick="toggleTrainMode()">📚 Train Mode</button>
+    <div class="ai-input-row">
+      <textarea class="ai-input" id="aiInput" placeholder="Ask about Sarath..." rows="1" onkeydown="aiKeydown(event)" oninput="autoResize(this)"></textarea>
+      <button class="ai-send" id="aiSend" onclick="sendAiMsg()">➤</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// ════════════════════════════════════════════════
+// CORE STATE
+// ════════════════════════════════════════════════
 const CREDS={user:'sarath',pass:'sk@2024'};
 let editMode=false, secDragSrc=null, cardDragSrc=null;
+let aiOpen=false, aiTraining=false, aiLoading=false;
+let aiConversation=[]; // full conversation history for context
 
+// ════════════════════════════════════════════════
+// STORAGE
+// ════════════════════════════════════════════════
 function ls(k,v){if(v===undefined){try{return localStorage.getItem('sk_'+k);}catch(e){return null;}}try{localStorage.setItem('sk_'+k,v);}catch(e){}}
 
-window.addEventListener('DOMContentLoaded',()=>{restoreAll();initReveal();});
+// ════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded',()=>{
+  restoreAll();
+  initReveal();
+  // Build initial AI knowledge from page content
+  buildAiContext();
+});
 
 function restoreAll(){
   document.querySelectorAll('[data-field]').forEach(el=>{
@@ -793,25 +868,264 @@ function restoreAll(){
   ['skillsGrid','expGrid','projGrid','pubGrid','certGrid','pillsContainer','contactLinks','xcActivities','tlContainer'].forEach(id=>{
     const saved=ls('html_'+id); if(saved&&document.getElementById(id)) document.getElementById(id).innerHTML=saved;
   });
-  // Restore section order
   const order=ls('secOrder');
-  if(order){
-    try{
-      const ids=JSON.parse(order);
-      const sc=document.getElementById('sectionContainer');
-      ids.forEach(id=>{const el=document.querySelector(`[data-sec="${id}"]`);if(el) sc.appendChild(el);});
-    }catch(e){}
-  }
-  // Restore link hrefs
+  if(order){try{const ids=JSON.parse(order);const sc=document.getElementById('sectionContainer');ids.forEach(id=>{const el=document.querySelector(`[data-sec="${id}"]`);if(el) sc.appendChild(el);});}catch(e){}}
   ['pL0','pL1','pL2','pL3','puL0','puL1','cL0','cL1','cL2','cL3','cL4','xcCTA','contactCTA'].forEach(id=>{
     const v=ls('href_'+id); if(v){const el=document.getElementById(id);if(el)el.href=v;}
     const t=ls('text_'+id); if(t){const el=document.getElementById(id);if(el)el.textContent=t;}
   });
 }
 
+// ════════════════════════════════════════════════
+// AI AGENT — SARATH.AI
+// ════════════════════════════════════════════════
+
+// Build a rich system prompt from live page content + extra trained knowledge
+function buildAiContext(){
+  const extraKnowledge = ls('aiKnowledge') || '';
+  return `You are "Sarath.AI", a friendly and knowledgeable AI assistant embedded on the personal portfolio website of Sarath Krishna C K. You know everything about him and answer questions on his behalf, in a warm, professional, and personable tone.
+
+CORE IDENTITY:
+- Full Name: Sarath Krishna C K
+- Current Role: Project Engineer at Wipro, Bengaluru, India (QA & Test Automation)
+- Also working as: Test Engineer at DataDevice Pty Ltd., Australia (Remote)
+- Education: B.Tech in Computer Science, Amrita Vishwa Vidyapeetham, Coimbatore (2020–2024)
+- Email: sarathkrishna869@gmail.com | Phone: +91 81379 03858
+- Location: Bengaluru, India (originally from Kerala)
+- LinkedIn: linkedin.com/in/sarath-krishna-ck | GitHub: @sarathkrishna
+
+PROFESSIONAL SKILLS:
+- Testing & QA: Selenium, Tricentis Tosca, JMeter, Manual Testing, Black-Box Testing
+- Programming: Python, Java, JavaScript, TypeScript, C
+- AI/ML: TensorFlow, scikit-learn, GNN, Pandas, NumPy, XGBoost, LightGBM, CatBoost
+- Web Dev: React, Node.js, HTML/CSS, Express.js, MongoDB
+- Data & Cloud: MySQL, MongoDB, AWS IoT, PowerBI, HDFS
+- Design & PM: Figma, Jira, GitHub, Agile, Photoshop, Illustrator
+- OS: Windows, Linux (Ubuntu, Kali), Mac OS
+
+WORK EXPERIENCE:
+1. Project Engineer — Wipro, Bengaluru (Aug 2024–Present): QA & Test Automation with Selenium, Tricentis Tosca in Agile environments
+2. Test Engineer — DataDevice Pty Ltd., Australia (Remote) (Aug 2024–Present): Manual testing, automation testing, black-box testing
+3. IT Intern — Select Training & Management Consultancy LLC, Abu Dhabi UAE (Remote) (Jan–Mar 2024): Web development, UI/UX design, full-stack development
+
+EDUCATION:
+- B.Tech Computer Science — Amrita Vishwa Vidyapeetham, Coimbatore (2020–2024)
+
+IEEE PUBLICATIONS (2024):
+1. "Enhancing Credit Card Fraud Detection: A Comparative Analysis of Anomaly Detection Models" — IEEE International Conference on Computer Vision and Machine Intelligence (CVMI 2024). Uses autoencoders and RNNs to detect fraudulent transactions. Outperforms traditional methods in accuracy, adaptability, data privacy.
+2. "Enhancing Credit Card Fraud Detection with Deep Learning and Graph Neural Networks" — IEEE 15th International Conference on Computing Communication and Networking Technologies (ICCCNT 2024), Kamand, India. Combines Auto-Encoders, RNNs, Louvain Modularity for improved fraud pattern analysis.
+
+PROJECTS:
+1. Credit Card Fraud Detection (FYP): Autoencoders, RNNs, GNNs, PCA, synthetic data generation — banking sector fraud detection
+2. IoT Smart Street Light: ESP32, AWS IoT MQTT, MongoDB, Node.js, GSM SMS alerts
+3. ML Music Recommendation System: Multiple ML models, collaborative filtering
+4. ElectiveMGT Web App: Full-stack (Node.js, MongoDB, Selenium, React, Jira) — university elective registration system
+
+CERTIFICATIONS:
+- Natural Language Processing With Sequence Models — Coursera (Dec 2023)
+- SAP BASIS — Innoval Digital Solutions Pvt Ltd (Jul–Aug 2024)
+- Digital Skills: User Experience — Accenture, Virtual (Jul 2022)
+- Python — GUVI Geek Networks, IITM Research Park (Jun 2020)
+- Elements of AI — University of Helsinki, Virtual (Jun 2021)
+
+EXTRACURRICULAR & PERSONALITY:
+- Interests: Photography, Videography, Travel, Music, Social Media, Visual Storytelling
+- Personality: Charismatic, socially intelligent, creative, values freedom and flexibility
+- Has prior remote work experience with teams in Australia and UAE
+- Open to international relocation — has explored Netherlands Highly Skilled Migrant visa
+- Career interests also include Product Management, B2B SaaS Sales, Marketing/Brand Strategy
+
+AVAILABILITY:
+- Open to full-time roles, freelance collaborations, and research partnerships
+- Particularly interested in opportunities in tech companies, especially in Europe
+
+RESPONSE STYLE:
+- Be helpful, friendly, and concise. 
+- Answer questions directly about Sarath, his skills, experience, projects, or anything above.
+- If a visitor is asking about hiring or collaborating, encourage them to reach out via email.
+- Keep responses conversational and under 150 words unless a detailed answer is needed.
+- Don't make up information not in this prompt. If you don't know, say so honestly.
+
+${extraKnowledge ? `\nADDITIONAL TRAINED KNOWLEDGE (added by Sarath):\n${extraKnowledge}` : ''}`;
+}
+
+async function sendAiMsg(){
+  const input = document.getElementById('aiInput');
+  const msg = input.value.trim();
+  if(!msg || aiLoading) return;
+  input.value=''; autoResize(input);
+
+  if(aiTraining){
+    // TRAIN MODE: store new knowledge
+    appendAiMsg(msg,'train');
+    const existing = ls('aiKnowledge') || '';
+    const newKnowledge = existing + '\n- ' + msg;
+    ls('aiKnowledge', newKnowledge);
+    // Also ask Claude to acknowledge + confirm what it learned
+    await callClaude(msg, true);
+  } else {
+    // VISITOR MODE: answer question
+    appendAiMsg(msg,'user');
+    await callClaude(msg, false);
+  }
+}
+
+async function callClaude(msg, isTraining){
+  aiLoading=true;
+  document.getElementById('aiSend').disabled=true;
+  document.getElementById('aiStatus').textContent='● Thinking...';
+
+  // Show typing indicator
+  const typingEl = document.createElement('div');
+  typingEl.className='ai-typing';
+  typingEl.innerHTML='<span></span><span></span><span></span>';
+  typingEl.id='aiTyping';
+  document.getElementById('aiMessages').appendChild(typingEl);
+  scrollAi();
+
+  try{
+    const systemPrompt = buildAiContext();
+    
+    // Build messages array with full history
+    const messages = [...aiConversation];
+    
+    if(isTraining){
+      messages.push({
+        role:'user',
+        content: `I'm the owner of this portfolio. I want you to learn this new information about me and confirm you've understood it: "${msg}". Also update your knowledge base accordingly and let me know what you now know.`
+      });
+    } else {
+      messages.push({role:'user', content: msg});
+    }
+
+    const response = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system: systemPrompt,
+        messages: messages
+      })
+    });
+
+    const data = await response.json();
+    const reply = data.content && data.content[0] && data.content[0].text
+      ? data.content[0].text
+      : "I'm having trouble connecting right now. Please try again!";
+
+    // Update conversation history (keep last 10 exchanges to stay within limits)
+    aiConversation.push({role:'user', content: isTraining ? `Learn this about me: ${msg}` : msg});
+    aiConversation.push({role:'assistant', content: reply});
+    if(aiConversation.length > 20) aiConversation = aiConversation.slice(-20);
+
+    // Remove typing indicator and show reply
+    const t=document.getElementById('aiTyping'); if(t) t.remove();
+    appendAiMsg(reply,'bot');
+
+  } catch(err){
+    const t=document.getElementById('aiTyping'); if(t) t.remove();
+    appendAiMsg("Connection issue — please check back shortly!",'bot');
+  }
+
+  aiLoading=false;
+  document.getElementById('aiSend').disabled=false;
+  document.getElementById('aiStatus').textContent='● Online — Ask me anything';
+}
+
+function appendAiMsg(text, type){
+  const el=document.createElement('div');
+  el.className='ai-msg '+type;
+  el.textContent=text;
+  document.getElementById('aiMessages').appendChild(el);
+  scrollAi();
+}
+
+function scrollAi(){
+  const m=document.getElementById('aiMessages');
+  m.scrollTop=m.scrollHeight;
+}
+
+function toggleAI(){
+  aiOpen=!aiOpen;
+  const panel=document.getElementById('aiPanel');
+  const btn=document.getElementById('aiBtn');
+  const icon=document.getElementById('aiBtnIcon');
+  if(aiOpen){
+    panel.classList.add('open');
+    btn.classList.add('open');
+    icon.textContent='✕';
+    document.getElementById('aiInput').focus();
+  } else {
+    panel.classList.remove('open');
+    btn.classList.remove('open');
+    icon.textContent='✦';
+  }
+}
+
+function toggleTrainMode(){
+  aiTraining=!aiTraining;
+  const btn=document.getElementById('aiTrainToggle');
+  const hint=document.getElementById('aiTrainHint');
+  const badge=document.getElementById('aiModeBadge');
+  const notice=document.getElementById('aiTrainNotice');
+  if(aiTraining){
+    btn.classList.add('active');
+    btn.textContent='✓ Train Mode ON';
+    hint.classList.add('show');
+    badge.className='ai-mode-badge trainer';
+    badge.textContent='Owner';
+    badge.style.display='flex';
+    notice.style.display='';
+    appendAiMsg('Train mode activated! Tell me anything new about you — your recent work, new skills, a fun fact, upcoming plans, or anything you want visitors to know. I\'ll remember it for all future conversations.','system');
+  } else {
+    btn.classList.remove('active');
+    btn.textContent='📚 Train Mode';
+    hint.classList.remove('show');
+    badge.className='ai-mode-badge visitor';
+    badge.textContent='Visitor';
+    badge.style.display='';
+    notice.style.display='none';
+    appendAiMsg('Switched back to visitor mode. Visitors can now ask me questions!','system');
+  }
+}
+
+function aiKeydown(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendAiMsg();}}
+function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+
+// Show train mode toggle only when in edit mode
+function updateAiEditMode(isEdit){
+  const toggle=document.getElementById('aiTrainToggle');
+  const badge=document.getElementById('aiModeBadge');
+  if(isEdit){
+    toggle.style.display='inline-flex';
+    badge.className='ai-mode-badge visitor';
+    badge.textContent='Owner view';
+    badge.style.display='flex';
+  } else {
+    toggle.style.display='none';
+    if(!aiTraining){badge.style.display='none';}
+    aiTraining=false;
+    const hint=document.getElementById('aiTrainHint');
+    hint.classList.remove('show');
+    const btn=document.getElementById('aiTrainToggle');
+    btn.classList.remove('active');
+    btn.textContent='📚 Train Mode';
+  }
+}
+
+// ════════════════════════════════════════════════
 // MODALS
+// ════════════════════════════════════════════════
 function openModal(id){document.getElementById(id).classList.add('open');setTimeout(()=>{const f=document.querySelector('#'+id+' input');if(f)f.focus();},80);}
-function closeModal(id){document.getElementById(id).classList.remove('open');if(id==='loginModal'){document.getElementById('loginErr').style.display='none';document.getElementById('loginUser').value='';document.getElementById('loginPass').value='';}}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  if(id==='loginModal'){
+    document.getElementById('loginErr').style.display='none';
+    document.getElementById('loginUser').value='';
+    document.getElementById('loginPass').value='';
+  }
+}
 document.querySelectorAll('.modal-ov').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id);}));
 document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 
@@ -822,8 +1136,7 @@ function showIM(title,desc,fields,onOk){
   fields.forEach(f=>{
     const el=document.createElement(f.type==='textarea'?'textarea':'input');
     el.id='im_'+f.key; el.placeholder=f.placeholder||'';
-    if(f.type!=='textarea') el.type=f.type||'text';
-    else el.rows=3;
+    if(f.type!=='textarea') el.type=f.type||'text'; else el.rows=3;
     el.value=f.value||''; c.appendChild(el);
   });
   document.getElementById('imOk').onclick=()=>{
@@ -833,12 +1146,21 @@ function showIM(title,desc,fields,onOk){
   openModal('inputModal');
 }
 
+// ════════════════════════════════════════════════
 // LOGIN
+// ════════════════════════════════════════════════
 function doLogin(){
   const u=document.getElementById('loginUser').value.trim();
   const p=document.getElementById('loginPass').value;
-  if(u===CREDS.user&&p===CREDS.pass){closeModal('loginModal');enableEdit();}
-  else{document.getElementById('loginErr').style.display='block';document.getElementById('loginPass').value='';}
+  if(u===CREDS.user&&p===CREDS.pass){
+    closeModal('loginModal');
+    enableEdit();
+  } else {
+    // Only show generic error — no credential hints
+    document.getElementById('loginErr').style.display='block';
+    document.getElementById('loginPass').value='';
+    document.getElementById('loginPass').focus();
+  }
 }
 
 function enableEdit(){
@@ -856,6 +1178,12 @@ function enableEdit(){
   initCardDrag('#pubGrid','.pub-card');
   initCardDrag('#certGrid','.cert-card');
   initSectionDrag();
+  updateAiEditMode(true);
+  // Show AI panel with owner welcome if not already open
+  if(!aiOpen){
+    toggleAI();
+    appendAiMsg('👋 Welcome back, Sarath! You\'re in owner mode. Use "Train Mode" to teach me new things about yourself. I\'ll remember them for all visitors!','system');
+  }
 }
 
 function exitEdit(){
@@ -867,6 +1195,7 @@ function exitEdit(){
   document.getElementById('xcLinkBtn').style.display='none';
   document.querySelectorAll('[contenteditable="true"]').forEach(el=>el.setAttribute('contenteditable','false'));
   document.querySelectorAll('[draggable="true"]').forEach(el=>el.setAttribute('draggable','false'));
+  updateAiEditMode(false);
 }
 
 function saveEdits(){
@@ -874,7 +1203,6 @@ function saveEdits(){
   ['skillsGrid','expGrid','projGrid','pubGrid','certGrid','pillsContainer','contactLinks','xcActivities','tlContainer'].forEach(id=>{
     const el=document.getElementById(id); if(el) ls('html_'+id,el.innerHTML);
   });
-  // Save section order
   const order=[...document.querySelectorAll('#sectionContainer .draggable-section')].map(s=>s.dataset.sec);
   ls('secOrder',JSON.stringify(order));
   toast('✓ CHANGES SAVED');
@@ -888,10 +1216,12 @@ function toast(msg){
   setTimeout(()=>t.remove(),2300);
 }
 
-// LINK EDITOR
+// ════════════════════════════════════════════════
+// LINK & CONTACT EDITORS
+// ════════════════════════════════════════════════
 function editLink(id){
   const el=document.getElementById(id); if(!el) return;
-  showIM('Edit Link','Update URL and label.',
+  showIM('Edit Link','',
     [{key:'text',label:'Label',value:el.textContent.trim(),placeholder:'Link text'},
      {key:'url',label:'URL',value:el.getAttribute('href')==='#'?'':el.getAttribute('href'),placeholder:'https://...'}],
     v=>{el.href=v.url||'#';if(v.text)el.textContent=v.text;ls('href_'+id,v.url||'#');ls('text_'+id,v.text);}
@@ -908,7 +1238,9 @@ function editContactItem(id){
   );
 }
 
+// ════════════════════════════════════════════════
 // AVATAR
+// ════════════════════════════════════════════════
 function trigAvatarUpload(){if(!editMode)return;document.getElementById('avatarInput').click();}
 function handleAvatar(e){
   const file=e.target.files[0]; if(!file) return;
@@ -917,16 +1249,19 @@ function handleAvatar(e){
   r.readAsDataURL(file);
 }
 
-// TAG HELPER
+// ════════════════════════════════════════════════
+// TAG HELPERS
+// ════════════════════════════════════════════════
 function addTag(btn,cls){
-  const label=cls==='proj-tool'?'Tool':'Tag';
-  showIM('Add '+label,'',
-    [{key:'v',label:label,placeholder:'e.g. Docker'}],
+  showIM('Add Tag','',
+    [{key:'v',label:'Tag',placeholder:'e.g. Docker'}],
     v=>{if(!v.v)return;const wrap=btn.closest('.tag-wrap');const s=document.createElement('span');s.className=cls;s.innerHTML=v.v+'<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span>';wrap.insertBefore(s,btn);}
   );
 }
 
+// ════════════════════════════════════════════════
 // ADD ITEMS
+// ════════════════════════════════════════════════
 function addPill(){showIM('Add Tag','',
   [{key:'t',label:'Tag text',placeholder:'e.g. Open to Relocation'}],
   v=>{if(!v.t)return;const s=document.createElement('span');s.className='pill';s.setAttribute('contenteditable',editMode?'true':'false');s.textContent=v.t;document.getElementById('pillsContainer').appendChild(s);}
@@ -939,7 +1274,7 @@ function addXcActivity(){showIM('Add Activity','',
 
 function addTimeline(){
   showIM('Add Timeline Entry','',
-    [{key:'date',label:'Date',placeholder:'Jan 2024 — Mar 2024'},{key:'role',label:'Role',placeholder:'Job Title'},{key:'co',label:'Company',placeholder:'Company · Location'},{key:'desc',label:'Description',placeholder:'What you did...',type:'textarea'}],
+    [{key:'date',label:'Date',placeholder:'Jan 2024'},{key:'role',label:'Role',placeholder:'Job Title'},{key:'co',label:'Company',placeholder:'Company · Location'},{key:'desc',label:'Description',placeholder:'What you did...',type:'textarea'}],
     v=>{
       const d=document.createElement('div'); d.className='tl-item'; d.setAttribute('draggable','false');
       d.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.tl-item').remove()">✕</button></div><div class="tl-date" contenteditable="${editMode}">${v.date||'Date'}</div><div class="tl-role" contenteditable="${editMode}">${v.role||'Role'}</div><div class="tl-co" contenteditable="${editMode}">${v.co||'Company'}</div><div class="tl-desc" contenteditable="${editMode}">${v.desc||''}</div>`;
@@ -964,7 +1299,7 @@ function addSkillCard(){
 
 function addExpCard(){
   showIM('Add Experience','',
-    [{key:'date',label:'Date',placeholder:'Jan 2024'},{key:'role',label:'Role',placeholder:'Engineer'},{key:'co',label:'Company',placeholder:'Company · Location'},{key:'desc',label:'Description',placeholder:'What you did',type:'textarea'},{key:'tags',label:'Tags (comma sep)',placeholder:'Python, AWS'}],
+    [{key:'date',label:'Date',placeholder:'Jan 2024'},{key:'role',label:'Role',placeholder:'Engineer'},{key:'co',label:'Company',placeholder:'Company'},{key:'desc',label:'Description',placeholder:'What you did',type:'textarea'},{key:'tags',label:'Tags (comma sep)',placeholder:'Python, AWS'}],
     v=>{
       const tags=(v.tags||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="exp-tag">${t}<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span>`).join('');
       const c=document.createElement('div'); c.className='exp-card'; c.setAttribute('draggable','false');
@@ -978,7 +1313,7 @@ function addExpCard(){
 function addProject(){
   const lid='pL_'+Date.now();
   showIM('Add Project','',
-    [{key:'num',label:'Number',placeholder:'05 / Web'},{key:'title',label:'Title',placeholder:'Project Title'},{key:'desc',label:'Description',placeholder:'What you built',type:'textarea'},{key:'tools',label:'Tools (comma sep)',placeholder:'React, Node.js'},{key:'url',label:'Project URL',placeholder:'https://github.com/...'}],
+    [{key:'num',label:'Number',placeholder:'05 / Web'},{key:'title',label:'Title',placeholder:'Project Title'},{key:'desc',label:'Description',placeholder:'What you built',type:'textarea'},{key:'tools',label:'Tools (comma sep)',placeholder:'React, Node.js'},{key:'url',label:'URL',placeholder:'https://...'}],
     v=>{
       const tools=(v.tools||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="proj-tool">${t}<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span>`).join('');
       const c=document.createElement('div'); c.className='proj-card'; c.setAttribute('draggable','false');
@@ -992,7 +1327,7 @@ function addProject(){
 function addPublication(){
   const lid='puL_'+Date.now();
   showIM('Add Publication','',
-    [{key:'venue',label:'Venue',placeholder:'IEEE Conference 2025'},{key:'title',label:'Title',placeholder:'Paper title'},{key:'desc',label:'Abstract',placeholder:'Description',type:'textarea'},{key:'url',label:'URL',placeholder:'https://ieeexplore...'}],
+    [{key:'venue',label:'Venue',placeholder:'IEEE Conference'},{key:'title',label:'Title',placeholder:'Paper title'},{key:'desc',label:'Abstract',placeholder:'Description',type:'textarea'},{key:'url',label:'URL',placeholder:'https://ieeexplore...'}],
     v=>{
       const c=document.createElement('div'); c.className='pub-card'; c.setAttribute('draggable','false');
       c.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div><div class="pub-badge-box">📄</div><div><div class="pub-venue" contenteditable="${editMode}">${v.venue||'Venue'}</div><div class="pub-t" contenteditable="${editMode}">${v.title||'Title'}</div><div class="pub-d" contenteditable="${editMode}">${v.desc||''}</div><span><a href="${v.url||'#'}" class="pub-link" id="${lid}">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('${lid}')">✎</button></span></div>`;
@@ -1005,7 +1340,7 @@ function addPublication(){
 function addCert(){
   const lid='cL_'+Date.now();
   showIM('Add Certification','',
-    [{key:'icon',label:'Icon',placeholder:'🎓'},{key:'title',label:'Name',placeholder:'AWS Solutions Architect'},{key:'inst',label:'Institution',placeholder:'Amazon'},{key:'date',label:'Date',placeholder:'Issued: Jan 2025'},{key:'url',label:'Certificate URL',placeholder:'https://...'}],
+    [{key:'icon',label:'Icon',placeholder:'🎓'},{key:'title',label:'Name',placeholder:'Certification Name'},{key:'inst',label:'Institution',placeholder:'Institution'},{key:'date',label:'Date',placeholder:'Issued: Jan 2025'},{key:'url',label:'URL',placeholder:'https://...'}],
     v=>{
       const c=document.createElement('div'); c.className='cert-card'; c.setAttribute('draggable','false');
       c.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.cert-card').remove()">✕</button></div><div class="cert-badge-box">${v.icon||'🎓'}</div><div class="cert-t" contenteditable="${editMode}">${v.title||'Name'}</div><div class="cert-inst" contenteditable="${editMode}">${v.inst||'Institution'}</div><div class="cert-date" contenteditable="${editMode}">${v.date||'Issued: —'}</div><span><a href="${v.url||'#'}" class="cert-link" id="${lid}">↗ View Certificate</a><button class="link-edit-btn" onclick="editLink('${lid}')">✎</button></span>`;
@@ -1015,9 +1350,9 @@ function addCert(){
   );
 }
 
-// ═══════════════════════════════════
-// CARD-LEVEL DRAG
-// ═══════════════════════════════════
+// ════════════════════════════════════════════════
+// CARD DRAG
+// ════════════════════════════════════════════════
 function initCardDrag(contSel,itemSel){
   const cont=document.querySelector(contSel); if(!cont) return;
   cont.querySelectorAll(itemSel).forEach(item=>{
@@ -1052,17 +1387,18 @@ function onCardDragEnd(){
   cardDragSrc=null;
 }
 
-// ═══════════════════════════════════
-// SECTION-LEVEL DRAG
-// ═══════════════════════════════════
+// ════════════════════════════════════════════════
+// SECTION DRAG — ALL SECTIONS
+// ════════════════════════════════════════════════
 function initSectionDrag(){
   const secs=document.querySelectorAll('#sectionContainer .draggable-section');
   secs.forEach(sec=>{
-    sec.setAttribute('draggable','false'); // default — only via handle
+    sec.setAttribute('draggable','false');
     const handle=sec.querySelector('.sec-drag-handle');
     if(!handle) return;
-    handle.addEventListener('mousedown',()=>{sec.setAttribute('draggable','true');});
-    handle.addEventListener('mouseup',()=>{setTimeout(()=>sec.setAttribute('draggable','false'),100);});
+    // Enable drag only when handle is pressed
+    handle.addEventListener('mousedown',()=>sec.setAttribute('draggable','true'));
+    handle.addEventListener('touchstart',()=>sec.setAttribute('draggable','true'),{passive:true});
     sec.removeEventListener('dragstart',onSecDragStart);
     sec.removeEventListener('dragover',onSecDragOver);
     sec.removeEventListener('dragleave',onSecDragLeave);
@@ -1075,7 +1411,7 @@ function initSectionDrag(){
     sec.addEventListener('dragend',onSecDragEnd);
   });
 }
-function onSecDragStart(e){secDragSrc=this;this.classList.add('sec-dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',this.dataset.sec);}
+function onSecDragStart(e){secDragSrc=this;this.classList.add('sec-dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',this.dataset.sec||'');}
 function onSecDragOver(e){e.preventDefault();if(this!==secDragSrc&&this.closest('#sectionContainer'))this.classList.add('sec-drag-over');}
 function onSecDragLeave(e){if(!this.contains(e.relatedTarget))this.classList.remove('sec-drag-over');}
 function onSecDrop(e){
@@ -1084,11 +1420,10 @@ function onSecDrop(e){
     const sc=document.getElementById('sectionContainer');
     const si=[...sc.children].indexOf(secDragSrc),ti=[...sc.children].indexOf(this);
     if(si<ti) sc.insertBefore(secDragSrc,this.nextSibling); else sc.insertBefore(secDragSrc,this);
+    const order=[...sc.querySelectorAll('.draggable-section')].map(s=>s.dataset.sec);
+    ls('secOrder',JSON.stringify(order));
   }
   this.classList.remove('sec-drag-over');
-  // Update section order saved
-  const order=[...document.querySelectorAll('#sectionContainer .draggable-section')].map(s=>s.dataset.sec);
-  ls('secOrder',JSON.stringify(order));
 }
 function onSecDragEnd(){
   if(secDragSrc){secDragSrc.classList.remove('sec-dragging');secDragSrc.setAttribute('draggable','false');}
@@ -1096,11 +1431,12 @@ function onSecDragEnd(){
   secDragSrc=null;
 }
 
-// MOBILE NAV
+// ════════════════════════════════════════════════
+// MOBILE NAV + REVEAL + MISC
+// ════════════════════════════════════════════════
 function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
 function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
 
-// SCROLL REVEAL
 function initReveal(){
   const els=document.querySelectorAll('.reveal');
   const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*65);obs.unobserve(e.target);}});},{threshold:.07});
