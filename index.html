@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarath Krishna C K — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070709;--bg2:#0e0e12;--bg3:#16161d;--surface:#1c1c24;--surface2:#242430;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.14);
+  --text:#f0efe8;--muted:#8a8a9a;
+  --accent:#c8f23a;--accent2:#3af2b8;--accent3:#f23a8c;
+  --fh:'Syne',sans-serif;--fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--accent);color:#000;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(7,7,9,.88);border-bottom:.5px solid var(--border);transition:top .3s;}
+.nav-logo{font-family:var(--fh);font-size:1.1rem;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-.02em;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:1.5rem;list-style:none;}
+.nav-links a{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-family:var(--fm);transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transition:transform .2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-hire{background:var(--accent);color:#000;padding:.4rem 1rem;border-radius:100px;font-weight:700;font-size:.75rem;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.nav-hire:hover{background:#d9ff4a;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.mob-menu{display:none;position:fixed;top:58px;left:0;right:0;background:rgba(7,7,9,.97);border-bottom:.5px solid var(--border);padding:1.4rem 2rem;flex-direction:column;gap:1rem;z-index:199;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-family:var(--fm);padding:.35rem 0;border-bottom:.5px solid var(--border);}
+
+/* BG */
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(200,242,58,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(200,242,58,.02) 1px,transparent 1px);background-size:60px 60px;}
+.bg-glow{position:fixed;z-index:-1;pointer-events:none;border-radius:50%;}
+.bg-glow1{top:-20vh;right:-10vw;width:60vw;height:60vh;background:radial-gradient(circle,rgba(200,242,58,.05) 0%,transparent 60%);}
+.bg-glow2{bottom:-20vh;left:-10vw;width:50vw;height:50vh;background:radial-gradient(circle,rgba(58,242,184,.04) 0%,transparent 60%);}
+
+/* LAYOUT */
+section{padding:5rem 0;}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+.sec-label{font-family:var(--fm);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem;}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--accent);}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.sec-title{font-family:var(--fh);font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:2.2rem;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* BUTTONS */
+.btn-p{background:var(--accent);color:#000;padding:.6rem 1.4rem;border-radius:100px;font-weight:700;font-size:.8rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--fb);display:inline-block;transition:all .2s;}
+.btn-p:hover{background:#d9ff4a;transform:translateY(-1px);}
+.btn-g{background:transparent;color:var(--text);padding:.6rem 1.4rem;border-radius:100px;font-weight:500;font-size:.8rem;text-decoration:none;border:1px solid var(--border2);cursor:pointer;transition:all .2s;font-family:var(--fb);display:inline-block;}
+.btn-g:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ═══════════════════ HERO ═══════════════════ */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:5rem;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;width:100%;}
+.hero-lbl{font-family:var(--fm);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem;}
+.hero-lbl::before{content:'';width:16px;height:1px;background:var(--accent);}
+.hero-name{font-family:var(--fh);font-size:clamp(2.4rem,4.8vw,4rem);font-weight:800;line-height:1.0;letter-spacing:-.03em;margin-bottom:.2rem;}
+.hero-name .l2{color:var(--accent);}
+.hero-typerow{margin:1rem 0 1.6rem;}
+.hero-typed{font-family:var(--fm);font-size:.8rem;color:var(--muted);letter-spacing:.04em;border-right:2px solid var(--accent);padding-right:4px;display:inline-block;white-space:nowrap;overflow:hidden;animation:typing 3s steps(40,end) .5s both,blink .8s step-end infinite;}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+.hero-desc{color:var(--muted);font-size:.93rem;line-height:1.75;max-width:430px;margin-bottom:1.6rem;}
+.hero-btns{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;}
+.hero-stats{display:flex;gap:1.8rem;margin-top:1.8rem;flex-wrap:wrap;}
+.stat-n{font-family:var(--fh);font-size:1.6rem;font-weight:800;color:var(--accent);}
+.stat-l{font-size:.7rem;color:var(--muted);font-family:var(--fm);letter-spacing:.04em;}
+/* Avatar */
+.hero-visual{display:flex;justify-content:center;align-items:center;}
+.av-ring{width:290px;height:290px;border-radius:50%;border:1px solid rgba(200,242,58,.2);display:flex;align-items:center;justify-content:center;position:relative;animation:spin 22s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb{position:absolute;width:7px;height:7px;border-radius:50%;}
+.orb:nth-child(1){top:-3px;left:50%;transform:translateX(-50%);background:var(--accent);}
+.orb:nth-child(2){bottom:-3px;left:50%;transform:translateX(-50%);background:var(--accent2);}
+.orb:nth-child(3){left:-3px;top:50%;transform:translateY(-50%);background:var(--accent3);}
+.orb:nth-child(4){right:-3px;top:50%;transform:translateY(-50%);background:var(--accent);}
+.av-inner{width:244px;height:244px;border-radius:50%;background:linear-gradient(135deg,var(--surface),var(--surface2));border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;animation:spin-rev 22s linear infinite;position:relative;overflow:hidden;cursor:pointer;}
+@keyframes spin-rev{to{transform:rotate(-360deg)}}
+.av-inner img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.av-hover{position:absolute;inset:0;background:rgba(0,0,0,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:.68rem;color:var(--accent);font-family:var(--fm);text-align:center;padding:.5rem;}
+.av-inner:hover .av-hover{opacity:1;}
+
+/* ═══════════════════ ABOUT ═══════════════════ */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3.5rem;}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem;}
+.about-text strong{color:var(--text);font-weight:500;}
+.pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem;}
+.pill{display:inline-flex;align-items:center;padding:.28rem .75rem;border-radius:100px;font-family:var(--fm);font-size:.65rem;letter-spacing:.04em;border:.5px solid var(--border2);color:var(--muted);background:var(--surface);white-space:nowrap;}
+.pill.ac{border-color:rgba(200,242,58,.3);color:var(--accent);background:rgba(200,242,58,.05);}
+.timeline{position:relative;padding-left:.9rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);}
+.tl-item{position:relative;margin-bottom:1.6rem;padding-left:1.1rem;}
+.tl-item::before{content:'';position:absolute;left:-1.5rem;top:.3rem;width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.tl-date{font-family:var(--fm);font-size:.65rem;color:var(--accent);margin-bottom:.12rem;}
+.tl-role{font-family:var(--fh);font-weight:700;font-size:.88rem;margin-bottom:.1rem;}
+.tl-co{font-size:.77rem;color:var(--muted);}
+.tl-desc{font-size:.78rem;color:var(--muted);margin-top:.3rem;line-height:1.5;}
+
+/* ═══════════════════ SKILLS ═══════════════════ */
+#skills{background:var(--bg2);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1.1rem;}
+.sk-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.3rem;transition:all .3s;position:relative;overflow:hidden;}
+.sk-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,242,58,.04),transparent 60%);opacity:0;transition:opacity .3s;}
+.sk-card:hover{border-color:rgba(200,242,58,.3);transform:translateY(-3px);}
+.sk-card:hover::before{opacity:1;}
+.sk-icon{font-size:1.3rem;margin-bottom:.65rem;}
+.sk-cat{font-family:var(--fh);font-size:.85rem;font-weight:700;margin-bottom:.65rem;}
+.tag-wrap{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;}
+.sk-tag{font-family:var(--fm);font-size:.62rem;padding:.16rem .5rem;border-radius:4px;background:var(--bg);color:var(--muted);border:.5px solid var(--border);}
+
+/* ═══════════════════ EXPERIENCE ═══════════════════ */
+.exp-grid{display:flex;flex-direction:column;gap:1.1rem;}
+.exp-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.7rem;transition:all .3s;position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;gap:1.3rem;align-items:start;}
+.exp-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);border-radius:2px 0 0 2px;transform:scaleY(0);transition:transform .3s;transform-origin:top;}
+.exp-card:hover::after{transform:scaleY(1);}
+.exp-badge{font-family:var(--fm);font-size:.63rem;color:var(--accent);background:rgba(200,242,58,.08);border:.5px solid rgba(200,242,58,.2);border-radius:100px;padding:.26rem .6rem;white-space:nowrap;display:inline-block;}
+.exp-role{font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:.22rem;}
+.exp-co{font-size:.8rem;color:var(--muted);margin-bottom:.65rem;}
+.exp-desc{font-size:.82rem;color:var(--muted);line-height:1.7;}
+.exp-tag{font-family:var(--fm);font-size:.62rem;padding:.15rem .5rem;border-radius:4px;background:var(--bg);color:var(--muted);border:.5px solid var(--border);}
+
+/* ═══════════════════ PROJECTS ═══════════════════ */
+#projects{background:var(--bg2);}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem;}
+.proj-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .3s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform .3s;transform-origin:left;}
+.proj-card:hover{transform:translateY(-3px);border-color:var(--border2);}
+.proj-card:hover::before{transform:scaleX(1);}
+.proj-n{font-family:var(--fm);font-size:.65rem;color:var(--muted);margin-bottom:.65rem;}
+.proj-t{font-family:var(--fh);font-size:.92rem;font-weight:700;margin-bottom:.45rem;line-height:1.3;}
+.proj-d{font-size:.8rem;color:var(--muted);line-height:1.7;flex:1;}
+.proj-tool{font-family:var(--fm);font-size:.6rem;padding:.13rem .45rem;border-radius:3px;background:rgba(200,242,58,.06);color:rgba(200,242,58,.7);border:.5px solid rgba(200,242,58,.15);}
+.proj-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--accent2);margin-top:.65rem;text-decoration:none;transition:color .2s;}
+.proj-link:hover{color:var(--accent);}
+
+/* ═══════════════════ PUBLICATIONS ═══════════════════ */
+.pub-grid{display:flex;flex-direction:column;gap:.95rem;}
+.pub-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.4rem 1.7rem;transition:all .3s;position:relative;display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:center;}
+.pub-card:hover{border-color:rgba(58,242,184,.3);}
+.pub-badge-box{width:44px;height:44px;border-radius:10px;background:rgba(58,242,184,.1);border:.5px solid rgba(58,242,184,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.pub-venue{font-family:var(--fm);font-size:.63rem;color:var(--accent2);margin-bottom:.22rem;}
+.pub-t{font-family:var(--fh);font-size:.9rem;font-weight:700;margin-bottom:.32rem;line-height:1.4;}
+.pub-d{font-size:.78rem;color:var(--muted);line-height:1.6;}
+.pub-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--accent2);margin-top:.45rem;text-decoration:none;transition:color .2s;}
+
+/* ═══════════════════ CERTIFICATIONS ═══════════════════ */
+#certifications{background:var(--bg2);}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem;}
+.cert-card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:1.4rem;transition:all .3s;position:relative;overflow:hidden;}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent));transform:scaleX(0);transition:transform .3s;transform-origin:left;}
+.cert-card:hover{transform:translateY(-3px);border-color:rgba(58,242,184,.3);}
+.cert-card:hover::before{transform:scaleX(1);}
+.cert-badge-box{width:40px;height:40px;border-radius:9px;background:rgba(200,242,58,.08);border:.5px solid rgba(200,242,58,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:.9rem;}
+.cert-t{font-family:var(--fh);font-size:.88rem;font-weight:700;margin-bottom:.2rem;line-height:1.3;}
+.cert-inst{font-size:.78rem;color:var(--muted);margin-bottom:.18rem;}
+.cert-date{font-family:var(--fm);font-size:.62rem;color:var(--accent);letter-spacing:.04em;}
+.cert-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--accent2);margin-top:.65rem;text-decoration:none;transition:color .2s;}
+
+/* ═══════════════════ EXTRACURRICULAR TEASER ═══════════════════ */
+#extracurricular{position:relative;min-height:75vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;}
+.xc-video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.35;}
+.xc-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,7,9,.92) 0%,rgba(7,7,9,.6) 50%,rgba(7,7,9,.82) 100%);z-index:1;}
+.xc-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;}
+.xc-content{position:relative;z-index:3;text-align:center;padding:3rem 2rem;max-width:680px;}
+.xc-label{font-family:var(--fm);font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent2);display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:1.2rem;}
+.xc-label::before,.xc-label::after{content:'';display:block;width:32px;height:1px;background:var(--accent2);}
+.xc-activities{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:2rem;}
+.xc-act{padding:.35rem .9rem;border-radius:100px;font-family:var(--fm);font-size:.68rem;border:.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);backdrop-filter:blur(6px);transition:all .3s;}
+.xc-act:hover{border-color:var(--accent2);color:var(--accent2);background:rgba(58,242,184,.08);}
+.xc-heading{font-family:var(--fh);font-size:clamp(2rem,4.5vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:1rem;}
+.xc-heading em{color:var(--accent2);font-style:normal;}
+.xc-sub{color:rgba(255,255,255,.55);font-size:.92rem;line-height:1.7;max-width:420px;margin:0 auto 2.5rem;}
+.xc-cta{display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 2rem;background:linear-gradient(135deg,rgba(58,242,184,.15),rgba(58,242,184,.08));border:1px solid rgba(58,242,184,.4);border-radius:100px;font-family:var(--fh);font-size:.92rem;font-weight:700;color:var(--accent2);text-decoration:none;transition:all .3s;backdrop-filter:blur(10px);letter-spacing:-.01em;}
+.xc-cta:hover{background:linear-gradient(135deg,rgba(58,242,184,.25),rgba(58,242,184,.12));border-color:var(--accent2);transform:translateY(-2px);box-shadow:0 0 30px rgba(58,242,184,.2);}
+.xc-arrow{width:32px;height:32px;border-radius:50%;background:var(--accent2);display:flex;align-items:center;justify-content:center;color:#000;font-size:.85rem;transition:transform .3s;}
+.xc-cta:hover .xc-arrow{transform:translateX(3px);}
+.xc-pulse{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.4rem;}
+.xc-scroll-dot{width:4px;height:24px;border:1px solid rgba(58,242,184,.4);border-radius:2px;position:relative;overflow:hidden;}
+.xc-scroll-dot::after{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:var(--accent2);border-radius:2px;animation:scrollDown 1.5s ease-in-out infinite;}
+@keyframes scrollDown{0%{transform:translateY(-100%)}60%{transform:translateY(200%)}100%{transform:translateY(200%)}}
+/* XC Activity pills edit */
+.xc-activities-edit{display:none;}
+.edit-mode .xc-activities-edit{display:inline-flex;}
+
+/* ═══════════════════ CONTACT ═══════════════════ */
+#contact{background:var(--bg2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.contact-links{display:flex;flex-direction:column;gap:.85rem;}
+.c-link{display:flex;align-items:center;gap:.95rem;padding:.85rem 1.1rem;background:var(--surface);border:.5px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);transition:all .2s;position:relative;}
+.c-link:hover{border-color:var(--accent);transform:translateX(4px);}
+.c-link-ico{width:33px;height:33px;border-radius:8px;background:rgba(200,242,58,.08);border:.5px solid rgba(200,242,58,.15);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.c-link-text small{display:block;font-family:var(--fm);font-size:.6rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+.c-link-text span{font-size:.86rem;}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--border);padding:1.8rem 0;text-align:center;}
+footer p{font-family:var(--fm);font-size:.68rem;color:var(--muted);letter-spacing:.04em;}
+footer span{color:var(--accent);}
+
+/* ════════════════════════════════════
+   SECTION-LEVEL DRAG REORDER
+════════════════════════════════════ */
+#sectionContainer{display:flex;flex-direction:column;}
+.draggable-section{position:relative;}
+.sec-drag-handle{display:none;position:absolute;left:-40px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:6px;background:rgba(200,242,58,.1);border:.5px solid rgba(200,242,58,.2);color:var(--accent);font-size:14px;cursor:grab;align-items:center;justify-content:center;z-index:10;font-family:var(--fm);}
+.sec-drag-handle:active{cursor:grabbing;}
+.edit-mode .draggable-section:hover .sec-drag-handle{display:flex;}
+.draggable-section.sec-dragging{opacity:.4;outline:2px dashed var(--accent);outline-offset:4px;}
+.draggable-section.sec-drag-over{outline:2px solid var(--accent2);outline-offset:4px;background:rgba(58,242,184,.02);}
+@media(max-width:1200px){.sec-drag-handle{display:none!important;}}
+
+/* ════════════════════════════════════
+   CARD-LEVEL DRAG
+════════════════════════════════════ */
+.card-actions{position:absolute;top:.55rem;right:.55rem;display:none;gap:.3rem;z-index:10;}
+.edit-mode .exp-card:hover .card-actions,
+.edit-mode .proj-card:hover .card-actions,
+.edit-mode .pub-card:hover .card-actions,
+.edit-mode .cert-card:hover .card-actions,
+.edit-mode .tl-item:hover .card-actions,
+.edit-mode .sk-card:hover .card-actions{display:flex;}
+.del-btn{width:23px;height:23px;border-radius:50%;background:rgba(242,58,140,.12);border:.5px solid rgba(242,58,140,.3);color:var(--accent3);font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.drag-h{width:23px;height:23px;border-radius:50%;background:rgba(200,242,58,.08);border:.5px solid rgba(200,242,58,.2);color:var(--accent);font-size:11px;cursor:grab;display:flex;align-items:center;justify-content:center;}
+.drag-h:active{cursor:grabbing;}
+.card-dragging{opacity:.35;border:1px dashed var(--accent)!important;}
+.card-drag-over{border:1px solid var(--accent)!important;background:rgba(200,242,58,.04)!important;}
+
+/* ════════════════════════════════════
+   EDIT MODE
+════════════════════════════════════ */
+#editToggle{position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;width:37px;height:37px;border-radius:50%;background:var(--surface2);border:.5px solid var(--border2);color:var(--muted);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:.3;}
+#editToggle:hover{opacity:1;color:var(--accent);border-color:var(--accent);}
+.edit-bar{position:fixed;top:0;left:0;right:0;z-index:250;background:var(--accent);color:#000;padding:.5rem 1.5rem;display:none;align-items:center;justify-content:space-between;font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.06em;}
+.edit-bar.on{display:flex;}
+.eb-r{display:flex;align-items:center;gap:.6rem;}
+.eb-btn{padding:.26rem .8rem;border-radius:100px;font-family:var(--fm);font-size:.68rem;cursor:pointer;font-weight:700;border:none;}
+.eb-save{background:#000;color:var(--accent);}
+.eb-cancel{background:rgba(0,0,0,.15);color:rgba(0,0,0,.65);border:1px solid rgba(0,0,0,.2)!important;}
+
+.edit-mode [contenteditable]{outline:1px dashed rgba(200,242,58,.4);border-radius:3px;cursor:text;min-width:16px;min-height:12px;}
+.edit-mode [contenteditable]:focus{outline:1px solid var(--accent);background:rgba(200,242,58,.05);}
+.edit-mode [contenteditable]:empty::before{content:attr(data-ph);color:rgba(200,242,58,.3);pointer-events:none;}
+.add-btn{display:none;align-items:center;gap:.35rem;margin-top:.7rem;padding:.35rem .75rem;background:rgba(200,242,58,.08);border:.5px dashed rgba(200,242,58,.3);border-radius:6px;color:var(--accent);font-size:.7rem;font-family:var(--fm);cursor:pointer;}
+.add-btn:hover{background:rgba(200,242,58,.15);}
+.edit-mode .add-btn{display:inline-flex;}
+.del-tag{font-size:9px;cursor:pointer;color:var(--accent3);margin-left:2px;display:none;}
+.edit-mode .del-tag{display:inline;}
+.add-tag-btn{display:none;font-family:var(--fm);font-size:.6rem;padding:.13rem .42rem;border-radius:3px;background:rgba(200,242,58,.06);color:var(--accent);border:.5px dashed rgba(200,242,58,.3);cursor:pointer;}
+.edit-mode .add-tag-btn{display:inline-flex;}
+.link-edit-btn{display:none;font-size:.6rem;font-family:var(--fm);color:var(--accent);background:rgba(200,242,58,.08);border:.5px solid rgba(200,242,58,.2);border-radius:4px;padding:.09rem .38rem;cursor:pointer;margin-left:.35rem;vertical-align:middle;}
+.edit-mode .link-edit-btn{display:inline;}
+
+/* MODALS */
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:500;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-ov.open{opacity:1;pointer-events:auto;}
+.modal{background:var(--surface);border:.5px solid var(--border2);border-radius:16px;padding:2rem;width:350px;max-width:92vw;transform:translateY(18px) scale(.97);transition:transform .3s;}
+.modal-ov.open .modal{transform:translateY(0) scale(1);}
+.modal h3{font-family:var(--fh);font-size:1.15rem;font-weight:800;margin-bottom:.3rem;}
+.modal p{color:var(--muted);font-size:.8rem;margin-bottom:1.4rem;}
+.modal input,.modal textarea{width:100%;background:var(--bg3);border:.5px solid var(--border2);border-radius:8px;padding:.6rem .85rem;color:var(--text);font-family:var(--fb);font-size:.86rem;margin-bottom:.65rem;outline:none;transition:border-color .2s;resize:vertical;}
+.modal input:focus,.modal textarea:focus{border-color:var(--accent);}
+.modal-err{color:var(--accent3);font-size:.7rem;font-family:var(--fm);display:none;margin-bottom:.5rem;}
+.modal-btns{display:flex;gap:.65rem;margin-top:.3rem;}
+.modal-ok{flex:1;background:var(--accent);color:#000;border:none;border-radius:8px;padding:.62rem;font-weight:700;cursor:pointer;font-size:.86rem;font-family:var(--fb);}
+.modal-ok:hover{background:#d9ff4a;}
+.modal-no{background:transparent;color:var(--muted);border:.5px solid var(--border);border-radius:8px;padding:.62rem .95rem;cursor:pointer;font-size:.86rem;font-family:var(--fb);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  nav{padding:.75rem 1.2rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .container{padding:0 1.2rem;}
+  section{padding:3.5rem 0;}
+  .exp-card{grid-template-columns:1fr;gap:.7rem;}
+  .pub-card{grid-template-columns:1fr;gap:.7rem;}
+  .edit-bar .eb-label{display:none;}
+}
+@media(max-width:420px){
+  .hero-name{font-size:2.2rem;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .cert-grid{grid-template-columns:1fr;}
+  .proj-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow1"></div>
+<div class="bg-glow bg-glow2"></div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-ov" id="loginModal">
+  <div class="modal">
+    <h3>Editor Access</h3>
+    <p>Sign in to edit your portfolio.</p>
+    <input type="text" id="loginUser" placeholder="Username" autocomplete="off">
+    <input type="password" id="loginPass" placeholder="Password">
+    <div class="modal-err" id="loginErr">Wrong credentials — try: sarath / sk@2024</div>
+    <div class="modal-btns">
+      <button class="modal-no" onclick="closeModal('loginModal')">Cancel</button>
+      <button class="modal-ok" onclick="doLogin()">Sign In →</button>
+    </div>
+  </div>
+</div>
+
+<!-- INPUT MODAL -->
+<div class="modal-ov" id="inputModal">
+  <div class="modal">
+    <h3 id="imTitle">Edit</h3>
+    <p id="imDesc"></p>
+    <div id="imFields"></div>
+    <div class="modal-btns">
+      <button class="modal-no" onclick="closeModal('inputModal')">Cancel</button>
+      <button class="modal-ok" id="imOk">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT BAR -->
+<div class="edit-bar" id="editBar">
+  <span class="eb-label">✎ EDIT MODE — CLICK TEXT · DRAG ⠿ TO REORDER · DRAG SECTIONS TOO</span>
+  <div class="eb-r">
+    <button class="eb-btn eb-save" onclick="saveEdits()">💾 Save</button>
+    <button class="eb-btn eb-cancel" onclick="exitEdit()">✕ Exit</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">SK<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#extracurricular">Life</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:sarathkrishna869@gmail.com" class="nav-hire" id="navHireBtn">Hire Me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#skills" onclick="closeMob()">Skills</a>
+  <a href="#experience" onclick="closeMob()">Experience</a>
+  <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#publications" onclick="closeMob()">Research</a>
+  <a href="#certifications" onclick="closeMob()">Certifications</a>
+  <a href="#extracurricular" onclick="closeMob()">Life</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- HERO (not draggable, always first) -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-lbl reveal"><span contenteditable="false" data-field="heroLabel" data-ph="Label">Software Engineer</span></div>
+        <h1 class="hero-name reveal">
+          <span contenteditable="false" data-field="heroName1" data-ph="First name">Sarath</span><br>
+          <span class="l2" contenteditable="false" data-field="heroName2" data-ph="Last name">Krishna C K</span>
+        </h1>
+        <div class="hero-typerow reveal"><span class="hero-typed" contenteditable="false" data-field="heroTyped" data-ph="Tagline">QA Engineer · Dev · AI/ML · IEEE Author</span></div>
+        <p class="hero-desc reveal" contenteditable="false" data-field="heroDesc" data-ph="Hero description">Building reliable software through rigorous testing and automation. Published IEEE researcher in AI-driven fraud detection. Based in Bengaluru, India.</p>
+        <div class="hero-btns reveal">
+          <a href="#projects" class="btn-p" id="heroCTA1" contenteditable="false" data-field="heroCTA1" data-ph="CTA text">View Work</a>
+          <button class="link-edit-btn" onclick="editLink('heroCTA1')">✎ link</button>
+          <a href="#contact" class="btn-g" id="heroCTA2" contenteditable="false" data-field="heroCTA2" data-ph="CTA2 text">Get in Touch</a>
+          <button class="link-edit-btn" onclick="editLink('heroCTA2')">✎ link</button>
+        </div>
+        <div class="hero-stats reveal">
+          <div><div class="stat-n" contenteditable="false" data-field="s1n">2</div><div class="stat-l" contenteditable="false" data-field="s1l">IEEE Papers</div></div>
+          <div><div class="stat-n" contenteditable="false" data-field="s2n">1+</div><div class="stat-l" contenteditable="false" data-field="s2l">Yrs. Exp</div></div>
+          <div><div class="stat-n" contenteditable="false" data-field="s3n">5+</div><div class="stat-l" contenteditable="false" data-field="s3l">Projects</div></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="av-ring">
+          <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
+          <div class="av-inner" onclick="trigAvatarUpload()" title="Click to change photo in edit mode">
+            <img id="avatarImg" src="https://picsum.photos/seed/sarathkrishna/400/400" alt="Sarath Krishna">
+            <div class="av-hover">📷<br>Change Photo</div>
+          </div>
+        </div>
+        <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatar(event)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DRAGGABLE SECTION CONTAINER ══ -->
+<div id="sectionContainer">
+
+<!-- ABOUT -->
+<section id="about" class="draggable-section" data-sec="about">
+  <div class="sec-drag-handle" title="Drag to reorder section">⠿</div>
+  <div class="container">
+    <div class="sec-label">About Me</div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p contenteditable="false" data-field="about1" data-ph="Paragraph 1"><strong>Hey, I'm Sarath.</strong> A software engineer who bridges quality assurance, development, and AI research. I specialize in building test automation frameworks and have a genuine passion for using machine learning to solve real-world problems.</p>
+        <p contenteditable="false" data-field="about2" data-ph="Paragraph 2">Currently a Project Engineer at <strong>Wipro, Bengaluru</strong>, working across QA, automation, and Agile teams. Worked remotely with teams in Australia and the UAE — giving me a global perspective on software delivery.</p>
+        <p contenteditable="false" data-field="about3" data-ph="Paragraph 3">B.Tech in Computer Science from <strong>Amrita Vishwa Vidyapeetham</strong>. Published two IEEE-indexed papers on credit card fraud detection using deep learning and graph neural networks.</p>
+        <div class="pills" id="pillsContainer">
+          <span class="pill ac">📍 Bengaluru, India</span>
+          <span class="pill">B.Tech CSE</span>
+          <span class="pill">Open to Global Opportunities</span>
+          <span class="pill">IEEE Author</span>
+        </div>
+        <button class="add-btn" onclick="addPill()">+ Add Tag</button>
+      </div>
+      <div>
+        <div class="timeline" id="tlContainer">
+          <div class="tl-item" draggable="false">
+            <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.tl-item').remove()">✕</button></div>
+            <div class="tl-date" contenteditable="false" data-ph="Date">Aug 2024 — Present</div>
+            <div class="tl-role" contenteditable="false" data-ph="Role">Project Engineer</div>
+            <div class="tl-co" contenteditable="false" data-ph="Company">Wipro, Bengaluru</div>
+            <div class="tl-desc" contenteditable="false" data-ph="Description">QA & Test Automation — Selenium, Tricentis Tosca, Agile.</div>
+          </div>
+          <div class="tl-item" draggable="false">
+            <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.tl-item').remove()">✕</button></div>
+            <div class="tl-date" contenteditable="false" data-ph="Date">Aug 2024 — Present</div>
+            <div class="tl-role" contenteditable="false" data-ph="Role">Test Engineer</div>
+            <div class="tl-co" contenteditable="false" data-ph="Company">DataDevice Pty Ltd., Australia (Remote)</div>
+            <div class="tl-desc" contenteditable="false" data-ph="Description">Manual, automation and black-box testing.</div>
+          </div>
+          <div class="tl-item" draggable="false">
+            <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.tl-item').remove()">✕</button></div>
+            <div class="tl-date" contenteditable="false" data-ph="Date">Jan — Mar 2024</div>
+            <div class="tl-role" contenteditable="false" data-ph="Role">IT Intern</div>
+            <div class="tl-co" contenteditable="false" data-ph="Company">Select Training, Abu Dhabi UAE (Remote)</div>
+            <div class="tl-desc" contenteditable="false" data-ph="Description">Web dev, UI/UX, full-stack development.</div>
+          </div>
+          <div class="tl-item" draggable="false">
+            <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.tl-item').remove()">✕</button></div>
+            <div class="tl-date" contenteditable="false" data-ph="Date">2020 — 2024</div>
+            <div class="tl-role" contenteditable="false" data-ph="Role">B.Tech Computer Science</div>
+            <div class="tl-co" contenteditable="false" data-ph="Company">Amrita Vishwa Vidyapeetham</div>
+            <div class="tl-desc" contenteditable="false" data-ph="Description">2 IEEE publications. AI research.</div>
+          </div>
+        </div>
+        <button class="add-btn" onclick="addTimeline()">+ Add Entry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="draggable-section" data-sec="skills" style="background:var(--bg2);">
+  <div class="sec-drag-handle">⠿</div>
+  <div class="container">
+    <div class="sec-label">Skills</div>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="skillsTitle">Tech Stack</h2>
+    <div class="skills-grid reveal" id="skillsGrid">
+      <div class="sk-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
+        <div class="sk-icon" contenteditable="false">🧪</div>
+        <div class="sk-cat" contenteditable="false" data-ph="Category">Testing & QA</div>
+        <div class="tag-wrap"><span class="sk-tag">Selenium<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Tosca<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">JMeter<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Manual<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
+      </div>
+      <div class="sk-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
+        <div class="sk-icon" contenteditable="false">🐍</div>
+        <div class="sk-cat" contenteditable="false" data-ph="Category">Programming</div>
+        <div class="tag-wrap"><span class="sk-tag">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Java<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">JavaScript<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">TypeScript<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
+      </div>
+      <div class="sk-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
+        <div class="sk-icon" contenteditable="false">🤖</div>
+        <div class="sk-cat" contenteditable="false" data-ph="Category">AI / ML</div>
+        <div class="tag-wrap"><span class="sk-tag">TensorFlow<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">scikit-learn<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">GNN<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Pandas<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
+      </div>
+      <div class="sk-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
+        <div class="sk-icon" contenteditable="false">🌐</div>
+        <div class="sk-cat" contenteditable="false" data-ph="Category">Web Dev</div>
+        <div class="tag-wrap"><span class="sk-tag">React<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">HTML/CSS<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
+      </div>
+      <div class="sk-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
+        <div class="sk-icon" contenteditable="false">🗄️</div>
+        <div class="sk-cat" contenteditable="false" data-ph="Category">Data & Cloud</div>
+        <div class="tag-wrap"><span class="sk-tag">MongoDB<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">MySQL<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">AWS IoT<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
+      </div>
+      <div class="sk-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div>
+        <div class="sk-icon" contenteditable="false">🎨</div>
+        <div class="sk-cat" contenteditable="false" data-ph="Category">Design & PM</div>
+        <div class="tag-wrap"><span class="sk-tag">Figma<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Jira<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="sk-tag">Agile<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="addSkillCard()">+ Add Skill Category</button>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="draggable-section" data-sec="experience">
+  <div class="sec-drag-handle">⠿</div>
+  <div class="container">
+    <div class="sec-label">Experience</div>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="expTitle">Where I've Worked</h2>
+    <div class="exp-grid reveal" id="expGrid">
+      <div class="exp-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div>
+        <div><span class="exp-badge" contenteditable="false" data-ph="Date">Aug 2024 — Now</span></div>
+        <div><div class="exp-role" contenteditable="false" data-ph="Role">Project Engineer — QA & Test Automation</div><div class="exp-co" contenteditable="false" data-ph="Company">Wipro · Bengaluru, India</div><div class="exp-desc" contenteditable="false" data-ph="Description">Fast-paced Agile team delivering test automation frameworks and QA strategy for enterprise clients. Selenium, Tricentis Tosca, manual testing.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">Selenium<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Tosca<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Agile<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div>
+      </div>
+      <div class="exp-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div>
+        <div><span class="exp-badge" contenteditable="false" data-ph="Date">Aug 2024 — Now</span></div>
+        <div><div class="exp-role" contenteditable="false" data-ph="Role">Test Engineer</div><div class="exp-co" contenteditable="false" data-ph="Company">DataDevice Pty Ltd. · Australia (Remote)</div><div class="exp-desc" contenteditable="false" data-ph="Description">Manual testing, automation, and black-box testing supporting Australian software product releases.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">Black-Box<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Automation<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div>
+      </div>
+      <div class="exp-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div>
+        <div><span class="exp-badge" contenteditable="false" data-ph="Date">Jan — Mar 2024</span></div>
+        <div><div class="exp-role" contenteditable="false" data-ph="Role">Information Technology Intern</div><div class="exp-co" contenteditable="false" data-ph="Company">Select Training & Management · Abu Dhabi, UAE (Remote)</div><div class="exp-desc" contenteditable="false" data-ph="Description">Web development, UI/UX design, full-stack development for an international training consultancy.</div><div class="tag-wrap" style="margin-top:.65rem;"><span class="exp-tag">UI/UX<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="exp-tag">Full-Stack<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="addExpCard()">+ Add Experience</button>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="draggable-section" data-sec="projects" style="background:var(--bg2);">
+  <div class="sec-drag-handle">⠿</div>
+  <div class="container">
+    <div class="sec-label">Projects</div>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="projTitle">Things I've Built</h2>
+    <div class="proj-grid reveal" id="projGrid">
+      <div class="proj-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
+        <div class="proj-n" contenteditable="false" data-ph="#">01 / FYP</div>
+        <div class="proj-t" contenteditable="false" data-ph="Title">Credit Card Fraud Detection — Deep Learning + GNN</div>
+        <div class="proj-d" contenteditable="false" data-ph="Description">Autoencoders, RNNs, GNNs, PCA, synthetic data generation to enhance fraud detection accuracy in banking transactions.</div>
+        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">TensorFlow<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">GNN<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
+        <span><a href="#" class="proj-link" id="pL0">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL0')">✎</button></span>
+      </div>
+      <div class="proj-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
+        <div class="proj-n" contenteditable="false" data-ph="#">02 / IoT</div>
+        <div class="proj-t" contenteditable="false" data-ph="Title">IoT Smart Street Light System</div>
+        <div class="proj-d" contenteditable="false" data-ph="Description">ESP32-based street lighting with AWS IoT MQTT broker, cloud analytics, GSM SMS alerts via emergency button.</div>
+        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">ESP32<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">AWS IoT<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
+        <span><a href="#" class="proj-link" id="pL1">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL1')">✎</button></span>
+      </div>
+      <div class="proj-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
+        <div class="proj-n" contenteditable="false" data-ph="#">03 / ML</div>
+        <div class="proj-t" contenteditable="false" data-ph="Title">ML Music Recommendation System</div>
+        <div class="proj-d" contenteditable="false" data-ph="Description">Compared multiple ML models for a personalized music recommendation engine with collaborative filtering.</div>
+        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Python<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">XGBoost<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
+        <span><a href="#" class="proj-link" id="pL2">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL2')">✎</button></span>
+      </div>
+      <div class="proj-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div>
+        <div class="proj-n" contenteditable="false" data-ph="#">04 / Web</div>
+        <div class="proj-t" contenteditable="false" data-ph="Title">ElectiveMGT — University Web App</div>
+        <div class="proj-d" contenteditable="false" data-ph="Description">Full-stack app streamlining university elective registration, role-based access, Agile sprints, and automated testing.</div>
+        <div class="tag-wrap" style="margin-top:.75rem;"><span class="proj-tool">Node.js<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><span class="proj-tool">MongoDB<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span><button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div>
+        <span><a href="#" class="proj-link" id="pL3">↗ View Project</a><button class="link-edit-btn" onclick="editLink('pL3')">✎</button></span>
+      </div>
+    </div>
+    <button class="add-btn" onclick="addProject()">+ Add Project</button>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="draggable-section" data-sec="publications">
+  <div class="sec-drag-handle">⠿</div>
+  <div class="container">
+    <div class="sec-label">Research</div>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="pubTitle">IEEE Publications</h2>
+    <div class="pub-grid reveal" id="pubGrid">
+      <div class="pub-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div>
+        <div class="pub-badge-box">📄</div>
+        <div><div class="pub-venue" contenteditable="false" data-ph="Venue">IEEE CVMI 2024 · International Conference</div><div class="pub-t" contenteditable="false" data-ph="Title">Enhancing Credit Card Fraud Detection: A Comparative Analysis of Anomaly Detection Models</div><div class="pub-d" contenteditable="false" data-ph="Abstract">Leverages deep learning models (autoencoders, RNNs) to detect fraudulent transactions. Outperforms traditional methods in accuracy and adaptability.</div><span><a href="#" class="pub-link" id="puL0">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('puL0')">✎</button></span></div>
+      </div>
+      <div class="pub-card" draggable="false">
+        <div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div>
+        <div class="pub-badge-box">📄</div>
+        <div><div class="pub-venue" contenteditable="false" data-ph="Venue">IEEE ICCCNT 2024 · Kamand, India</div><div class="pub-t" contenteditable="false" data-ph="Title">Enhancing Credit Card Fraud Detection with Deep Learning and Graph Neural Networks</div><div class="pub-d" contenteditable="false" data-ph="Abstract">Combines Auto-Encoders, RNNs, and Louvain Modularity to improve fraud pattern analysis and adaptability while addressing class imbalance.</div><span><a href="#" class="pub-link" id="puL1">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('puL1')">✎</button></span></div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="addPublication()">+ Add Publication</button>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="draggable-section" data-sec="certifications" style="background:var(--bg2);">
+  <div class="sec-drag-handle">⠿</div>
+  <div class="container">
+    <div class="sec-label">Certifications</div>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="certTitle">Credentials</h2>
+    <div class="cert-grid reveal" id="certGrid">
+      <div class="cert-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.cert-card').remove()">✕</button></div><div class="cert-badge-box">🎓</div><div class="cert-t" contenteditable="false" data-ph="Name">Natural Language Processing With Sequence Models</div><div class="cert-inst" contenteditable="false" data-ph="Institution">Coursera, Virtual</div><div class="cert-date" contenteditable="false" data-ph="Date">Issued: Dec 2023</div><span><a href="#" class="cert-link" id="cL0">↗ View Certificate</a><button class="link-edit-btn" onclick="editLink('cL0')">✎</button></span></div>
+      <div class="cert-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.cert-card').remove()">✕</button></div><div class="cert-badge-box">🏅</div><div class="cert-t" contenteditable="false" data-ph="Name">SAP BASIS</div><div class="cert-inst" contenteditable="false" data-ph="Institution">Innoval Digital Solutions Pvt Ltd</div><div class="cert-date" contenteditable="false" data-ph="Date">Issued: Jul – Aug 2024</div><span><a href="#" class="cert-link" id="cL1">↗ View Certificate</a><button class="link-edit-btn" onclick="editLink('cL1')">✎</button></span></div>
+      <div class="cert-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.cert-card').remove()">✕</button></div><div class="cert-badge-box">🎨</div><div class="cert-t" contenteditable="false" data-ph="Name">Digital Skills: User Experience</div><div class="cert-inst" contenteditable="false" data-ph="Institution">Accenture, Virtual</div><div class="cert-date" contenteditable="false" data-ph="Date">Issued: Jul 2022</div><span><a href="#" class="cert-link" id="cL2">↗ View Certificate</a><button class="link-edit-btn" onclick="editLink('cL2')">✎</button></span></div>
+      <div class="cert-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.cert-card').remove()">✕</button></div><div class="cert-badge-box">🐍</div><div class="cert-t" contenteditable="false" data-ph="Name">Python</div><div class="cert-inst" contenteditable="false" data-ph="Institution">GUVI Geek Networks, IITM Research Park</div><div class="cert-date" contenteditable="false" data-ph="Date">Issued: Jun 2020</div><span><a href="#" class="cert-link" id="cL3">↗ View Certificate</a><button class="link-edit-btn" onclick="editLink('cL3')">✎</button></span></div>
+      <div class="cert-card" draggable="false"><div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.cert-card').remove()">✕</button></div><div class="cert-badge-box">🤖</div><div class="cert-t" contenteditable="false" data-ph="Name">Elements of AI</div><div class="cert-inst" contenteditable="false" data-ph="Institution">University of Helsinki, Virtual</div><div class="cert-date" contenteditable="false" data-ph="Date">Issued: Jun 2021</div><span><a href="#" class="cert-link" id="cL4">↗ View Certificate</a><button class="link-edit-btn" onclick="editLink('cL4')">✎</button></span></div>
+    </div>
+    <button class="add-btn" onclick="addCert()">+ Add Certification</button>
+  </div>
+</section>
+
+<!-- ═══ EXTRACURRICULAR (Video BG) ═══ -->
+<section id="extracurricular" class="draggable-section" data-sec="extracurricular" style="padding:0;position:relative;overflow:hidden;">
+  <div class="sec-drag-handle" style="top:2rem;transform:none;left:2rem;position:absolute;z-index:10;">⠿</div>
+
+  <!-- styling to make yt iframe behave like a cover background -->
+  <style>
+    .yt-bg-wrap{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;}
+    .yt-bg-wrap iframe{
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:100%;
+      height:100%;
+      min-width:100%;
+      min-height:100%;
+      border:0;
+      /* a small transition avoids visible jumps when resizing */
+      transition:width .18s ease, height .18s ease;
+      /* don't rely on object-fit for iframes */
+    }
+  </style>
+
+  <!-- Looping video background - using a YouTube embed (replace YOUR_VIDEO_ID) -->
+  <div class="xc-video-bg yt-bg-wrap" aria-hidden="true">
+    <iframe
+      id="xcYt"
+      src="https://www.youtube.com/embed/Kmb9kwoJwIs?autoplay=1&mute=1&controls=0&loop=1&playlist=Kmb9kwoJwIs&si=_tRvhKaU47CWwcAA"
+      title="Background video"
+      allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <!-- Fallback gradient if video fails -->
+  <div class="xc-overlay" style="background:linear-gradient(135deg, rgba(7,7,9,0.55) 0%, rgba(7,7,9,0.18) 50%, rgba(7,7,9,0.28) 100%);"></div>
+  <div class="xc-grain"></div>
+
+  <div class="xc-content" style="position:relative;z-index:3;">
+    <div class="xc-label">Beyond the Code</div>
+    <div class="xc-activities" id="xcActivities">
+      <span class="xc-act" contenteditable="false" data-ph="Activity">📸 Photography</span>
+      <span class="xc-act" contenteditable="false" data-ph="Activity">🎬 Videography</span>
+      <span class="xc-act" contenteditable="false" data-ph="Activity">✈️ Travel</span>
+      <span class="xc-act" contenteditable="false" data-ph="Activity">🎵 Music</span>
+      <span class="xc-act" contenteditable="false" data-ph="Activity">📱 Social Media</span>
+      <span class="xc-act" contenteditable="false" data-ph="Activity">🎭 Storytelling</span>
+    </div>
+    <button class="add-btn xc-activities-edit" style="margin:0 auto .8rem;justify-content:center;" onclick="addXcActivity()">+ Add Activity</button>
+    <h2 class="xc-heading">There's more to me than <em>just code.</em></h2>
+    <p class="xc-sub" contenteditable="false" data-field="xcSub" data-ph="Subtext">Photographer. Storyteller. Creator. When I'm not engineering software, I'm capturing moments, exploring places, and making content that connects.</p>
+    <a href="life.html" class="xc-cta" id="xcCTA">
+      <span contenteditable="false" data-field="xcCTAText">Explore My Other Side</span>
+      <div class="xc-arrow">→</div>
+    </a>
+    <button class="link-edit-btn" style="display:none;margin-top:.5rem;" id="xcLinkBtn" onclick="editLink('xcCTA')">✎ edit link</button>
+  </div>
+
+  <div class="xc-pulse" style="z-index:3;"><div class="xc-scroll-dot"></div></div>
+
+  <!-- JS: ensure iframe covers the container preserving aspect ratio (16:9 default) -->
+  <script>
+    (function(){
+      const iframe = document.getElementById('xcYt');
+      const wrap = iframe && iframe.parentElement;
+      const videoRatio = 16/9; // change if using a different aspect ratio source
+      function cover() {
+        if(!wrap || !iframe) return;
+        const w = wrap.offsetWidth, h = wrap.offsetHeight;
+        if(w <= 0 || h <= 0) return;
+        const containerRatio = w / h;
+        // If container is wider than video, set width to cover; else set height to cover.
+        if (containerRatio > videoRatio) {
+          // container is wider -> grow width
+          iframe.style.width = (containerRatio / videoRatio * 100) + '%';
+          iframe.style.height = '100%';
+        } else {
+          // container is taller -> grow height
+          iframe.style.width = '100%';
+          iframe.style.height = (videoRatio / containerRatio * 100) + '%';
+        }
+        // center
+        iframe.style.left = '50%';
+        iframe.style.top = '50%';
+        iframe.style.transform = 'translate(-50%,-50%)';
+      }
+      // run on load + resize + a small delay to catch layout changes
+      window.addEventListener('load', ()=>{cover(); setTimeout(cover,250);});
+      window.addEventListener('resize', cover);
+      // also observe size changes of the section (for editor DOM edits)
+      if ('ResizeObserver' in window && wrap) {
+        const ro = new ResizeObserver(cover);
+        ro.observe(wrap);
+      }
+    })();
+  </script>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="draggable-section" data-sec="contact" style="background:var(--bg2);">
+  <div class="sec-drag-handle">⠿</div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="sec-label">Contact</div>
+        <h2 style="font-family:var(--fh);font-size:clamp(1.8rem,3vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:.9rem;" contenteditable="false" data-field="contactH">Let's build something <em style="color:var(--accent);font-style:normal;">great</em> together.</h2>
+        <p style="color:var(--muted);max-width:330px;line-height:1.7;font-size:.9rem;" contenteditable="false" data-field="contactSub">Open to full-time roles, freelance, and research partnerships. Reach out anytime.</p>
+        <span style="display:block;margin-top:1.6rem;">
+          <a href="mailto:sarathkrishna869@gmail.com" class="btn-p" id="contactCTA">Send an Email →</a>
+          <button class="link-edit-btn" onclick="editLink('contactCTA')">✎</button>
+        </span>
+      </div>
+      <div class="contact-links reveal" id="contactLinks">
+        <div class="c-link" id="ctEmail">
+          <div class="c-link-ico">✉</div>
+          <div class="c-link-text"><small>Email</small><span contenteditable="false" data-ph="Email">sarathkrishna869@gmail.com</span></div>
+          <button class="link-edit-btn" style="margin-left:auto;" onclick="editContactItem('ctEmail')">✎</button>
+        </div>
+        <div class="c-link" id="ctPhone">
+          <div class="c-link-ico">📱</div>
+          <div class="c-link-text"><small>Phone</small><span contenteditable="false" data-ph="Phone">+91 81379 03858</span></div>
+          <button class="link-edit-btn" style="margin-left:auto;" onclick="editContactItem('ctPhone')">✎</button>
+        </div>
+        <a href="https://linkedin.com/in/sarath-krishna-ck" target="_blank" class="c-link" id="ctLinkedIn">
+          <div class="c-link-ico" style="font-family:var(--fm);font-size:.75rem;font-weight:700;">in</div>
+          <div class="c-link-text"><small>LinkedIn</small><span contenteditable="false" data-ph="Handle">sarath-krishna-ck</span></div>
+          <button class="link-edit-btn" style="margin-left:auto;" onclick="editLink('ctLinkedIn');event.preventDefault()">✎</button>
+        </a>
+        <a href="https://github.com/sarathkrishna" target="_blank" class="c-link" id="ctGithub">
+          <div class="c-link-ico">⌥</div>
+          <div class="c-link-text"><small>GitHub</small><span contenteditable="false" data-ph="Username">@sarathkrishna</span></div>
+          <button class="link-edit-btn" style="margin-left:auto;" onclick="editLink('ctGithub');event.preventDefault()">✎</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /sectionContainer -->
+
+<footer>
+  <div class="container">
+    <p>© 2025 <span>Sarath Krishna C K</span> · Bengaluru 🇮🇳 · <a href="life.html" style="color:var(--accent2);text-decoration:none;">Explore My Other Side →</a></p>
+  </div>
+</footer>
+
+<button id="editToggle" onclick="openModal('loginModal')" title="Edit portfolio">✎</button>
+
+<script>
+const CREDS={user:'sarath',pass:'sk@2024'};
+let editMode=false, secDragSrc=null, cardDragSrc=null;
+
+function ls(k,v){if(v===undefined){try{return localStorage.getItem('sk_'+k);}catch(e){return null;}}try{localStorage.setItem('sk_'+k,v);}catch(e){}}
+
+window.addEventListener('DOMContentLoaded',()=>{restoreAll();initReveal();});
+
+function restoreAll(){
+  document.querySelectorAll('[data-field]').forEach(el=>{
+    const v=ls(el.dataset.field); if(v!==null) el.innerHTML=v;
+  });
+  const av=ls('avatar'); if(av) document.getElementById('avatarImg').src=av;
+  ['skillsGrid','expGrid','projGrid','pubGrid','certGrid','pillsContainer','contactLinks','xcActivities','tlContainer'].forEach(id=>{
+    const saved=ls('html_'+id); if(saved&&document.getElementById(id)) document.getElementById(id).innerHTML=saved;
+  });
+  // Restore section order
+  const order=ls('secOrder');
+  if(order){
+    try{
+      const ids=JSON.parse(order);
+      const sc=document.getElementById('sectionContainer');
+      ids.forEach(id=>{const el=document.querySelector(`[data-sec="${id}"]`);if(el) sc.appendChild(el);});
+    }catch(e){}
+  }
+  // Restore link hrefs
+  ['pL0','pL1','pL2','pL3','puL0','puL1','cL0','cL1','cL2','cL3','cL4','xcCTA','contactCTA'].forEach(id=>{
+    const v=ls('href_'+id); if(v){const el=document.getElementById(id);if(el)el.href=v;}
+    const t=ls('text_'+id); if(t){const el=document.getElementById(id);if(el)el.textContent=t;}
+  });
+}
+
+// MODALS
+function openModal(id){document.getElementById(id).classList.add('open');setTimeout(()=>{const f=document.querySelector('#'+id+' input');if(f)f.focus();},80);}
+function closeModal(id){document.getElementById(id).classList.remove('open');if(id==='loginModal'){document.getElementById('loginErr').style.display='none';document.getElementById('loginUser').value='';document.getElementById('loginPass').value='';}}
+document.querySelectorAll('.modal-ov').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id);}));
+document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+
+function showIM(title,desc,fields,onOk){
+  document.getElementById('imTitle').textContent=title;
+  document.getElementById('imDesc').textContent=desc||'';
+  const c=document.getElementById('imFields'); c.innerHTML='';
+  fields.forEach(f=>{
+    const el=document.createElement(f.type==='textarea'?'textarea':'input');
+    el.id='im_'+f.key; el.placeholder=f.placeholder||'';
+    if(f.type!=='textarea') el.type=f.type||'text';
+    else el.rows=3;
+    el.value=f.value||''; c.appendChild(el);
+  });
+  document.getElementById('imOk').onclick=()=>{
+    const vals={};fields.forEach(f=>{vals[f.key]=document.getElementById('im_'+f.key).value;});
+    onOk(vals);closeModal('inputModal');
+  };
+  openModal('inputModal');
+}
+
+// LOGIN
+function doLogin(){
+  const u=document.getElementById('loginUser').value.trim();
+  const p=document.getElementById('loginPass').value;
+  if(u===CREDS.user&&p===CREDS.pass){closeModal('loginModal');enableEdit();}
+  else{document.getElementById('loginErr').style.display='block';document.getElementById('loginPass').value='';}
+}
+
+function enableEdit(){
+  editMode=true;
+  document.body.classList.add('edit-mode');
+  document.getElementById('editBar').classList.add('on');
+  document.getElementById('editToggle').style.display='none';
+  document.getElementById('mainNav').style.top='36px';
+  document.getElementById('xcLinkBtn').style.display='inline';
+  document.querySelectorAll('[contenteditable="false"]').forEach(el=>el.setAttribute('contenteditable','true'));
+  initCardDrag('#tlContainer','.tl-item');
+  initCardDrag('#skillsGrid','.sk-card');
+  initCardDrag('#expGrid','.exp-card');
+  initCardDrag('#projGrid','.proj-card');
+  initCardDrag('#pubGrid','.pub-card');
+  initCardDrag('#certGrid','.cert-card');
+  initSectionDrag();
+}
+
+function exitEdit(){
+  editMode=false;
+  document.body.classList.remove('edit-mode');
+  document.getElementById('editBar').classList.remove('on');
+  document.getElementById('editToggle').style.display='flex';
+  document.getElementById('mainNav').style.top='0';
+  document.getElementById('xcLinkBtn').style.display='none';
+  document.querySelectorAll('[contenteditable="true"]').forEach(el=>el.setAttribute('contenteditable','false'));
+  document.querySelectorAll('[draggable="true"]').forEach(el=>el.setAttribute('draggable','false'));
+}
+
+function saveEdits(){
+  document.querySelectorAll('[data-field]').forEach(el=>ls(el.dataset.field,el.innerHTML));
+  ['skillsGrid','expGrid','projGrid','pubGrid','certGrid','pillsContainer','contactLinks','xcActivities','tlContainer'].forEach(id=>{
+    const el=document.getElementById(id); if(el) ls('html_'+id,el.innerHTML);
+  });
+  // Save section order
+  const order=[...document.querySelectorAll('#sectionContainer .draggable-section')].map(s=>s.dataset.sec);
+  ls('secOrder',JSON.stringify(order));
+  toast('✓ CHANGES SAVED');
+}
+
+function toast(msg){
+  const t=document.createElement('div');
+  t.style.cssText='position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;padding:.45rem 1.3rem;border-radius:100px;font-family:var(--fm);font-size:.72rem;font-weight:700;z-index:9999;letter-spacing:.06em;pointer-events:none;';
+  t.textContent=msg; document.body.appendChild(t);
+  setTimeout(()=>{t.style.transition='opacity .4s';t.style.opacity='0';},1800);
+  setTimeout(()=>t.remove(),2300);
+}
+
+// LINK EDITOR
+function editLink(id){
+  const el=document.getElementById(id); if(!el) return;
+  showIM('Edit Link','Update URL and label.',
+    [{key:'text',label:'Label',value:el.textContent.trim(),placeholder:'Link text'},
+     {key:'url',label:'URL',value:el.getAttribute('href')==='#'?'':el.getAttribute('href'),placeholder:'https://...'}],
+    v=>{el.href=v.url||'#';if(v.text)el.textContent=v.text;ls('href_'+id,v.url||'#');ls('text_'+id,v.text);}
+  );
+}
+function editContactItem(id){
+  const el=document.getElementById(id);
+  const span=el.querySelector('span');
+  const href=el.tagName==='A'?el.getAttribute('href'):'';
+  showIM('Edit Contact','',
+    [{key:'text',label:'Display',value:span?span.textContent.trim():'',placeholder:'Text'},
+     {key:'url',label:'Link (href)',value:href,placeholder:'mailto: or https://'}],
+    v=>{if(span)span.textContent=v.text;if(el.tagName==='A')el.href=v.url||'#';}
+  );
+}
+
+// AVATAR
+function trigAvatarUpload(){if(!editMode)return;document.getElementById('avatarInput').click();}
+function handleAvatar(e){
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=ev=>{document.getElementById('avatarImg').src=ev.target.result;ls('avatar',ev.target.result);};
+  r.readAsDataURL(file);
+}
+
+// TAG HELPER
+function addTag(btn,cls){
+  const label=cls==='proj-tool'?'Tool':'Tag';
+  showIM('Add '+label,'',
+    [{key:'v',label:label,placeholder:'e.g. Docker'}],
+    v=>{if(!v.v)return;const wrap=btn.closest('.tag-wrap');const s=document.createElement('span');s.className=cls;s.innerHTML=v.v+'<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span>';wrap.insertBefore(s,btn);}
+  );
+}
+
+// ADD ITEMS
+function addPill(){showIM('Add Tag','',
+  [{key:'t',label:'Tag text',placeholder:'e.g. Open to Relocation'}],
+  v=>{if(!v.t)return;const s=document.createElement('span');s.className='pill';s.setAttribute('contenteditable',editMode?'true':'false');s.textContent=v.t;document.getElementById('pillsContainer').appendChild(s);}
+);}
+
+function addXcActivity(){showIM('Add Activity','',
+  [{key:'t',label:'Activity (with emoji)',placeholder:'🎮 Gaming'}],
+  v=>{if(!v.t)return;const s=document.createElement('span');s.className='xc-act';s.setAttribute('contenteditable',editMode?'true':'false');s.textContent=v.t;document.getElementById('xcActivities').appendChild(s);}
+);}
+
+function addTimeline(){
+  showIM('Add Timeline Entry','',
+    [{key:'date',label:'Date',placeholder:'Jan 2024 — Mar 2024'},{key:'role',label:'Role',placeholder:'Job Title'},{key:'co',label:'Company',placeholder:'Company · Location'},{key:'desc',label:'Description',placeholder:'What you did...',type:'textarea'}],
+    v=>{
+      const d=document.createElement('div'); d.className='tl-item'; d.setAttribute('draggable','false');
+      d.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.tl-item').remove()">✕</button></div><div class="tl-date" contenteditable="${editMode}">${v.date||'Date'}</div><div class="tl-role" contenteditable="${editMode}">${v.role||'Role'}</div><div class="tl-co" contenteditable="${editMode}">${v.co||'Company'}</div><div class="tl-desc" contenteditable="${editMode}">${v.desc||''}</div>`;
+      document.getElementById('tlContainer').appendChild(d);
+      if(editMode) initCardDrag('#tlContainer','.tl-item');
+    }
+  );
+}
+
+function addSkillCard(){
+  showIM('Add Skill Category','',
+    [{key:'icon',label:'Icon',placeholder:'🔧'},{key:'cat',label:'Category',placeholder:'DevOps'},{key:'tags',label:'Skills (comma sep)',placeholder:'Docker, K8s'}],
+    v=>{
+      const tags=(v.tags||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="sk-tag">${t}<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span>`).join('');
+      const c=document.createElement('div'); c.className='sk-card'; c.setAttribute('draggable','false');
+      c.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.sk-card').remove()">✕</button></div><div class="sk-icon" contenteditable="${editMode}">${v.icon||'🔧'}</div><div class="sk-cat" contenteditable="${editMode}">${v.cat||'Category'}</div><div class="tag-wrap">${tags}<button class="add-tag-btn" onclick="addTag(this,'sk-tag')">+</button></div>`;
+      document.getElementById('skillsGrid').appendChild(c);
+      if(editMode) initCardDrag('#skillsGrid','.sk-card');
+    }
+  );
+}
+
+function addExpCard(){
+  showIM('Add Experience','',
+    [{key:'date',label:'Date',placeholder:'Jan 2024'},{key:'role',label:'Role',placeholder:'Engineer'},{key:'co',label:'Company',placeholder:'Company · Location'},{key:'desc',label:'Description',placeholder:'What you did',type:'textarea'},{key:'tags',label:'Tags (comma sep)',placeholder:'Python, AWS'}],
+    v=>{
+      const tags=(v.tags||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="exp-tag">${t}<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span>`).join('');
+      const c=document.createElement('div'); c.className='exp-card'; c.setAttribute('draggable','false');
+      c.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.exp-card').remove()">✕</button></div><div><span class="exp-badge" contenteditable="${editMode}">${v.date||'Date'}</span></div><div><div class="exp-role" contenteditable="${editMode}">${v.role||'Role'}</div><div class="exp-co" contenteditable="${editMode}">${v.co||'Company'}</div><div class="exp-desc" contenteditable="${editMode}">${v.desc||''}</div><div class="tag-wrap" style="margin-top:.65rem;">${tags}<button class="add-tag-btn" onclick="addTag(this,'exp-tag')">+</button></div></div>`;
+      document.getElementById('expGrid').appendChild(c);
+      if(editMode) initCardDrag('#expGrid','.exp-card');
+    }
+  );
+}
+
+function addProject(){
+  const lid='pL_'+Date.now();
+  showIM('Add Project','',
+    [{key:'num',label:'Number',placeholder:'05 / Web'},{key:'title',label:'Title',placeholder:'Project Title'},{key:'desc',label:'Description',placeholder:'What you built',type:'textarea'},{key:'tools',label:'Tools (comma sep)',placeholder:'React, Node.js'},{key:'url',label:'Project URL',placeholder:'https://github.com/...'}],
+    v=>{
+      const tools=(v.tools||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="proj-tool">${t}<span class="del-tag" onclick="this.parentElement.remove()"> ✕</span></span>`).join('');
+      const c=document.createElement('div'); c.className='proj-card'; c.setAttribute('draggable','false');
+      c.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.proj-card').remove()">✕</button></div><div class="proj-n" contenteditable="${editMode}">${v.num||'0x'}</div><div class="proj-t" contenteditable="${editMode}">${v.title||'Title'}</div><div class="proj-d" contenteditable="${editMode}">${v.desc||''}</div><div class="tag-wrap" style="margin-top:.75rem;">${tools}<button class="add-tag-btn" style="background:rgba(200,242,58,.06);color:var(--accent);border-color:rgba(200,242,58,.2);" onclick="addTag(this,'proj-tool')">+</button></div><span><a href="${v.url||'#'}" class="proj-link" id="${lid}">↗ View Project</a><button class="link-edit-btn" onclick="editLink('${lid}')">✎</button></span>`;
+      document.getElementById('projGrid').appendChild(c);
+      if(editMode) initCardDrag('#projGrid','.proj-card');
+    }
+  );
+}
+
+function addPublication(){
+  const lid='puL_'+Date.now();
+  showIM('Add Publication','',
+    [{key:'venue',label:'Venue',placeholder:'IEEE Conference 2025'},{key:'title',label:'Title',placeholder:'Paper title'},{key:'desc',label:'Abstract',placeholder:'Description',type:'textarea'},{key:'url',label:'URL',placeholder:'https://ieeexplore...'}],
+    v=>{
+      const c=document.createElement('div'); c.className='pub-card'; c.setAttribute('draggable','false');
+      c.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.pub-card').remove()">✕</button></div><div class="pub-badge-box">📄</div><div><div class="pub-venue" contenteditable="${editMode}">${v.venue||'Venue'}</div><div class="pub-t" contenteditable="${editMode}">${v.title||'Title'}</div><div class="pub-d" contenteditable="${editMode}">${v.desc||''}</div><span><a href="${v.url||'#'}" class="pub-link" id="${lid}">↗ Read Paper</a><button class="link-edit-btn" onclick="editLink('${lid}')">✎</button></span></div>`;
+      document.getElementById('pubGrid').appendChild(c);
+      if(editMode) initCardDrag('#pubGrid','.pub-card');
+    }
+  );
+}
+
+function addCert(){
+  const lid='cL_'+Date.now();
+  showIM('Add Certification','',
+    [{key:'icon',label:'Icon',placeholder:'🎓'},{key:'title',label:'Name',placeholder:'AWS Solutions Architect'},{key:'inst',label:'Institution',placeholder:'Amazon'},{key:'date',label:'Date',placeholder:'Issued: Jan 2025'},{key:'url',label:'Certificate URL',placeholder:'https://...'}],
+    v=>{
+      const c=document.createElement('div'); c.className='cert-card'; c.setAttribute('draggable','false');
+      c.innerHTML=`<div class="card-actions"><div class="drag-h">⠿</div><button class="del-btn" onclick="this.closest('.cert-card').remove()">✕</button></div><div class="cert-badge-box">${v.icon||'🎓'}</div><div class="cert-t" contenteditable="${editMode}">${v.title||'Name'}</div><div class="cert-inst" contenteditable="${editMode}">${v.inst||'Institution'}</div><div class="cert-date" contenteditable="${editMode}">${v.date||'Issued: —'}</div><span><a href="${v.url||'#'}" class="cert-link" id="${lid}">↗ View Certificate</a><button class="link-edit-btn" onclick="editLink('${lid}')">✎</button></span>`;
+      document.getElementById('certGrid').appendChild(c);
+      if(editMode) initCardDrag('#certGrid','.cert-card');
+    }
+  );
+}
+
+// ═══════════════════════════════════
+// CARD-LEVEL DRAG
+// ═══════════════════════════════════
+function initCardDrag(contSel,itemSel){
+  const cont=document.querySelector(contSel); if(!cont) return;
+  cont.querySelectorAll(itemSel).forEach(item=>{
+    item.setAttribute('draggable','true');
+    item.removeEventListener('dragstart',onCardDragStart);
+    item.removeEventListener('dragover',onCardDragOver);
+    item.removeEventListener('dragleave',onCardDragLeave);
+    item.removeEventListener('drop',onCardDrop);
+    item.removeEventListener('dragend',onCardDragEnd);
+    item.addEventListener('dragstart',onCardDragStart);
+    item.addEventListener('dragover',onCardDragOver);
+    item.addEventListener('dragleave',onCardDragLeave);
+    item.addEventListener('drop',onCardDrop);
+    item.addEventListener('dragend',onCardDragEnd);
+  });
+}
+function onCardDragStart(e){cardDragSrc=this;this.classList.add('card-dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text','');}
+function onCardDragOver(e){e.preventDefault();e.dataTransfer.dropEffect='move';if(this!==cardDragSrc)this.classList.add('card-drag-over');}
+function onCardDragLeave(){this.classList.remove('card-drag-over');}
+function onCardDrop(e){
+  e.stopPropagation();
+  if(cardDragSrc&&this!==cardDragSrc){
+    const p=this.parentNode;
+    const si=[...p.children].indexOf(cardDragSrc),ti=[...p.children].indexOf(this);
+    if(si<ti) p.insertBefore(cardDragSrc,this.nextSibling); else p.insertBefore(cardDragSrc,this);
+  }
+  this.classList.remove('card-drag-over');
+}
+function onCardDragEnd(){
+  if(this) this.classList.remove('card-dragging');
+  document.querySelectorAll('.card-drag-over').forEach(el=>el.classList.remove('card-drag-over'));
+  cardDragSrc=null;
+}
+
+// ═══════════════════════════════════
+// SECTION-LEVEL DRAG
+// ═══════════════════════════════════
+function initSectionDrag(){
+  const secs=document.querySelectorAll('#sectionContainer .draggable-section');
+  secs.forEach(sec=>{
+    sec.setAttribute('draggable','false'); // default — only via handle
+    const handle=sec.querySelector('.sec-drag-handle');
+    if(!handle) return;
+    handle.addEventListener('mousedown',()=>{sec.setAttribute('draggable','true');});
+    handle.addEventListener('mouseup',()=>{setTimeout(()=>sec.setAttribute('draggable','false'),100);});
+    sec.removeEventListener('dragstart',onSecDragStart);
+    sec.removeEventListener('dragover',onSecDragOver);
+    sec.removeEventListener('dragleave',onSecDragLeave);
+    sec.removeEventListener('drop',onSecDrop);
+    sec.removeEventListener('dragend',onSecDragEnd);
+    sec.addEventListener('dragstart',onSecDragStart);
+    sec.addEventListener('dragover',onSecDragOver);
+    sec.addEventListener('dragleave',onSecDragLeave);
+    sec.addEventListener('drop',onSecDrop);
+    sec.addEventListener('dragend',onSecDragEnd);
+  });
+}
+function onSecDragStart(e){secDragSrc=this;this.classList.add('sec-dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',this.dataset.sec);}
+function onSecDragOver(e){e.preventDefault();if(this!==secDragSrc&&this.closest('#sectionContainer'))this.classList.add('sec-drag-over');}
+function onSecDragLeave(e){if(!this.contains(e.relatedTarget))this.classList.remove('sec-drag-over');}
+function onSecDrop(e){
+  e.stopPropagation();e.preventDefault();
+  if(secDragSrc&&this!==secDragSrc&&this.closest('#sectionContainer')){
+    const sc=document.getElementById('sectionContainer');
+    const si=[...sc.children].indexOf(secDragSrc),ti=[...sc.children].indexOf(this);
+    if(si<ti) sc.insertBefore(secDragSrc,this.nextSibling); else sc.insertBefore(secDragSrc,this);
+  }
+  this.classList.remove('sec-drag-over');
+  // Update section order saved
+  const order=[...document.querySelectorAll('#sectionContainer .draggable-section')].map(s=>s.dataset.sec);
+  ls('secOrder',JSON.stringify(order));
+}
+function onSecDragEnd(){
+  if(secDragSrc){secDragSrc.classList.remove('sec-dragging');secDragSrc.setAttribute('draggable','false');}
+  document.querySelectorAll('.sec-drag-over').forEach(el=>el.classList.remove('sec-drag-over'));
+  secDragSrc=null;
+}
+
+// MOBILE NAV
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
+
+// SCROLL REVEAL
+function initReveal(){
+  const els=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*65);obs.unobserve(e.target);}});},{threshold:.07});
+  els.forEach(el=>obs.observe(el));
+}
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.boxShadow=window.scrollY>50?'0 4px 28px rgba(0,0,0,.5)':'none';});
+document.addEventListener('mousemove',e=>{if(Math.random()>.95){const d=document.createElement('div');d.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:3px;height:3px;border-radius:50%;background:rgba(200,242,58,.55);pointer-events:none;z-index:9998;transition:all .5s;transform:translate(-50%,-50%)`;document.body.appendChild(d);setTimeout(()=>{d.style.opacity='0';d.style.transform='translate(-50%,-50%) scale(0)';},40);setTimeout(()=>d.remove(),560);}});
+</script>
+</body>
+</html>
