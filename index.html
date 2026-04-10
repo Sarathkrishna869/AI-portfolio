@@ -956,81 +956,28 @@ async function sendAiMsg(){
   input.value=''; autoResize(input);
 
   if(aiTraining){
-    // TRAIN MODE: store new knowledge
     appendAiMsg(msg,'train');
-    const existing = ls('aiKnowledge') || '';
-    const newKnowledge = existing + '\n- ' + msg;
-    ls('aiKnowledge', newKnowledge);
-    // Also ask Claude to acknowledge + confirm what it learned
-    await callClaude(msg, true);
+    addAiKnowledge(msg);
+    const reply = `Thanks! I’ve learned this new information: "${msg}". I will use it for future conversations.`;
+    appendAiMsg(reply,'bot');
   } else {
-    // VISITOR MODE: answer question
     appendAiMsg(msg,'user');
-    await callClaude(msg, false);
+    const reply = generateLocalReply(msg);
+    appendAiMsg(reply,'bot');
   }
 }
 
-async function callClaude(msg, isTraining){
+function callLocalAi(msg){
   aiLoading=true;
   document.getElementById('aiSend').disabled=true;
   document.getElementById('aiStatus').textContent='● Thinking...';
-
-  // Show typing indicator
-  const typingEl = document.createElement('div');
-  typingEl.className='ai-typing';
-  typingEl.innerHTML='<span></span><span></span><span></span>';
-  typingEl.id='aiTyping';
-  document.getElementById('aiMessages').appendChild(typingEl);
-  scrollAi();
-
-  try{
-    const systemPrompt = buildAiContext();
-    
-    // Build messages array with full history
-    const messages = [...aiConversation];
-    
-    if(isTraining){
-      messages.push({
-        role:'user',
-        content: `I'm the owner of this portfolio. I want you to learn this new information about me and confirm you've understood it: "${msg}". Also update your knowledge base accordingly and let me know what you now know.`
-      });
-    } else {
-      messages.push({role:'user', content: msg});
-    }
-
-    const response = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system: systemPrompt,
-        messages: messages
-      })
-    });
-
-    const data = await response.json();
-    const reply = data.content && data.content[0] && data.content[0].text
-      ? data.content[0].text
-      : "I'm having trouble connecting right now. Please try again!";
-
-    // Update conversation history (keep last 10 exchanges to stay within limits)
-    aiConversation.push({role:'user', content: isTraining ? `Learn this about me: ${msg}` : msg});
-    aiConversation.push({role:'assistant', content: reply});
-    if(aiConversation.length > 20) aiConversation = aiConversation.slice(-20);
-
-    // Remove typing indicator and show reply
-    const t=document.getElementById('aiTyping'); if(t) t.remove();
+  setTimeout(() => {
+    const reply = generateLocalReply(msg);
     appendAiMsg(reply,'bot');
-
-  } catch(err){
-    const t=document.getElementById('aiTyping'); if(t) t.remove();
-    appendAiMsg("Connection issue — please check back shortly!",'bot');
-  }
-
-  aiLoading=false;
-  document.getElementById('aiSend').disabled=false;
-  document.getElementById('aiStatus').textContent='● Online — Ask me anything';
+    aiLoading=false;
+    document.getElementById('aiSend').disabled=false;
+    document.getElementById('aiStatus').textContent='● Local AI — Ask me anything';
+  }, 250);
 }
 
 function appendAiMsg(text, type){
@@ -1444,6 +1391,20 @@ function initReveal(){
 }
 window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.boxShadow=window.scrollY>50?'0 4px 28px rgba(0,0,0,.5)':'none';});
 document.addEventListener('mousemove',e=>{if(Math.random()>.95){const d=document.createElement('div');d.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:3px;height:3px;border-radius:50%;background:rgba(200,242,58,.55);pointer-events:none;z-index:9998;transition:all .5s;transform:translate(-50%,-50%)`;document.body.appendChild(d);setTimeout(()=>{d.style.opacity='0';d.style.transform='translate(-50%,-50%) scale(0)';},40);setTimeout(()=>d.remove(),560);}});
+
+// ════════════════════════════════════════════════════════════════
+// ADVANCED LOCAL AI WITH NLP & FUZZY MATCHING (100% API-Free)
+// ════════════════════════════════════════════════════════════════
+function levenshtein(a,b){const matrix=[];for(let i=0;i<=b.length;i++)matrix[i]=[i];for(let j=0;j<=a.length;j++)matrix[0][j]=j;for(let i=1;i<=b.length;i++){for(let j=1;j<=a.length;j++){if(b.charAt(i-1)===a.charAt(j-1))matrix[i][j]=matrix[i-1][j-1];else matrix[i][j]=Math.min(matrix[i-1][j-1]+1,matrix[i][j-1]+1,matrix[i-1][j]+1);}};return matrix[b.length][a.length];}
+function spellCheck(word){const commonWords=['sarath','krishna','skills','experience','projects','publications','certifications','contact','email','work','education','research','ai','ml','python','java','javascript','selenium','tosca','tensorflow','react','node','mongodb','aws','iot','fraud','detection','deep','learning','graph','neural','networks','ieee','wipro','datadevice','amrita','university','btech','computer','science','software','engineer','qa','testing','automation','web','development','full','stack','photography','videography','travel','music','social','media','storytelling','hire','collaborate','freelance','remote','australia','uae','bengaluru','india','linkedin','github','phone','location','personality','interests','availability','roles','opportunities','europe','relocation'];let bestMatch=word,minDistance=Infinity;commonWords.forEach(dictWord=>{const dist=levenshtein(word,dictWord);if(dist<minDistance&&dist<=2){minDistance=dist;bestMatch=dictWord;}});return minDistance<=2?bestMatch:word;}
+function correctQuery(query){return query.replace(/\b[a-z]+\b/g,spellCheck);}
+function splitQueries(msg){const separators=/\s+(and|or|also|plus|what about|tell me about|can you)\s+/gi;return msg.split(separators).filter(part=>part.trim()&&!/^(and|or|also|plus|what about|tell me about|can you)$/i.test(part.trim()));}
+function getAiKnowledge(){try{return JSON.parse(localStorage.getItem('aiKnowledge'))||[];}catch{return[];}}
+function saveAiKnowledge(knowledge){localStorage.setItem('aiKnowledge',JSON.stringify(knowledge));}
+function addAiKnowledge(entry){const k=getAiKnowledge();if(!k.some(item=>item.toLowerCase()===entry.toLowerCase())){k.push(entry);saveAiKnowledge(k);}}
+function buildAiCorpus(){const base=[...document.querySelectorAll('section')].map(s=>s.textContent).filter(t=>t.length>30);const nav=document.getElementById('mainNav')?document.getElementById('mainNav').textContent:'';const footer=document.querySelector('footer')?document.querySelector('footer').textContent:'';const trained=getAiKnowledge()||[];return [...base,nav,footer,...trained].filter(t=>t&&t.length>20).map(t=>t.replace(/\s+/g,' ').substring(0,500));}
+function scoreText(query,text){const qWords=query.toLowerCase().split(/\s+/).filter(w=>w.length>2);let score=0;qWords.forEach(w=>{if(text.toLowerCase().includes(w))score++;});return score;}
+function generateLocalReply(msg){const correctedMsg=correctQuery(msg.toLowerCase());const queries=splitQueries(correctedMsg);const responses=[];queries.forEach(query=>{const corpus=buildAiCorpus();let bestMatch='',bestScore=0;corpus.forEach(item=>{const score=scoreText(query,item);if(score>bestScore){bestScore=score;bestMatch=item;}});const threshold=Math.max(3,Math.floor((query.match(/\b[a-z0-9]+\b/g)||[]).length/2));if(bestScore>=threshold&&bestMatch){responses.push(`Here's what I found:\n${bestMatch}`);}else{const fallbackAnswers=[{keys:['skill','technology','stack','tech','language','tool'],text:'Sarath is strong in QA, Selenium, Tosca, Python, Java, JavaScript, TypeScript, AI/ML, TensorFlow, scikit-learn, GNN, React, Node.js, MongoDB, and AWS IoT.'},{keys:['experience','work','project engineer','test engineer','wipro','datadevice','intern','role','job'],text:'He works as a Project Engineer at Wipro and a Test Engineer for an Australian team, with previous remote internship experience in web development and testing.'},{keys:['education','degree','b.tech','amrita','college','university'],text:'He completed his B.Tech in Computer Science at Amrita Vishwa Vidyapeetham from 2020 to 2024.'},{keys:['publication','paper','ieee','research','fraud detection','graph neural network','gnn'],text:'He has published IEEE research on credit-card fraud detection using deep learning, autoencoders, RNNs, and graph neural networks.'},{keys:['contact','email','hire','reach out','collaborate','freelance'],text:'You can reach him at sarathkrishna869@gmail.com. He is open to full-time roles, freelance work, and research partnerships.'},{keys:['hello','hi','hey','greetings'],text:'Hello! I\'m Sarath\'s AI assistant. I can tell you about his skills, experience, projects, publications, and more. What would you like to know?'},{keys:['who','about','background','bio'],text:'Sarath Krishna C K is a software engineer specializing in QA and test automation. He has a B.Tech in Computer Science, IEEE publications on AI fraud detection, and experience at Wipro and international remote teams.'},{keys:['location','where','live','based'],text:'Sarath is based in Bengaluru, India, but has worked remotely with teams in Australia and the UAE.'},{keys:['hobbies','interests','personal','outside work'],text:'Outside of work, Sarath enjoys photography, videography, travel, music, social media, and visual storytelling.'}];let found=false;for(const item of fallbackAnswers){if(item.keys.some(k=>query.includes(k))){responses.push(item.text);found=true;break;}}if(!found){responses.push('I\'m a local assistant built from this portfolio. I can answer questions about Sarath\'s background, skills, projects, publications, and certifications. Ask me about his experience, his AI work, or how to contact him.');}}});return responses.join('\n\n');}
 </script>
 </body>
 </html>
