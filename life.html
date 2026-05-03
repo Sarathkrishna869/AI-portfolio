@@ -8,33 +8,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#060608;--bg2:#0c0c10;--bg3:#131318;--surface:#18181f;--surface2:#1f1f28;
-  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);
-  --text:#eeedf6;--muted:#7e7e92;
-  --a:#3af2b8;--a2:#c8f23a;--a3:#f23a8c;--a4:#f2923a;
-  --fh:'Syne',sans-serif;--fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;
-}
+:root{--bg:#060608;--bg2:#0c0c10;--bg3:#131318;--surface:#18181f;--surface2:#1f1f28;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--text:#eeedf6;--muted:#7e7e92;--a:#3af2b8;--a2:#c8f23a;--a3:#f23a8c;--fh:'Syne',sans-serif;--fm:'Space Mono',monospace;--fb:'DM Sans',sans-serif;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:hidden;}
 ::selection{background:var(--a);color:#000;}
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-thumb{background:var(--a);border-radius:2px;}
-
-/* BG */
 .bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(58,242,184,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(58,242,184,.015) 1px,transparent 1px);background-size:50px 50px;}
 .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(6,6,8,.85);border-bottom:.5px solid var(--border);}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(6,6,8,.85);border-bottom:.5px solid var(--border);transition:top .3s;}
 .nav-back{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.72rem;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.05em;}
 .nav-back:hover{color:var(--a);}
 .nav-logo{font-family:var(--fh);font-size:1rem;font-weight:800;color:var(--text);}
 .nav-logo span{color:var(--a);}
-.nav-r{display:flex;align-items:center;gap:.7rem;}
 .nav-hire{background:var(--a);color:#000;padding:.38rem .9rem;border-radius:100px;font-weight:700;font-size:.72rem;text-decoration:none;transition:all .2s;}
 .nav-hire:hover{background:#50f7c4;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;}
+.mob-menu{display:none;position:fixed;top:58px;left:0;right:0;background:rgba(6,6,8,.97);border-bottom:.5px solid var(--border);padding:1.2rem 2rem;flex-direction:column;gap:1rem;z-index:199;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-family:var(--fm);padding:.3rem 0;border-bottom:.5px solid var(--border);}
 
 /* HERO */
 #hero-life{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:6rem 2rem 4rem;}
@@ -54,21 +50,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 2rem;display:f
 .scroll-track::after{content:'';position:absolute;top:0;left:0;width:100%;height:50%;background:var(--a);animation:scrollLine 1.6s ease-in-out infinite;}
 @keyframes scrollLine{0%{transform:translateY(-100%)}70%{transform:translateY(200%)}100%{transform:translateY(200%)}}
 
-/* SECTION */
+/* LAYOUT */
 section{padding:5rem 0;}
 .container{max-width:1060px;margin:0 auto;padding:0 2rem;}
 .sec-lbl{font-family:var(--fm);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a);display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem;}
 .sec-lbl::before{content:'';width:22px;height:1px;background:var(--a);}
 .sec-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
 .sec-title{font-family:var(--fh);font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:2rem;}
-
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
-/* ══ SOCIAL GRID ══ */
+/* SOCIAL */
 #social{background:var(--bg);}
-.social-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
+.social-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
 .social-card{background:var(--surface);border:.5px solid var(--border);border-radius:14px;padding:1.5rem;text-decoration:none;color:var(--text);transition:all .3s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .social-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;}
 .social-card:hover{transform:translateY(-4px);}
@@ -92,14 +86,15 @@ section{padding:5rem 0;}
 .sc-follow{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--a);margin-top:.8rem;transition:gap .2s;position:relative;z-index:1;}
 .social-card:hover .sc-follow{gap:.5rem;}
 
-/* ══ YOUTUBE SECTION ══ */
+/* YOUTUBE */
 #youtube{background:var(--bg2);}
 .yt-hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:3rem;}
 .yt-channel-card{background:var(--surface);border:.5px solid rgba(255,0,0,.2);border-radius:16px;padding:2rem;position:relative;overflow:hidden;}
 .yt-channel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ff0000,#ff4444);}
-.yt-banner{width:100%;height:120px;border-radius:10px;background:linear-gradient(135deg,#1a0000,#2a0808,#1a0000);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;position:relative;overflow:hidden;}
-.yt-banner-text{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:rgba(255,255,255,.1);letter-spacing:-.04em;user-select:none;}
-.yt-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#ff0000,#cc0000);border:2px solid rgba(255,0,0,.3);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:1.1rem;color:#fff;flex-shrink:0;}
+.yt-banner{width:100%;height:120px;border-radius:10px;background:linear-gradient(135deg,#1a0000,#2a0808,#1a0000);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;position:relative;overflow:hidden;cursor:pointer;}
+.yt-banner-text{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:rgba(255,255,255,.1);letter-spacing:-.04em;}
+.yt-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#ff0000,#cc0000);border:2px solid rgba(255,0,0,.3);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:1.1rem;color:#fff;flex-shrink:0;cursor:pointer;overflow:hidden;}
+.yt-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
 .yt-info{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
 .yt-channel-name{font-family:var(--fh);font-size:1.1rem;font-weight:800;}
 .yt-subs{font-family:var(--fm);font-size:.68rem;color:var(--muted);}
@@ -114,7 +109,6 @@ section{padding:5rem 0;}
 .yt-about{background:var(--surface);border:.5px solid var(--border);border-radius:10px;padding:1.2rem;}
 .yt-about-t{font-family:var(--fh);font-size:.85rem;font-weight:700;margin-bottom:.5rem;}
 .yt-about-d{font-size:.8rem;color:var(--muted);line-height:1.6;}
-/* Video cards */
 .yt-videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem;}
 .yt-vid{background:var(--surface);border:.5px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s;position:relative;}
 .yt-vid:hover{transform:translateY(-3px);border-color:rgba(255,0,0,.2);}
@@ -128,8 +122,9 @@ section{padding:5rem 0;}
 .yt-vid-body{padding:1rem;}
 .yt-vid-title{font-family:var(--fh);font-size:.88rem;font-weight:700;margin-bottom:.3rem;line-height:1.3;}
 .yt-vid-meta{font-family:var(--fm);font-size:.62rem;color:var(--muted);}
+.proj-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--fm);font-size:.63rem;color:var(--a);margin-top:.5rem;text-decoration:none;}
 
-/* ══ ACTIVITIES / HOBBIES ══ */
+/* ACTIVITIES */
 #activities{background:var(--bg);}
 .act-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
 .act-card{background:var(--surface);border:.5px solid var(--border);border-radius:14px;padding:1.4rem;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
@@ -140,21 +135,20 @@ section{padding:5rem 0;}
 .act-name{font-family:var(--fh);font-size:.9rem;font-weight:700;margin-bottom:.3rem;}
 .act-desc{font-size:.77rem;color:var(--muted);line-height:1.5;}
 
-/* ══ PHOTOGRAPHY / VISUAL ══ */
+/* GALLERY */
 #visual{background:var(--bg2);}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:.7rem;}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;}
 .gallery-item{border-radius:10px;overflow:hidden;aspect-ratio:1;background:var(--surface);position:relative;transition:all .3s;}
 .gallery-item.tall{grid-row:span 2;aspect-ratio:auto;}
 .gallery-item.wide{grid-column:span 2;}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
 .gallery-item:hover img{transform:scale(1.04);}
 .gallery-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;color:rgba(255,255,255,.1);font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;background:var(--surface2);}
-.gallery-item:hover{border-color:rgba(58,242,184,.3);}
 .gallery-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;transition:opacity .2s;display:flex;align-items:flex-end;padding:.8rem;}
 .gallery-item:hover .gallery-overlay{opacity:1;}
 .gallery-caption{font-family:var(--fm);font-size:.62rem;color:#fff;letter-spacing:.06em;}
 
-/* ══ INTERESTS ══ */
+/* INTERESTS */
 #interests{background:var(--bg);}
 .int-list{display:flex;flex-direction:column;gap:.75rem;}
 .int-item{display:flex;align-items:center;gap:1.2rem;padding:1.1rem 1.3rem;background:var(--surface);border:.5px solid var(--border);border-radius:12px;transition:all .2s;position:relative;overflow:hidden;}
@@ -166,7 +160,7 @@ section{padding:5rem 0;}
 .int-desc{font-size:.78rem;color:var(--muted);}
 .int-tag{margin-left:auto;font-family:var(--fm);font-size:.62rem;padding:.18rem .55rem;border-radius:100px;background:rgba(58,242,184,.08);color:var(--a);border:.5px solid rgba(58,242,184,.2);}
 
-/* ══ CTA BACK ══ */
+/* CTA BACK */
 #cta-back{background:var(--bg2);text-align:center;padding:5rem 0;}
 .back-kicker{font-family:var(--fm);font-size:.66rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:.8rem;}
 .back-h{font-family:var(--fh);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.9rem;}
@@ -183,20 +177,38 @@ footer{border-top:.5px solid var(--border);padding:1.6rem 0;text-align:center;}
 footer p{font-family:var(--fm);font-size:.65rem;color:var(--muted);}
 footer span{color:var(--a2);}
 
+/* ════ SECTION DRAG ════ */
+#sectionContainer{display:flex;flex-direction:column;}
+.draggable-section{position:relative;}
+.sec-drag-handle{display:none;position:absolute;left:8px;top:12px;width:26px;height:26px;border-radius:6px;background:rgba(58,242,184,.1);border:.5px solid rgba(58,242,184,.2);color:var(--a);font-size:13px;cursor:grab;align-items:center;justify-content:center;z-index:50;font-family:var(--fm);transition:all .2s;}
+.sec-drag-handle:hover{background:rgba(58,242,184,.2);}
+.sec-drag-handle:active{cursor:grabbing;}
+.edit-mode .draggable-section:hover>.sec-drag-handle{display:flex;}
+.draggable-section.sec-dragging{opacity:.35;outline:2px dashed var(--a);outline-offset:4px;}
+.draggable-section.sec-drag-over{outline:2px solid var(--a2);outline-offset:4px;background:rgba(58,242,184,.02);}
+
+/* ════ CARD DRAG ════ */
+.drag-h{width:22px;height:22px;border-radius:50%;background:rgba(58,242,184,.08);border:.5px solid rgba(58,242,184,.2);color:var(--a);font-size:10px;cursor:grab;display:flex;align-items:center;justify-content:center;}
+.drag-h:active{cursor:grabbing;}
+.card-dragging{opacity:.35;border:1px dashed var(--a)!important;}
+.card-drag-over{border:1px solid var(--a)!important;background:rgba(58,242,184,.04)!important;}
+
 /* ════ EDIT MODE ════ */
 #editToggle{position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;width:36px;height:36px;border-radius:50%;background:var(--surface2);border:.5px solid var(--border2);color:var(--muted);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:.3;}
 #editToggle:hover{opacity:1;color:var(--a);border-color:var(--a);}
 .edit-bar{position:fixed;top:0;left:0;right:0;z-index:250;background:var(--a);color:#000;padding:.5rem 1.5rem;display:none;align-items:center;justify-content:space-between;font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.06em;}
 .edit-bar.on{display:flex;}
-.eb-r{display:flex;gap:.6rem;}
+.eb-r{display:flex;gap:.6rem;flex-wrap:wrap;}
 .eb-s{background:#000;color:var(--a);border:none;padding:.25rem .8rem;border-radius:100px;font-family:var(--fm);font-size:.68rem;cursor:pointer;font-weight:700;}
 .eb-x{background:rgba(0,0,0,.15);color:rgba(0,0,0,.65);border:1px solid rgba(0,0,0,.2)!important;padding:.25rem .7rem;border-radius:100px;font-family:var(--fm);font-size:.68rem;cursor:pointer;font-weight:700;}
-.edit-mode [contenteditable]{outline:1px dashed rgba(58,242,184,.4);border-radius:3px;cursor:text;min-width:14px;}
+.edit-mode [contenteditable]{outline:1px dashed rgba(58,242,184,.4);border-radius:3px;cursor:text;min-width:14px;min-height:12px;}
 .edit-mode [contenteditable]:focus{outline:1px solid var(--a);background:rgba(58,242,184,.04);}
 .edit-mode [contenteditable]:empty::before{content:attr(data-ph);color:rgba(58,242,184,.3);pointer-events:none;}
 .add-btn{display:none;align-items:center;gap:.35rem;margin-top:.7rem;padding:.33rem .75rem;background:rgba(58,242,184,.08);border:.5px dashed rgba(58,242,184,.3);border-radius:6px;color:var(--a);font-size:.7rem;font-family:var(--fm);cursor:pointer;}
 .add-btn:hover{background:rgba(58,242,184,.15);}
 .edit-mode .add-btn{display:inline-flex;}
+.del-tag{font-size:9px;cursor:pointer;color:var(--a3);margin-left:2px;display:none;}
+.edit-mode .del-tag{display:inline;}
 .card-acts{position:absolute;top:.55rem;right:.55rem;display:none;gap:.3rem;z-index:20;}
 .edit-mode .social-card:hover .card-acts,
 .edit-mode .yt-vid:hover .card-acts,
@@ -206,6 +218,7 @@ footer span{color:var(--a2);}
 .del-b{width:22px;height:22px;border-radius:50%;background:rgba(242,58,140,.12);border:.5px solid rgba(242,58,140,.3);color:#f23a8c;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .link-edit-btn{display:none;font-size:.6rem;font-family:var(--fm);color:var(--a);background:rgba(58,242,184,.08);border:.5px solid rgba(58,242,184,.2);border-radius:4px;padding:.09rem .38rem;cursor:pointer;margin-left:.35rem;vertical-align:middle;}
 .edit-mode .link-edit-btn{display:inline;}
+
 /* MODALS */
 .m-ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:500;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .3s;}
 .m-ov.open{opacity:1;pointer-events:auto;}
@@ -222,19 +235,9 @@ footer span{color:var(--a2);}
 .m-no{background:transparent;color:var(--muted);border:.5px solid var(--border);border-radius:8px;padding:.6rem .9rem;cursor:pointer;font-size:.86rem;font-family:var(--fb);}
 
 /* RESPONSIVE */
-@media(max-width:768px){
-  .yt-hero{grid-template-columns:1fr;}
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .gallery-item.wide,.gallery-item.tall{grid-column:span 1;grid-row:span 1;aspect-ratio:1;}
-}
-@media(max-width:500px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .social-grid{grid-template-columns:1fr 1fr;}
-  .act-grid{grid-template-columns:1fr 1fr;}
-  .container{padding:0 1.2rem;}
-  section{padding:3.5rem 0;}
-  nav{padding:.75rem 1.2rem;}
-}
+@media(max-width:768px){.yt-hero{grid-template-columns:1fr;}.gallery-grid{grid-template-columns:repeat(2,1fr);}.gallery-item.wide,.gallery-item.tall{grid-column:span 1;grid-row:span 1;aspect-ratio:1;}}
+@media(max-width:600px){nav{padding:.75rem 1.2rem;}.hamburger{display:flex;}.container{padding:0 1.2rem;}section{padding:3.5rem 0;}.social-grid{grid-template-columns:1fr 1fr;}.act-grid{grid-template-columns:1fr 1fr;}.eb-label{display:none;}}
+@media(max-width:400px){.social-grid{grid-template-columns:1fr;}.act-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -248,7 +251,7 @@ footer span{color:var(--a2);}
     <p>Sign in to edit this page.</p>
     <input type="text" id="lUser" placeholder="Username" autocomplete="off">
     <input type="password" id="lPass" placeholder="Password">
-    <div class="modal-err" id="lErr">Wrong credentials</div>
+    <div class="modal-err" id="lErr">Incorrect credentials. Please try again.</div>
     <div class="modal-btns">
       <button class="m-no" onclick="closeM('loginModal')">Cancel</button>
       <button class="m-ok" onclick="doLogin()">Sign In →</button>
@@ -271,7 +274,7 @@ footer span{color:var(--a2);}
 
 <!-- EDIT BAR -->
 <div class="edit-bar" id="editBar">
-  <span>✎ EDITING LIFE PAGE — CLICK ANY TEXT TO EDIT</span>
+  <span class="eb-label">✎ EDIT MODE — CLICK TEXT · ⠿ DRAG CARDS · DRAG SECTION HANDLES</span>
   <div class="eb-r">
     <button class="eb-s" onclick="saveAll()">💾 Save</button>
     <button class="eb-x" onclick="exitEdit()">✕ Exit</button>
@@ -279,13 +282,22 @@ footer span{color:var(--a2);}
 </div>
 
 <!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-back">← Back to Portfolio</a>
+<nav id="mainNav">
+  <a href="index.html" class="nav-back">← Portfolio</a>
   <div class="nav-logo">SK<span>.</span>life</div>
-  <div class="nav-r">
+  <div style="display:flex;align-items:center;gap:.6rem;">
     <a href="index.html" class="nav-hire">Hire Me</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#social" onclick="closeMob()">Social</a>
+  <a href="#youtube" onclick="closeMob()">YouTube</a>
+  <a href="#activities" onclick="closeMob()">Activities</a>
+  <a href="#visual" onclick="closeMob()">Gallery</a>
+  <a href="#interests" onclick="closeMob()">Interests</a>
+  <a href="index.html" onclick="closeMob()">Portfolio</a>
+</div>
 
 <!-- HERO -->
 <section id="hero-life">
@@ -294,87 +306,92 @@ footer span{color:var(--a2);}
   </video>
   <div class="hero-life-ov"></div>
   <div class="hero-life-content">
-    <div class="life-kicker">The Other Side</div>
+    <div class="life-kicker" contenteditable="false" data-field="heroKicker" data-ph="Kicker text">The Other Side</div>
     <h1 class="life-name">
-      Beyond the<br><span class="glow" contenteditable="false" data-field="heroGlow" data-ph="Tagline">Code &amp; Caffeine.</span>
+      <span contenteditable="false" data-field="heroLine1" data-ph="Line 1">Beyond the</span><br>
+      <span class="glow" contenteditable="false" data-field="heroGlow" data-ph="Tagline">Code &amp; Caffeine.</span>
     </h1>
     <p class="life-sub" contenteditable="false" data-field="heroSub" data-ph="Hero subtitle">I'm more than a software engineer. I'm a storyteller, a photographer, a traveller, and a content creator who believes life is best lived in full colour.</p>
     <div class="life-tags" id="heroTags">
-      <span class="life-tag" contenteditable="false">📸 Visual Storyteller</span>
-      <span class="life-tag" contenteditable="false">✈️ Explorer</span>
-      <span class="life-tag" contenteditable="false">🎬 Content Creator</span>
-      <span class="life-tag" contenteditable="false">🎵 Music Lover</span>
-      <span class="life-tag" contenteditable="false">📱 Social Native</span>
+      <span class="life-tag" contenteditable="false" data-ph="Tag">📸 Visual Storyteller</span>
+      <span class="life-tag" contenteditable="false" data-ph="Tag">✈️ Explorer</span>
+      <span class="life-tag" contenteditable="false" data-ph="Tag">🎬 Content Creator</span>
+      <span class="life-tag" contenteditable="false" data-ph="Tag">🎵 Music Lover</span>
+      <span class="life-tag" contenteditable="false" data-ph="Tag">📱 Social Native</span>
     </div>
     <button class="add-btn" style="margin:0 auto;" onclick="addHeroTag()">+ Add Tag</button>
   </div>
   <div class="life-scroll"><span class="scroll-lbl">Scroll</span><div class="scroll-track"></div></div>
 </section>
 
-<!-- SOCIAL HANDLES -->
-<section id="social">
+<!-- ALL DRAGGABLE SECTIONS -->
+<div id="sectionContainer">
+
+<!-- SOCIAL -->
+<section id="social" class="draggable-section" data-sec="social">
+  <div class="sec-drag-handle" title="Drag to reorder">⠿</div>
   <div class="container">
     <div class="sec-lbl">Social Media</div>
     <h2 class="sec-title reveal" contenteditable="false" data-field="socialTitle">Find Me Online</h2>
     <div class="social-grid reveal" id="socialGrid">
 
       <a href="https://instagram.com/sarathkrishna" target="_blank" class="social-card sc-ig" id="scIG">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
         <div class="sc-icon">📸</div>
-        <div class="sc-platform" contenteditable="false">Instagram</div>
+        <div class="sc-platform" contenteditable="false" data-ph="Platform">Instagram</div>
         <div class="sc-handle" contenteditable="false" data-ph="@handle">@sarathkrishna</div>
         <div class="sc-desc" contenteditable="false" data-ph="Bio">Photography, travel moments, and behind-the-scenes of my life.</div>
-        <span class="sc-follow">Follow →</span>
+        <span class="sc-follow" contenteditable="false" data-ph="CTA">Follow →</span>
         <button class="link-edit-btn" onclick="editLink('scIG');event.preventDefault()">✎ link</button>
       </a>
 
       <a href="https://youtube.com/@sarathkrishna" target="_blank" class="social-card sc-yt" id="scYT">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
         <div class="sc-icon">▶</div>
-        <div class="sc-platform" contenteditable="false">YouTube</div>
+        <div class="sc-platform" contenteditable="false" data-ph="Platform">YouTube</div>
         <div class="sc-handle" contenteditable="false" data-ph="Channel name">Sarath Krishna</div>
-        <div class="sc-desc" contenteditable="false" data-ph="Channel description">Vlogs, tech content, and visual stories from my world.</div>
-        <span class="sc-follow">Subscribe →</span>
+        <div class="sc-desc" contenteditable="false" data-ph="Description">Vlogs, tech content, and visual stories from my world.</div>
+        <span class="sc-follow" contenteditable="false" data-ph="CTA">Subscribe →</span>
         <button class="link-edit-btn" onclick="editLink('scYT');event.preventDefault()">✎ link</button>
       </a>
 
       <a href="https://linkedin.com/in/sarath-krishna-ck" target="_blank" class="social-card sc-li" id="scLI">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
         <div class="sc-icon" style="font-family:var(--fm);font-size:.85rem;font-weight:700;color:#fff;">in</div>
-        <div class="sc-platform" contenteditable="false">LinkedIn</div>
+        <div class="sc-platform" contenteditable="false" data-ph="Platform">LinkedIn</div>
         <div class="sc-handle" contenteditable="false" data-ph="Profile name">Sarath Krishna C K</div>
         <div class="sc-desc" contenteditable="false" data-ph="Bio">Professional updates, career milestones, and industry insights.</div>
-        <span class="sc-follow">Connect →</span>
+        <span class="sc-follow" contenteditable="false" data-ph="CTA">Connect →</span>
         <button class="link-edit-btn" onclick="editLink('scLI');event.preventDefault()">✎ link</button>
       </a>
 
       <a href="https://github.com/sarathkrishna" target="_blank" class="social-card sc-gh" id="scGH">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
-        <div class="sc-icon" style="font-size:.95rem;color:#fff;font-family:var(--fm);">GH</div>
-        <div class="sc-platform" contenteditable="false">GitHub</div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
+        <div class="sc-icon" style="font-size:.95rem;color:#fff;font-family:var(--fm);font-weight:700;">GH</div>
+        <div class="sc-platform" contenteditable="false" data-ph="Platform">GitHub</div>
         <div class="sc-handle" contenteditable="false" data-ph="@username">@sarathkrishna</div>
         <div class="sc-desc" contenteditable="false" data-ph="Bio">Open source code, personal projects, and experiments.</div>
-        <span class="sc-follow">Follow →</span>
+        <span class="sc-follow" contenteditable="false" data-ph="CTA">Follow →</span>
         <button class="link-edit-btn" onclick="editLink('scGH');event.preventDefault()">✎ link</button>
       </a>
 
       <a href="https://twitter.com/sarathkrishna" target="_blank" class="social-card sc-tw" id="scTW">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
         <div class="sc-icon" style="font-family:var(--fh);font-size:.85rem;font-weight:800;color:#fff;">𝕏</div>
-        <div class="sc-platform" contenteditable="false">X / Twitter</div>
+        <div class="sc-platform" contenteditable="false" data-ph="Platform">X / Twitter</div>
         <div class="sc-handle" contenteditable="false" data-ph="@handle">@sarathkrishna</div>
         <div class="sc-desc" contenteditable="false" data-ph="Bio">Tech thoughts, opinions, and random shower thoughts.</div>
-        <span class="sc-follow">Follow →</span>
+        <span class="sc-follow" contenteditable="false" data-ph="CTA">Follow →</span>
         <button class="link-edit-btn" onclick="editLink('scTW');event.preventDefault()">✎ link</button>
       </a>
 
       <a href="https://tiktok.com/@sarathkrishna" target="_blank" class="social-card sc-tt" id="scTT">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div>
         <div class="sc-icon" style="font-family:var(--fh);font-size:.8rem;font-weight:800;color:#fff;">TT</div>
-        <div class="sc-platform" contenteditable="false">TikTok</div>
+        <div class="sc-platform" contenteditable="false" data-ph="Platform">TikTok</div>
         <div class="sc-handle" contenteditable="false" data-ph="@handle">@sarathkrishna</div>
         <div class="sc-desc" contenteditable="false" data-ph="Bio">Short clips, fun videos, and creative content.</div>
-        <span class="sc-follow">Follow →</span>
+        <span class="sc-follow" contenteditable="false" data-ph="CTA">Follow →</span>
         <button class="link-edit-btn" onclick="editLink('scTT');event.preventDefault()">✎ link</button>
       </a>
 
@@ -383,68 +400,71 @@ footer span{color:var(--a2);}
   </div>
 </section>
 
-<!-- YOUTUBE CHANNEL -->
-<section id="youtube">
+<!-- YOUTUBE -->
+<section id="youtube" class="draggable-section" data-sec="youtube" style="background:var(--bg2);">
+  <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-lbl">YouTube</div>
     <h2 class="sec-title reveal" contenteditable="false" data-field="ytTitle">My Channel</h2>
     <div class="yt-hero reveal">
       <div class="yt-channel-card">
-        <div class="yt-banner"><div class="yt-banner-text" contenteditable="false" data-field="ytBannerText">SARATH KRISHNA</div></div>
+        <div class="yt-banner" onclick="editMode&&document.getElementById('ytBannerInput').click()" title="Click to change banner in edit mode">
+          <span class="yt-banner-text" contenteditable="false" data-field="ytBannerText" data-ph="Channel Name">SARATH KRISHNA</span>
+        </div>
+        <input type="file" id="ytBannerInput" accept="image/*" style="display:none" onchange="handleYtBanner(event)">
         <div class="yt-info">
-          <div class="yt-av" id="ytAv" onclick="trigYtAv()" title="Click to change in edit mode">SK</div>
+          <div class="yt-av" id="ytAv" onclick="editMode&&document.getElementById('ytAvInput').click()" title="Click to change avatar">SK</div>
+          <input type="file" id="ytAvInput" accept="image/*" style="display:none" onchange="handleYtAv(event)">
           <div>
-            <div class="yt-channel-name" contenteditable="false" data-field="ytChannelName">Sarath Krishna</div>
-            <div class="yt-subs" contenteditable="false" data-field="ytSubs">0 subscribers · 0 videos</div>
+            <div class="yt-channel-name" contenteditable="false" data-field="ytChannelName" data-ph="Channel Name">Sarath Krishna</div>
+            <div class="yt-subs" contenteditable="false" data-field="ytSubs" data-ph="Subscribers">0 subscribers · 0 videos</div>
           </div>
         </div>
         <div class="yt-desc-text" contenteditable="false" data-field="ytChannelDesc" data-ph="Channel description">Creating content about tech, travel, and life. Come along for the journey!</div>
         <span>
-          <a href="https://youtube.com/@sarathkrishna" target="_blank" class="yt-subscribe" id="ytSubBtn">▶ Subscribe</a>
+          <a href="https://youtube.com/@sarathkrishna" target="_blank" class="yt-subscribe" id="ytSubBtn" contenteditable="false" data-ph="Subscribe text">▶ Subscribe</a>
           <button class="link-edit-btn" onclick="editLink('ytSubBtn')">✎ link</button>
         </span>
-        <input type="file" id="ytAvInput" accept="image/*" style="display:none" onchange="handleYtAv(event)">
       </div>
       <div class="yt-right">
         <div class="yt-stat-row">
-          <div class="yt-stat"><div class="yt-stat-n" contenteditable="false" data-field="ytV1n">0</div><div class="yt-stat-l" contenteditable="false" data-field="ytV1l">Videos</div></div>
-          <div class="yt-stat"><div class="yt-stat-n" contenteditable="false" data-field="ytV2n">0</div><div class="yt-stat-l" contenteditable="false" data-field="ytV2l">Subscribers</div></div>
-          <div class="yt-stat"><div class="yt-stat-n" contenteditable="false" data-field="ytV3n">0</div><div class="yt-stat-l" contenteditable="false" data-field="ytV3l">Total Views</div></div>
+          <div class="yt-stat"><div class="yt-stat-n" contenteditable="false" data-field="ytV1n" data-ph="0">0</div><div class="yt-stat-l" contenteditable="false" data-field="ytV1l" data-ph="Label">Videos</div></div>
+          <div class="yt-stat"><div class="yt-stat-n" contenteditable="false" data-field="ytV2n" data-ph="0">0</div><div class="yt-stat-l" contenteditable="false" data-field="ytV2l" data-ph="Label">Subscribers</div></div>
+          <div class="yt-stat"><div class="yt-stat-n" contenteditable="false" data-field="ytV3n" data-ph="0">0</div><div class="yt-stat-l" contenteditable="false" data-field="ytV3l" data-ph="Label">Views</div></div>
         </div>
         <div class="yt-about">
-          <div class="yt-about-t">About the Channel</div>
-          <div class="yt-about-d" contenteditable="false" data-field="ytAbout" data-ph="About your channel">Behind-the-scenes of my career, travel vlogs, tech tutorials, and personal growth content. New videos regularly!</div>
+          <div class="yt-about-t" contenteditable="false" data-field="ytAboutTitle" data-ph="Section heading">About the Channel</div>
+          <div class="yt-about-d" contenteditable="false" data-field="ytAbout" data-ph="About description">Behind-the-scenes of my career, travel vlogs, tech tutorials, and personal growth content.</div>
         </div>
       </div>
     </div>
-    <!-- Video placeholders -->
-    <h3 style="font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:1.2rem;" contenteditable="false" data-field="ytVidHeading">Recent Videos</h3>
+    <h3 style="font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:1.2rem;" contenteditable="false" data-field="ytVidHeading" data-ph="Videos heading">Recent Videos</h3>
     <div class="yt-videos reveal" id="ytVideos">
       <div class="yt-vid" draggable="false">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div>
         <div class="yt-thumb"><div class="yt-thumb-placeholder"><span style="font-size:1.5rem;">▶</span><span>ADD VIDEO</span></div><div class="yt-play"><div class="yt-play-btn">▶</div></div></div>
         <div class="yt-vid-body">
           <div class="yt-vid-title" contenteditable="false" data-ph="Video Title">My First Vlog — A Day in My Life</div>
           <div class="yt-vid-meta" contenteditable="false" data-ph="Views · Date">0 views · Coming Soon</div>
-          <span><a href="#" class="proj-link" id="yv0" style="margin-top:.5rem;display:inline-flex;">↗ Watch</a><button class="link-edit-btn" onclick="editLink('yv0')">✎</button></span>
+          <span><a href="#" class="proj-link" id="yv0">↗ Watch</a><button class="link-edit-btn" onclick="editLink('yv0')">✎</button></span>
         </div>
       </div>
       <div class="yt-vid" draggable="false">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div>
         <div class="yt-thumb"><div class="yt-thumb-placeholder"><span style="font-size:1.5rem;">▶</span><span>ADD VIDEO</span></div><div class="yt-play"><div class="yt-play-btn">▶</div></div></div>
         <div class="yt-vid-body">
           <div class="yt-vid-title" contenteditable="false" data-ph="Video Title">Travel Photography Tips for Beginners</div>
           <div class="yt-vid-meta" contenteditable="false" data-ph="Views · Date">0 views · Coming Soon</div>
-          <span><a href="#" class="proj-link" id="yv1" style="margin-top:.5rem;display:inline-flex;">↗ Watch</a><button class="link-edit-btn" onclick="editLink('yv1')">✎</button></span>
+          <span><a href="#" class="proj-link" id="yv1">↗ Watch</a><button class="link-edit-btn" onclick="editLink('yv1')">✎</button></span>
         </div>
       </div>
       <div class="yt-vid" draggable="false">
-        <div class="card-acts"><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div>
+        <div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div>
         <div class="yt-thumb"><div class="yt-thumb-placeholder"><span style="font-size:1.5rem;">▶</span><span>ADD VIDEO</span></div><div class="yt-play"><div class="yt-play-btn">▶</div></div></div>
         <div class="yt-vid-body">
           <div class="yt-vid-title" contenteditable="false" data-ph="Video Title">How I Got Into AI/ML — My Journey</div>
           <div class="yt-vid-meta" contenteditable="false" data-ph="Views · Date">0 views · Coming Soon</div>
-          <span><a href="#" class="proj-link" id="yv2" style="margin-top:.5rem;display:inline-flex;">↗ Watch</a><button class="link-edit-btn" onclick="editLink('yv2')">✎</button></span>
+          <span><a href="#" class="proj-link" id="yv2">↗ Watch</a><button class="link-edit-btn" onclick="editLink('yv2')">✎</button></span>
         </div>
       </div>
     </div>
@@ -453,151 +473,190 @@ footer span{color:var(--a2);}
 </section>
 
 <!-- ACTIVITIES -->
-<section id="activities">
+<section id="activities" class="draggable-section" data-sec="activities">
+  <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-lbl">Activities</div>
-    <h2 class="sec-title reveal" contenteditable="false" data-field="actTitle">What I Do For Fun</h2>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="actTitle" data-ph="Section title">What I Do For Fun</h2>
     <div class="act-grid reveal" id="actGrid">
-      <div class="act-card"><div class="card-acts"><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false">📸</span><div class="act-name" contenteditable="false">Photography</div><div class="act-desc" contenteditable="false" data-ph="Description">Capturing light, emotions, and moments that tell a story.</div></div>
-      <div class="act-card"><div class="card-acts"><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false">🎬</span><div class="act-name" contenteditable="false">Videography</div><div class="act-desc" contenteditable="false" data-ph="Description">Creating visual stories through video editing and cinematography.</div></div>
-      <div class="act-card"><div class="card-acts"><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false">✈️</span><div class="act-name" contenteditable="false">Travel</div><div class="act-desc" contenteditable="false" data-ph="Description">Exploring new cities, cultures, and cuisines around the world.</div></div>
-      <div class="act-card"><div class="card-acts"><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false">🎵</span><div class="act-name" contenteditable="false">Music</div><div class="act-desc" contenteditable="false" data-ph="Description">Listening, discovering new artists, and appreciating every genre.</div></div>
-      <div class="act-card"><div class="card-acts"><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false">🎮</span><div class="act-name" contenteditable="false">Gaming</div><div class="act-desc" contenteditable="false" data-ph="Description">Strategy games, open-world adventures, and competitive play.</div></div>
-      <div class="act-card"><div class="card-acts"><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false">📚</span><div class="act-name" contenteditable="false">Reading</div><div class="act-desc" contenteditable="false" data-ph="Description">Tech books, self-development, and the occasional novel.</div></div>
+      <div class="act-card" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false" data-ph="Emoji">📸</span><div class="act-name" contenteditable="false" data-ph="Name">Photography</div><div class="act-desc" contenteditable="false" data-ph="Description">Capturing light, emotions, and moments that tell a story.</div></div>
+      <div class="act-card" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false" data-ph="Emoji">🎬</span><div class="act-name" contenteditable="false" data-ph="Name">Videography</div><div class="act-desc" contenteditable="false" data-ph="Description">Creating visual stories through video editing and cinematography.</div></div>
+      <div class="act-card" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false" data-ph="Emoji">✈️</span><div class="act-name" contenteditable="false" data-ph="Name">Travel</div><div class="act-desc" contenteditable="false" data-ph="Description">Exploring new cities, cultures, and cuisines around the world.</div></div>
+      <div class="act-card" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false" data-ph="Emoji">🎵</span><div class="act-name" contenteditable="false" data-ph="Name">Music</div><div class="act-desc" contenteditable="false" data-ph="Description">Listening, discovering new artists, and appreciating every genre.</div></div>
+      <div class="act-card" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false" data-ph="Emoji">🎮</span><div class="act-name" contenteditable="false" data-ph="Name">Gaming</div><div class="act-desc" contenteditable="false" data-ph="Description">Strategy games, open-world adventures, and competitive play.</div></div>
+      <div class="act-card" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="false" data-ph="Emoji">📚</span><div class="act-name" contenteditable="false" data-ph="Name">Reading</div><div class="act-desc" contenteditable="false" data-ph="Description">Tech books, self-development, and the occasional novel.</div></div>
     </div>
     <button class="add-btn" onclick="addActivity()">+ Add Activity</button>
   </div>
 </section>
 
-<!-- VISUAL / GALLERY -->
-<section id="visual">
+<!-- GALLERY -->
+<section id="visual" class="draggable-section" data-sec="visual" style="background:var(--bg2);">
+  <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-lbl">Visual Work</div>
-    <h2 class="sec-title reveal" contenteditable="false" data-field="galleryTitle">Through My Lens</h2>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="galleryTitle" data-ph="Section title">Through My Lens</h2>
     <div class="gallery-grid reveal" id="galleryGrid">
-      <div class="gallery-item tall"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="https://picsum.photos/seed/sk1/400/600" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false">Portrait</span></div></div>
-      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="https://picsum.photos/seed/sk2/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false">Urban</span></div></div>
-      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="https://picsum.photos/seed/sk3/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false">Nature</span></div></div>
-      <div class="gallery-item wide"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="https://picsum.photos/seed/sk4/800/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false">Architecture</span></div></div>
-      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="https://picsum.photos/seed/sk5/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false">Travel</span></div></div>
-      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="https://picsum.photos/seed/sk6/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false">Street</span></div></div>
-      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="https://picsum.photos/seed/sk7/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false">Golden Hour</span></div></div>
+      <div class="gallery-item tall"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button><button class="del-b" style="background:rgba(58,242,184,.1);border-color:rgba(58,242,184,.3);color:var(--a);" onclick="replaceGalleryImg(this)" title="Change image">📷</button></div><img src="https://picsum.photos/seed/sk1/400/600" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false" data-ph="Caption">Portrait</span></div></div>
+      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button><button class="del-b" style="background:rgba(58,242,184,.1);border-color:rgba(58,242,184,.3);color:var(--a);" onclick="replaceGalleryImg(this)" title="Change image">📷</button></div><img src="https://picsum.photos/seed/sk2/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false" data-ph="Caption">Urban</span></div></div>
+      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button><button class="del-b" style="background:rgba(58,242,184,.1);border-color:rgba(58,242,184,.3);color:var(--a);" onclick="replaceGalleryImg(this)" title="Change image">📷</button></div><img src="https://picsum.photos/seed/sk3/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false" data-ph="Caption">Nature</span></div></div>
+      <div class="gallery-item wide"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button><button class="del-b" style="background:rgba(58,242,184,.1);border-color:rgba(58,242,184,.3);color:var(--a);" onclick="replaceGalleryImg(this)" title="Change image">📷</button></div><img src="https://picsum.photos/seed/sk4/800/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false" data-ph="Caption">Architecture</span></div></div>
+      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button><button class="del-b" style="background:rgba(58,242,184,.1);border-color:rgba(58,242,184,.3);color:var(--a);" onclick="replaceGalleryImg(this)" title="Change image">📷</button></div><img src="https://picsum.photos/seed/sk5/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false" data-ph="Caption">Travel</span></div></div>
+      <div class="gallery-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button><button class="del-b" style="background:rgba(58,242,184,.1);border-color:rgba(58,242,184,.3);color:var(--a);" onclick="replaceGalleryImg(this)" title="Change image">📷</button></div><img src="https://picsum.photos/seed/sk6/400/400" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="false" data-ph="Caption">Golden Hour</span></div></div>
     </div>
     <button class="add-btn" onclick="addGalleryItem()">+ Add Photo</button>
   </div>
 </section>
 
 <!-- INTERESTS -->
-<section id="interests">
+<section id="interests" class="draggable-section" data-sec="interests">
+  <div class="sec-drag-handle">⠿</div>
   <div class="container">
     <div class="sec-lbl">Interests</div>
-    <h2 class="sec-title reveal" contenteditable="false" data-field="intTitle">Things That Drive Me</h2>
+    <h2 class="sec-title reveal" contenteditable="false" data-field="intTitle" data-ph="Section title">Things That Drive Me</h2>
     <div class="int-list reveal" id="intList">
-      <div class="int-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon">🌍</div><div><div class="int-name" contenteditable="false">Cultural Exploration</div><div class="int-desc" contenteditable="false" data-ph="Description">Fascinated by how different cultures approach life, creativity, and community.</div></div><span class="int-tag" contenteditable="false">Lifestyle</span></div>
-      <div class="int-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon">🧠</div><div><div class="int-name" contenteditable="false">Human Psychology</div><div class="int-desc" contenteditable="false" data-ph="Description">Understanding how people think, decide, and connect — it informs everything I build.</div></div><span class="int-tag" contenteditable="false">Learning</span></div>
-      <div class="int-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon">🎭</div><div><div class="int-name" contenteditable="false">Storytelling & Film</div><div class="int-desc" contenteditable="false" data-ph="Description">Cinema, documentaries, and narrative structure. I believe every great product tells a story.</div></div><span class="int-tag" contenteditable="false">Arts</span></div>
-      <div class="int-item"><div class="card-acts"><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon">💡</div><div><div class="int-name" contenteditable="false">Entrepreneurship</div><div class="int-desc" contenteditable="false" data-ph="Description">Building things, taking risks, and the intersection of tech and business.</div></div><span class="int-tag" contenteditable="false">Business</span></div>
+      <div class="int-item" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon" contenteditable="false" data-ph="Icon">🌍</div><div><div class="int-name" contenteditable="false" data-ph="Name">Cultural Exploration</div><div class="int-desc" contenteditable="false" data-ph="Description">Fascinated by how different cultures approach life, creativity, and community.</div></div><span class="int-tag" contenteditable="false" data-ph="Tag">Lifestyle</span></div>
+      <div class="int-item" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon" contenteditable="false" data-ph="Icon">🧠</div><div><div class="int-name" contenteditable="false" data-ph="Name">Human Psychology</div><div class="int-desc" contenteditable="false" data-ph="Description">Understanding how people think, decide, and connect — it informs everything I build.</div></div><span class="int-tag" contenteditable="false" data-ph="Tag">Learning</span></div>
+      <div class="int-item" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon" contenteditable="false" data-ph="Icon">🎭</div><div><div class="int-name" contenteditable="false" data-ph="Name">Storytelling &amp; Film</div><div class="int-desc" contenteditable="false" data-ph="Description">Cinema, documentaries, and narrative structure. I believe every great product tells a story.</div></div><span class="int-tag" contenteditable="false" data-ph="Tag">Arts</span></div>
+      <div class="int-item" draggable="false"><div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon" contenteditable="false" data-ph="Icon">💡</div><div><div class="int-name" contenteditable="false" data-ph="Name">Entrepreneurship</div><div class="int-desc" contenteditable="false" data-ph="Description">Building things, taking risks, and the intersection of tech and business.</div></div><span class="int-tag" contenteditable="false" data-ph="Tag">Business</span></div>
     </div>
     <button class="add-btn" onclick="addInterest()">+ Add Interest</button>
   </div>
 </section>
 
 <!-- CTA BACK -->
-<section id="cta-back">
+<section id="cta-back" class="draggable-section" data-sec="cta-back" style="background:var(--bg2);text-align:center;padding:5rem 0;">
+  <div class="sec-drag-handle">⠿</div>
   <div class="container">
-    <div class="back-kicker" contenteditable="false" data-field="ctaKick">The Full Picture</div>
-    <h2 class="back-h">Now see the <em>professional side.</em></h2>
-    <p class="back-p" contenteditable="false" data-field="ctaDesc">Behind all the creativity is a serious engineer. Check out my technical work, research, and experience.</p>
+    <div class="back-kicker" contenteditable="false" data-field="ctaKick" data-ph="Kicker">The Full Picture</div>
+    <h2 class="back-h">Now see the <em contenteditable="false" data-field="ctaEmphasis" data-ph="emphasis text">professional side.</em></h2>
+    <p class="back-p" contenteditable="false" data-field="ctaDesc" data-ph="Description">Behind all the creativity is a serious engineer. Check out my technical work, research, and experience.</p>
     <div class="back-btns">
-      <a href="index.html" class="btn-teal">View Portfolio →</a>
-      <a href="mailto:sarathkrishna869@gmail.com" class="btn-out" id="ctaEmail">Say Hello</a>
-      <button class="link-edit-btn" onclick="editLink('ctaEmail')">✎</button>
+      <a href="index.html" class="btn-teal" id="ctaPortfolioBtn" contenteditable="false" data-field="ctaPortfolioBtnText" data-ph="Button text">View Portfolio →</a>
+      <button class="link-edit-btn" onclick="editLink('ctaPortfolioBtn')">✎ link</button>
+      <a href="mailto:sarathkrishna869@gmail.com" class="btn-out" id="ctaEmail" contenteditable="false" data-field="ctaEmailText" data-ph="Button text">Say Hello</a>
+      <button class="link-edit-btn" onclick="editLink('ctaEmail')">✎ link</button>
     </div>
   </div>
 </section>
 
+</div><!-- /sectionContainer -->
+
 <footer>
   <div class="container">
-    <p>© 2025 <span>Sarath Krishna C K</span> · Life is better in full colour 🌈</p>
+    <p>© 2025 <span contenteditable="false" data-field="footerName" data-ph="Name">Sarath Krishna C K</span> · <span contenteditable="false" data-field="footerTag" data-ph="Tagline">Life is better in full colour 🌈</span></p>
   </div>
 </footer>
 
 <button id="editToggle" onclick="openM('loginModal')" title="Edit this page">✎</button>
+<input type="file" id="galleryFileInput" accept="image/*" style="display:none">
 
 <script>
 const CREDS={user:'sarath',pass:'sk@2024'};
-let editMode=false;
+let editMode=false,secDragSrc=null,cardDragSrc=null;
+
+// STORAGE
 function ls(k,v){if(v===undefined){try{return localStorage.getItem('life_'+k);}catch(e){return null;}}try{localStorage.setItem('life_'+k,v);}catch(e){}}
 
-window.addEventListener('DOMContentLoaded',()=>{
-  restoreAll();
-  initReveal();
-});
+window.addEventListener('DOMContentLoaded',()=>{restoreAll();initReveal();});
 
 function restoreAll(){
   document.querySelectorAll('[data-field]').forEach(el=>{const v=ls(el.dataset.field);if(v!==null)el.innerHTML=v;});
-  ['socialGrid','ytVideos','actGrid','galleryGrid','intList','heroTags'].forEach(id=>{const saved=ls('html_'+id);if(saved&&document.getElementById(id))document.getElementById(id).innerHTML=saved;});
-  ['scIG','scYT','scLI','scGH','scTW','scTT','ytSubBtn','yv0','yv1','yv2','ctaEmail'].forEach(id=>{
-    const v=ls('href_'+id);if(v){const el=document.getElementById(id);if(el)el.href=v;}
-    const t=ls('text_'+id);if(t){const el=document.getElementById(id);if(el&&el.textContent)el.textContent=t;}
+  ['socialGrid','ytVideos','actGrid','galleryGrid','intList','heroTags'].forEach(id=>{
+    const saved=ls('html_'+id);if(saved&&document.getElementById(id))document.getElementById(id).innerHTML=saved;
   });
+  ['scIG','scYT','scLI','scGH','scTW','scTT','ytSubBtn','yv0','yv1','yv2','ctaEmail','ctaPortfolioBtn'].forEach(id=>{
+    const v=ls('href_'+id);if(v){const el=document.getElementById(id);if(el)el.href=v;}
+    const t=ls('text_'+id);if(t){const el=document.getElementById(id);if(el)el.textContent=t;}
+  });
+  const av=ls('ytAvSrc');if(av){const el=document.getElementById('ytAv');if(el)el.innerHTML=`<img src="${av}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;}
+  // Restore section order
+  const order=ls('secOrder');
+  if(order){try{const ids=JSON.parse(order);const sc=document.getElementById('sectionContainer');ids.forEach(id=>{const el=document.querySelector(`[data-sec="${id}"]`);if(el)sc.appendChild(el);});}catch(e){}}
 }
 
+// MODALS
 function openM(id){document.getElementById(id).classList.add('open');setTimeout(()=>{const f=document.querySelector('#'+id+' input');if(f)f.focus();},80);}
 function closeM(id){document.getElementById(id).classList.remove('open');if(id==='loginModal'){document.getElementById('lErr').style.display='none';document.getElementById('lUser').value='';document.getElementById('lPass').value='';}}
 document.querySelectorAll('.m-ov').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeM(m.id);}));
 document.getElementById('lPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 
 function showIM(title,desc,fields,onOk){
-  document.getElementById('imT').textContent=title;
-  document.getElementById('imD').textContent=desc||'';
-  const c=document.getElementById('imF'); c.innerHTML='';
+  document.getElementById('imT').textContent=title;document.getElementById('imD').textContent=desc||'';
+  const c=document.getElementById('imF');c.innerHTML='';
   fields.forEach(f=>{const el=document.createElement(f.type==='textarea'?'textarea':'input');el.id='im_'+f.key;el.placeholder=f.placeholder||'';if(f.type!=='textarea')el.type=f.type||'text';else el.rows=3;el.value=f.value||'';c.appendChild(el);});
   document.getElementById('imOk').onclick=()=>{const vals={};fields.forEach(f=>{vals[f.key]=document.getElementById('im_'+f.key).value;});onOk(vals);closeM('inputModal');};
   openM('inputModal');
 }
 
+// LOGIN
 function doLogin(){
   const u=document.getElementById('lUser').value.trim(),p=document.getElementById('lPass').value;
   if(u===CREDS.user&&p===CREDS.pass){closeM('loginModal');enableEdit();}
-  else{document.getElementById('lErr').style.display='block';document.getElementById('lPass').value='';}
+  else{document.getElementById('lErr').style.display='block';document.getElementById('lPass').value='';document.getElementById('lPass').focus();}
 }
 
 function enableEdit(){
-  editMode=true; document.body.classList.add('edit-mode');
+  editMode=true;document.body.classList.add('edit-mode');
   document.getElementById('editBar').classList.add('on');
   document.getElementById('editToggle').style.display='none';
   document.getElementById('mainNav').style.top='36px';
   document.querySelectorAll('[contenteditable="false"]').forEach(el=>el.setAttribute('contenteditable','true'));
+  initCardDrag('#ytVideos','.yt-vid');
+  initCardDrag('#actGrid','.act-card');
+  initCardDrag('#intList','.int-item');
+  initCardDrag('#socialGrid','.social-card');
+  initSectionDrag();
 }
 
 function exitEdit(){
-  editMode=false; document.body.classList.remove('edit-mode');
+  editMode=false;document.body.classList.remove('edit-mode');
   document.getElementById('editBar').classList.remove('on');
   document.getElementById('editToggle').style.display='flex';
   document.getElementById('mainNav').style.top='0';
   document.querySelectorAll('[contenteditable="true"]').forEach(el=>el.setAttribute('contenteditable','false'));
+  document.querySelectorAll('[draggable="true"]').forEach(el=>el.setAttribute('draggable','false'));
 }
 
 function saveAll(){
   document.querySelectorAll('[data-field]').forEach(el=>ls(el.dataset.field,el.innerHTML));
   ['socialGrid','ytVideos','actGrid','galleryGrid','intList','heroTags'].forEach(id=>{const el=document.getElementById(id);if(el)ls('html_'+id,el.innerHTML);});
+  const order=[...document.querySelectorAll('#sectionContainer .draggable-section')].map(s=>s.dataset.sec);
+  ls('secOrder',JSON.stringify(order));
   toast('✓ CHANGES SAVED');
 }
 
 function toast(msg){const t=document.createElement('div');t.style.cssText='position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--a);color:#000;padding:.45rem 1.3rem;border-radius:100px;font-family:var(--fm);font-size:.72rem;font-weight:700;z-index:9999;pointer-events:none;';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>{t.style.transition='opacity .4s';t.style.opacity='0';},1800);setTimeout(()=>t.remove(),2300);}
 
+// LINK EDITOR
 function editLink(id){
   const el=document.getElementById(id);if(!el)return;
   showIM('Edit Link','',
-    [{key:'text',label:'Label',value:el.textContent.trim(),placeholder:'Link text'},{key:'url',label:'URL',value:el.getAttribute('href')==='#'?'':el.getAttribute('href'),placeholder:'https://...'}],
+    [{key:'text',label:'Label',value:el.textContent.trim(),placeholder:'Link text'},{key:'url',label:'URL',value:el.getAttribute('href')==='#'?'':el.getAttribute('href')||'',placeholder:'https://...'}],
     v=>{el.href=v.url||'#';if(v.text)el.textContent=v.text;ls('href_'+id,v.url||'#');ls('text_'+id,v.text);}
   );
 }
 
-// YT avatar
-function trigYtAv(){if(!editMode)return;document.getElementById('ytAvInput').click();}
+// MEDIA UPLOADS
 function handleYtAv(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=ev=>{const av=document.getElementById('ytAv');av.innerHTML=`<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;ls('ytAvSrc',ev.target.result);};r.readAsDataURL(file);}
+function handleYtBanner(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=ev=>{const banner=document.querySelector('.yt-banner');if(banner){banner.style.backgroundImage=`url('${ev.target.result}')`;banner.style.backgroundSize='cover';banner.style.backgroundPosition='center';}};r.readAsDataURL(file);}
+
+let galleryTargetItem=null;
+function replaceGalleryImg(btn){
+  if(!editMode)return;
+  galleryTargetItem=btn.closest('.gallery-item');
+  document.getElementById('galleryFileInput').click();
+}
+document.getElementById('galleryFileInput').addEventListener('change',e=>{
+  const file=e.target.files[0];if(!file||!galleryTargetItem)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    let img=galleryTargetItem.querySelector('img');
+    if(!img){img=document.createElement('img');img.alt='Photo';galleryTargetItem.insertBefore(img,galleryTargetItem.querySelector('.gallery-overlay'));}
+    img.src=ev.target.result;
+  };r.readAsDataURL(file);
+  e.target.value='';
+});
 
 // ADD ITEMS
 function addHeroTag(){showIM('Add Tag','',
@@ -608,11 +667,12 @@ function addHeroTag(){showIM('Add Tag','',
 function addSocialCard(){
   const lid='sc_'+Date.now();
   showIM('Add Social Platform','',
-    [{key:'platform',label:'Platform',placeholder:'Snapchat'},{key:'handle',label:'Handle',placeholder:'@yourhandle'},{key:'desc',label:'Description',placeholder:'What you post'},{key:'url',label:'Profile URL',placeholder:'https://...'}],
+    [{key:'icon',label:'Icon/Emoji',placeholder:'📸'},{key:'platform',label:'Platform',placeholder:'Snapchat'},{key:'handle',label:'Handle',placeholder:'@yourhandle'},{key:'desc',label:'Description',placeholder:'What you post'},{key:'cta',label:'CTA text',placeholder:'Follow →'},{key:'url',label:'Profile URL',placeholder:'https://...'}],
     v=>{
       const c=document.createElement('a');c.className='social-card';c.href=v.url||'#';c.target='_blank';c.id=lid;
-      c.innerHTML=`<div class="card-acts"><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div><div class="sc-icon" style="background:var(--surface2);font-family:var(--fh);font-size:.8rem;font-weight:800;">SC</div><div class="sc-platform" contenteditable="${editMode}">${v.platform||'Platform'}</div><div class="sc-handle" contenteditable="${editMode}">${v.handle||'@handle'}</div><div class="sc-desc" contenteditable="${editMode}">${v.desc||''}</div><span class="sc-follow">Follow →</span><button class="link-edit-btn" onclick="editLink('${lid}');event.preventDefault()">✎ link</button>`;
+      c.innerHTML=`<div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.social-card').remove();event.preventDefault()">✕</button></div><div class="sc-icon" style="background:var(--surface2);font-family:var(--fh);font-size:1.2rem;">${v.icon||'SC'}</div><div class="sc-platform" contenteditable="${editMode}" data-ph="Platform">${v.platform||'Platform'}</div><div class="sc-handle" contenteditable="${editMode}" data-ph="@handle">${v.handle||'@handle'}</div><div class="sc-desc" contenteditable="${editMode}" data-ph="Bio">${v.desc||''}</div><span class="sc-follow" contenteditable="${editMode}" data-ph="CTA">${v.cta||'Follow →'}</span><button class="link-edit-btn" onclick="editLink('${lid}');event.preventDefault()">✎ link</button>`;
       document.getElementById('socialGrid').appendChild(c);
+      if(editMode)initCardDrag('#socialGrid','.social-card');
     }
   );
 }
@@ -622,9 +682,10 @@ function addYtVideo(){
   showIM('Add YouTube Video','',
     [{key:'title',label:'Video Title',placeholder:'My Vlog'},{key:'meta',label:'Views · Date',placeholder:'1.2K views · Jan 2025'},{key:'url',label:'YouTube URL',placeholder:'https://youtube.com/watch?v=...'}],
     v=>{
-      const c=document.createElement('div');c.className='yt-vid';
-      c.innerHTML=`<div class="card-acts"><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div><div class="yt-thumb"><div class="yt-thumb-placeholder"><span style="font-size:1.5rem;">▶</span><span>THUMBNAIL</span></div><div class="yt-play"><div class="yt-play-btn">▶</div></div></div><div class="yt-vid-body"><div class="yt-vid-title" contenteditable="${editMode}">${v.title||'Video Title'}</div><div class="yt-vid-meta" contenteditable="${editMode}">${v.meta||'0 views'}</div><span><a href="${v.url||'#'}" class="proj-link" id="${lid}" style="margin-top:.5rem;display:inline-flex;">↗ Watch</a><button class="link-edit-btn" onclick="editLink('${lid}')">✎</button></span></div>`;
+      const c=document.createElement('div');c.className='yt-vid';c.setAttribute('draggable','false');
+      c.innerHTML=`<div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.yt-vid').remove()">✕</button></div><div class="yt-thumb"><div class="yt-thumb-placeholder"><span style="font-size:1.5rem;">▶</span><span>THUMBNAIL</span></div><div class="yt-play"><div class="yt-play-btn">▶</div></div></div><div class="yt-vid-body"><div class="yt-vid-title" contenteditable="${editMode}" data-ph="Title">${v.title||'Video Title'}</div><div class="yt-vid-meta" contenteditable="${editMode}" data-ph="Meta">${v.meta||'0 views'}</div><span><a href="${v.url||'#'}" class="proj-link" id="${lid}">↗ Watch</a><button class="link-edit-btn" onclick="editLink('${lid}')">✎</button></span></div>`;
       document.getElementById('ytVideos').appendChild(c);
+      if(editMode)initCardDrag('#ytVideos','.yt-vid');
     }
   );
 }
@@ -632,18 +693,19 @@ function addYtVideo(){
 function addActivity(){showIM('Add Activity','',
   [{key:'emoji',label:'Emoji',placeholder:'🏄'},{key:'name',label:'Name',placeholder:'Surfing'},{key:'desc',label:'Description',placeholder:'Description',type:'textarea'}],
   v=>{
-    const c=document.createElement('div');c.className='act-card';
-    c.innerHTML=`<div class="card-acts"><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="${editMode}">${v.emoji||'⭐'}</span><div class="act-name" contenteditable="${editMode}">${v.name||'Activity'}</div><div class="act-desc" contenteditable="${editMode}">${v.desc||''}</div>`;
+    const c=document.createElement('div');c.className='act-card';c.setAttribute('draggable','false');
+    c.innerHTML=`<div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.act-card').remove()">✕</button></div><span class="act-emoji" contenteditable="${editMode}" data-ph="Emoji">${v.emoji||'⭐'}</span><div class="act-name" contenteditable="${editMode}" data-ph="Name">${v.name||'Activity'}</div><div class="act-desc" contenteditable="${editMode}" data-ph="Description">${v.desc||''}</div>`;
     document.getElementById('actGrid').appendChild(c);
+    if(editMode)initCardDrag('#actGrid','.act-card');
   }
 );}
 
 function addGalleryItem(){showIM('Add Gallery Photo','',
-  [{key:'url',label:'Image URL',placeholder:'https://... (or use picsum.photos)'},{key:'caption',label:'Caption',placeholder:'Nature'}],
+  [{key:'url',label:'Image URL',placeholder:'https://... or picsum.photos/400/400'},{key:'caption',label:'Caption',placeholder:'My caption'}],
   v=>{
     const c=document.createElement('div');c.className='gallery-item';
     const imgSrc=v.url||`https://picsum.photos/seed/${Date.now()}/400/400`;
-    c.innerHTML=`<div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button></div><img src="${imgSrc}" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="${editMode}">${v.caption||'Photo'}</span></div>`;
+    c.innerHTML=`<div class="card-acts"><button class="del-b" onclick="this.closest('.gallery-item').remove()">✕</button><button class="del-b" style="background:rgba(58,242,184,.1);border-color:rgba(58,242,184,.3);color:var(--a);" onclick="replaceGalleryImg(this)" title="Change image">📷</button></div><img src="${imgSrc}" alt="Photo"><div class="gallery-overlay"><span class="gallery-caption" contenteditable="${editMode}" data-ph="Caption">${v.caption||'Photo'}</span></div>`;
     document.getElementById('galleryGrid').appendChild(c);
   }
 );}
@@ -651,19 +713,71 @@ function addGalleryItem(){showIM('Add Gallery Photo','',
 function addInterest(){showIM('Add Interest','',
   [{key:'icon',label:'Icon/Emoji',placeholder:'💡'},{key:'name',label:'Interest Name',placeholder:'Reading'},{key:'desc',label:'Description',placeholder:'Why it matters',type:'textarea'},{key:'tag',label:'Tag',placeholder:'Lifestyle'}],
   v=>{
-    const c=document.createElement('div');c.className='int-item';
-    c.innerHTML=`<div class="card-acts"><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon">${v.icon||'⭐'}</div><div><div class="int-name" contenteditable="${editMode}">${v.name||'Interest'}</div><div class="int-desc" contenteditable="${editMode}">${v.desc||''}</div></div><span class="int-tag" contenteditable="${editMode}">${v.tag||'Misc'}</span>`;
+    const c=document.createElement('div');c.className='int-item';c.setAttribute('draggable','false');
+    c.innerHTML=`<div class="card-acts"><div class="drag-h">⠿</div><button class="del-b" onclick="this.closest('.int-item').remove()">✕</button></div><div class="int-icon" contenteditable="${editMode}" data-ph="Icon">${v.icon||'⭐'}</div><div><div class="int-name" contenteditable="${editMode}" data-ph="Name">${v.name||'Interest'}</div><div class="int-desc" contenteditable="${editMode}" data-ph="Description">${v.desc||''}</div></div><span class="int-tag" contenteditable="${editMode}" data-ph="Tag">${v.tag||'Misc'}</span>`;
     document.getElementById('intList').appendChild(c);
+    if(editMode)initCardDrag('#intList','.int-item');
   }
 );}
 
-// REVEAL
+// ════ CARD DRAG ════
+function initCardDrag(cs,is){
+  const cont=document.querySelector(cs);if(!cont)return;
+  cont.querySelectorAll(is).forEach(item=>{
+    item.setAttribute('draggable','true');
+    item.removeEventListener('dragstart',onCDS);item.removeEventListener('dragover',onCDO);
+    item.removeEventListener('dragleave',onCDL);item.removeEventListener('drop',onCDD);item.removeEventListener('dragend',onCDE);
+    item.addEventListener('dragstart',onCDS);item.addEventListener('dragover',onCDO);
+    item.addEventListener('dragleave',onCDL);item.addEventListener('drop',onCDD);item.addEventListener('dragend',onCDE);
+  });
+}
+function onCDS(e){cardDragSrc=this;this.classList.add('card-dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text','');}
+function onCDO(e){e.preventDefault();if(this!==cardDragSrc)this.classList.add('card-drag-over');}
+function onCDL(){this.classList.remove('card-drag-over');}
+function onCDD(e){e.stopPropagation();if(cardDragSrc&&this!==cardDragSrc){const p=this.parentNode;const si=[...p.children].indexOf(cardDragSrc),ti=[...p.children].indexOf(this);if(si<ti)p.insertBefore(cardDragSrc,this.nextSibling);else p.insertBefore(cardDragSrc,this);}this.classList.remove('card-drag-over');}
+function onCDE(){if(this)this.classList.remove('card-dragging');document.querySelectorAll('.card-drag-over').forEach(el=>el.classList.remove('card-drag-over'));cardDragSrc=null;}
+
+// ════ SECTION DRAG ════
+function initSectionDrag(){
+  const secs=document.querySelectorAll('#sectionContainer .draggable-section');
+  secs.forEach(sec=>{
+    sec.setAttribute('draggable','false');
+    const handle=sec.querySelector('.sec-drag-handle');if(!handle)return;
+    handle.addEventListener('mousedown',()=>sec.setAttribute('draggable','true'));
+    handle.addEventListener('mouseup',()=>setTimeout(()=>sec.setAttribute('draggable','false'),100));
+    sec.removeEventListener('dragstart',onSDS);sec.removeEventListener('dragover',onSDO);
+    sec.removeEventListener('dragleave',onSDL);sec.removeEventListener('drop',onSDD);sec.removeEventListener('dragend',onSDE);
+    sec.addEventListener('dragstart',onSDS);sec.addEventListener('dragover',onSDO);
+    sec.addEventListener('dragleave',onSDL);sec.addEventListener('drop',onSDD);sec.addEventListener('dragend',onSDE);
+  });
+}
+function onSDS(e){secDragSrc=this;this.classList.add('sec-dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',this.dataset.sec||'');}
+function onSDO(e){e.preventDefault();if(this!==secDragSrc&&this.closest('#sectionContainer'))this.classList.add('sec-drag-over');}
+function onSDL(e){if(!this.contains(e.relatedTarget))this.classList.remove('sec-drag-over');}
+function onSDD(e){
+  e.stopPropagation();e.preventDefault();
+  if(secDragSrc&&this!==secDragSrc&&this.closest('#sectionContainer')){
+    const sc=document.getElementById('sectionContainer');
+    const si=[...sc.children].indexOf(secDragSrc),ti=[...sc.children].indexOf(this);
+    if(si<ti)sc.insertBefore(secDragSrc,this.nextSibling);else sc.insertBefore(secDragSrc,this);
+    const order=[...sc.querySelectorAll('.draggable-section')].map(s=>s.dataset.sec);
+    ls('secOrder',JSON.stringify(order));
+  }
+  this.classList.remove('sec-drag-over');
+}
+function onSDE(){if(secDragSrc){secDragSrc.classList.remove('sec-dragging');secDragSrc.setAttribute('draggable','false');}document.querySelectorAll('.sec-drag-over').forEach(el=>el.classList.remove('sec-drag-over'));secDragSrc=null;}
+
+// MOBILE NAV
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
+
+// SCROLL REVEAL
 function initReveal(){
   const els=document.querySelectorAll('.reveal');
   const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}});},{threshold:.07});
   els.forEach(el=>obs.observe(el));
 }
-window.addEventListener('scroll',()=>{document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 4px 24px rgba(0,0,0,.5)':'none';});
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.boxShadow=window.scrollY>40?'0 4px 24px rgba(0,0,0,.5)':'none';});
 document.addEventListener('mousemove',e=>{if(Math.random()>.96){const d=document.createElement('div');d.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:3px;height:3px;border-radius:50%;background:rgba(58,242,184,.5);pointer-events:none;z-index:9998;transition:all .5s;transform:translate(-50%,-50%)`;document.body.appendChild(d);setTimeout(()=>{d.style.opacity='0';d.style.transform='translate(-50%,-50%) scale(0)';},40);setTimeout(()=>d.remove(),560);}});
 </script>
 </body>
